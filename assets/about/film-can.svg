@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 400" fill="none">
+  <defs>
+    <linearGradient id="body" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="18%" stop-color="#2c2c2c"/>
+      <stop offset="50%" stop-color="#111"/>
+      <stop offset="82%" stop-color="#2c2c2c"/>
+      <stop offset="100%" stop-color="#0a0a0a"/>
+    </linearGradient>
+    <linearGradient id="label" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c9a21a"/>
+      <stop offset="35%" stop-color="#f0d24a"/>
+      <stop offset="70%" stop-color="#e6bf2e"/>
+      <stop offset="100%" stop-color="#b89112"/>
+    </linearGradient>
+    <linearGradient id="cap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3a3a3a"/>
+      <stop offset="50%" stop-color="#111"/>
+      <stop offset="100%" stop-color="#000"/>
+    </linearGradient>
+  </defs>
+  <!-- top cap -->
+  <ellipse cx="110" cy="48" rx="78" ry="22" fill="url(#cap)"/>
+  <rect x="32" y="48" width="156" height="28" fill="#0d0d0d"/>
+  <ellipse cx="110" cy="76" rx="78" ry="18" fill="#1c1c1c"/>
+  <!-- body -->
+  <rect x="34" y="70" width="152" height="260" rx="8" fill="url(#body)"/>
+  <!-- yellow label wrap -->
+  <rect x="42" y="108" width="136" height="170" rx="4" fill="url(#label)"/>
+  <rect x="50" y="118" width="120" height="150" rx="2" fill="#f5d84d"/>
+  <!-- label text -->
+  <g fill="#111" font-family="Helvetica Neue, Arial, sans-serif" font-weight="800">
+    <text transform="translate(118 248) rotate(-90)" font-size="42" text-anchor="middle">KOF</text>
+    <text transform="translate(78 248) rotate(-90)" font-size="14" text-anchor="middle" letter-spacing="2">36 EXP.</text>
+    <text transform="translate(158 248) rotate(-90)" font-size="11" text-anchor="middle" letter-spacing="1.5">35mm</text>
+  </g>
+  <!-- bottom cap -->
+  <ellipse cx="110" cy="330" rx="78" ry="20" fill="#151515"/>
+  <rect x="32" y="330" width="156" height="36" fill="#0a0a0a"/>
+  <ellipse cx="110" cy="366" rx="78" ry="22" fill="url(#cap)"/>
+  <!-- spindle -->
+  <ellipse cx="110" cy="366" rx="18" ry="8" fill="#444"/>
+  <ellipse cx="110" cy="366" rx="8" ry="3.5" fill="#222"/>
+</svg>

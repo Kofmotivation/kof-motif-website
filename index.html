@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kof Motif</title>
+    <meta
+      name="description"
+      content="Kof Motif — photography, motion, music, diary, and shop."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Bodoni+Moda:opsz,wght@6..96,400;6..96,500;6..96,600&family=IBM+Plex+Sans:wght@400;500;600&family=Schibsted+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/locomotive-scroll@5.0.1/bundled/locomotive-scroll.css"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body class="is-loading" data-active-view="work">
+    <!--
+      THESIS: Multi-surface creative portfolio — Work collections open into a Gregor Collienne–style focus viewer; Motion, Music, Diary, Shop are peers.
+      OWN-WORLD: Black archive chrome; focus mode with thumb rail, centered still, LIGHT|DARK theme; About film-can frames.
+      STORY: Visitor loads, browses series, enters focus, explores Motion/Music/Diary/Shop, opens About, emails to hire.
+      FIRST VIEWPORT: After loader — three collection covers; KOF MOTIF; [MENU]; Grid/List.
+      FORM: Photographer canon + menu IA + theater motion + Untitled music + Clennon/Ricc about dossier.
+      FINISH: Shell rebuilt to match current script.js / styles.css selectors.
+    -->
+
+    <div class="loader" id="loader" aria-live="polite" aria-busy="true">
+      <div class="loader-grain" aria-hidden="true"></div>
+      <div class="loader-strip" aria-hidden="true">
+        <div class="loader-strip-track" id="loader-strip"></div>
+      </div>
+      <div class="loader-center">
+        <p class="loader-mark">
+          <img src="./assets/motivation-logo.png" alt="Motivation" width="1024" height="785" />
+        </p>
+        <p class="loader-line" aria-hidden="true"><span></span></p>
+        <p class="loader-count" id="loader-count">00</p>
+      </div>
+      <p class="loader-caption">Entering the archive</p>
+    </div>
+
+    <div class="cursor" id="cursor" aria-hidden="true">
+      <span class="cursor-ring"></span>
+      <span class="cursor-label" id="cursor-label"></span>
+    </div>
+
+    <div class="work-particles" id="work-particles" aria-hidden="true"></div>
+
+    <div class="site" id="site">
+      <header class="site-chrome">
+        <a class="brand" href="#work" data-view="work" aria-label="Kof Motif home">
+          <img class="brand-logo" src="./assets/motivation-logo.png" alt="" width="1024" height="785" decoding="async" />
+        </a>
+        <div class="chrome-right">
+          <p class="chrome-role">[ Art Director · Photographer · Music · Design ]</p>
+          <div class="view-toggle" id="view-toggle" role="group" aria-label="Layout">
+            <button type="button" class="view-btn is-active" data-view-mode="grid" aria-pressed="true">Grid</button>
+            <span class="view-sep" aria-hidden="true">/</span>
+            <button type="button" class="view-btn" data-view-mode="list" aria-pressed="false">List</button>
+          </div>
+          <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="menu">
+            [ Menu ]
+          </button>
+        </div>
+      </header>
+
+      <nav class="menu" id="menu" aria-hidden="true" aria-label="Site">
+        <div class="menu-inner">
+          <button type="button" class="menu-close" id="menu-close" aria-label="Close menu">[ Close ]</button>
+          <ul class="menu-list">
+            <li><button type="button" data-view="work">Work</button></li>
+            <li><button type="button" data-view="motion">Motion</button></li>
+            <li><button type="button" data-view="music">Music</button></li>
+            <li><button type="button" data-view="diary">Diary</button></li>
+            <li><button type="button" data-view="shop">Shop</button></li>
+            <li><button type="button" id="info-open" aria-expanded="false" aria-controls="info-panel">About</button></li>
+          </ul>
+          <a class="menu-email" href="mailto:kofmotivation@gmail.com">kofmotivation@gmail.com</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="view view-work is-active" id="view-work" data-view-panel="work" aria-label="Work">
+          <ul class="mosaic is-grid" id="mosaic"></ul>
+          <p class="scroll-cue" aria-hidden="true">&lt;&lt; Scroll to explore &gt;&gt;</p>
+        </section>
+
+        <section class="view view-motion" id="view-motion" data-view-panel="motion" aria-label="Motion" hidden>
+          <div class="motion-theater is-list" id="motion-theater">
+            <div class="motion-hud">
+              <div class="motion-hud-left">
+                <p class="motion-clock">
+                  <span id="motion-clock">00:00:00</span>
+                  <span class="motion-tz" id="motion-tz">EST</span>
+                </p>
+                <div class="motion-sound" role="group" aria-label="Sound">
+                  <span class="motion-sound-label">Sound:</span>
+                  <button type="button" class="sound-btn is-active" data-sound="off" aria-pressed="true">Off</button>
+                  <button type="button" class="sound-btn" data-sound="on" aria-pressed="false">On</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="motion-stage" id="motion-stage">
+              <img
+                id="motion-stage-img"
+                src="./assets/work/series-01/01-final.jpg"
+                alt=""
+                width="1600"
+                height="900"
+              />
+              <h2 class="motion-play-title" id="motion-stage-title">Series I | Still Cut</h2>
+              <div class="motion-stage-meta">
+                <p class="motion-stage-index" id="motion-stage-index">01</p>
+                <p class="motion-stage-name" id="motion-stage-name">Series I | Still Cut</p>
+                <p class="motion-stage-time" id="motion-stage-time">00:00:00</p>
+              </div>
+            </div>
+
+            <div class="motion-film" aria-label="Reel playlist">
+              <ul class="motion-strip" id="motion-strip" data-lenis-prevent></ul>
+              <ol class="motion-index" id="motion-index"></ol>
+            </div>
+          </div>
+
+          <ul class="motion-grid" id="motion-grid" hidden></ul>
+        </section>
+
+        <section class="view view-music" id="view-music" data-view-panel="music" aria-label="Music" hidden>
+          <div class="music-shell">
+            <figure class="music-cover">
+              <img
+                id="music-cover-img"
+                src="./assets/music/cover.jpg"
+                alt="Renaissance Cruise cover"
+                width="1289"
+                height="1600"
+              />
+            </figure>
+
+            <div class="music-panel">
+              <header class="music-album-head">
+                <div class="music-album-copy">
+                  <h2 class="music-album-title">Renaissance Cruise</h2>
+                  <p class="music-album-meta" id="music-album-meta">Kof Motif · 11 tracks · 35m 31s</p>
+                </div>
+                <button type="button" class="music-play-btn" id="music-play" aria-label="Play">
+                  <svg class="icon-play" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                    <path d="M8 5.2v13.6L19.2 12 8 5.2z" fill="currentColor" />
+                  </svg>
+                  <svg class="icon-pause" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                    <path d="M7 5h3.4v14H7zm6.6 0H17v14h-3.4z" fill="currentColor" />
+                  </svg>
+                </button>
+              </header>
+
+              <ol class="music-tracklist" id="music-tracklist" aria-label="Renaissance Cruise tracklist"></ol>
+            </div>
+          </div>
+
+          <div class="music-nowbar" id="music-nowbar" hidden>
+            <p class="music-nowbar-title" id="music-now-title">Easy</p>
+            <p class="music-nowbar-time" id="music-time">0:00 / 0:00</p>
+            <input
+              type="range"
+              class="music-seek"
+              id="music-seek"
+              min="0"
+              max="1000"
+              value="0"
+              aria-label="Seek"
+            />
+          </div>
+
+          <audio id="music-audio" preload="metadata"></audio>
+        </section>
+
+        <section class="view view-diary" id="view-diary" data-view-panel="diary" aria-label="Diary" hidden>
+          <div class="section-head">
+            <h2>Diary</h2>
+            <p>Notes from set — placeholder entries.</p>
+          </div>
+          <ul class="diary-list" id="diary-list"></ul>
+        </section>
+
+        <section class="view view-shop" id="view-shop" data-view-panel="shop" aria-label="Shop" hidden>
+          <div class="section-head">
+            <h2>Shop</h2>
+            <p>Ritual objects — placeholder inventory.</p>
+          </div>
+          <ul class="shop-grid" id="shop-grid"></ul>
+        </section>
+      </main>
+
+      <a class="email-float" href="mailto:kofmotivation@gmail.com">Email</a>
+      <p class="view-label" id="view-label">Work</p>
+    </div>
+
+    <!-- Focus viewer: Gregor stage + Ricc LIGHT|DARK theme toggle -->
+    <aside class="focus" id="focus" data-theme="light" aria-hidden="true" role="dialog" aria-label="Focus viewer">
+      <div class="focus-rail" id="focus-rail" aria-label="Series stills" data-lenis-prevent></div>
+      <div class="focus-stage">
+        <button type="button" class="focus-hit focus-hit-prev" id="focus-prev" aria-label="Previous still"></button>
+        <figure class="focus-figure">
+          <img
+            id="focus-img"
+            alt=""
+            width="1"
+            height="1"
+            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+          />
+          <figcaption class="focus-caption" id="focus-caption"></figcaption>
+        </figure>
+        <button type="button" class="focus-hit focus-hit-next" id="focus-next" aria-label="Next still"></button>
+      </div>
+      <div class="focus-theme" id="focus-theme" role="group" aria-label="Theme">
+        <button type="button" class="focus-theme-btn is-active" data-focus-theme="light" aria-pressed="true">Light</button>
+        <span class="focus-theme-sep" aria-hidden="true">|</span>
+        <button type="button" class="focus-theme-btn" data-focus-theme="dark" aria-pressed="false">Dark</button>
+      </div>
+      <button type="button" class="focus-back" id="focus-back">Back</button>
+      <p class="focus-meta" id="focus-meta" aria-hidden="true"></p>
+    </aside>
+
+    <aside class="about-panel" id="info-panel" aria-hidden="true" role="dialog" aria-labelledby="about-title">
+      <div class="about-shell" data-lenis-prevent>
+        <header class="about-top">
+          <p class="about-brand">
+            <img class="about-brand-logo" src="./assets/motivation-logo.png" alt="Motivation" width="1024" height="785" decoding="async" />
+          </p>
+          <button type="button" class="about-close" id="info-close" aria-label="Close about">Close</button>
+        </header>
+
+        <div class="about-inner about-dossier">
+          <header class="about-intro">
+            <h1 id="about-title"><span class="about-bracket">About</span></h1>
+            <div class="about-lede">
+              <p>
+                Kofi started experimenting with his creativity in Ghana at Prempeh College, where he studied Graphic Design.
+                Before he was set to graduate, he migrated to the USA in 2012 to continue his education in Art and Design.
+                He later received his Design Degree from Michael Graves College, formerly known as Kean University,
+                and began his postgraduate path at a tech start-up in Brooklyn building AI-powered mobile applications—
+                “a very dope way to start my professional career.”
+              </p>
+              <p>
+                Through all of that, he felt he simply couldn’t afford to bring his camera along with him.
+                He is now working in fashion photography with a disruptive and unapologetic style,
+                while continuing in graphic design and beginning to venture into the cinema space.
+                Based between New York City, Los Angeles, and Ghana.
+              </p>
+            </div>
+            <div class="about-contact">
+              <p class="about-contact-label">Contact</p>
+              <a class="about-mail" href="mailto:kofmotivation@gmail.com">kofmotivation@gmail.com</a>
+            </div>
+          </header>
+        </div>
+
+        <section class="about-film" id="about-film" aria-labelledby="about-frames">
+          <div class="about-film-runway">
+            <div class="about-film-sticky">
+              <div class="about-film-head">
+                <h2 id="about-frames"><span class="about-bracket">Frames</span></h2>
+                <p class="about-film-hint" id="about-film-hint">Scroll or drag to pull the roll from the can — or scroll down to finish the roll.</p>
+              </div>
+              <div
+                class="about-film-stage"
+                id="about-film-stage"
+                tabindex="0"
+                role="slider"
+                aria-labelledby="about-frames"
+                aria-describedby="about-film-hint"
+                aria-valuemin="0"
+                aria-valuemax="100"
+                aria-valuenow="0"
+                aria-valuetext="Start of roll"
+              >
+                <div class="about-film-rail">
+                  <div class="about-film-can" aria-hidden="true">
+                    <img src="./assets/about/film-can.png" alt="" width="280" height="500" />
+                  </div>
+                  <div class="about-film-mask">
+                    <div class="about-film-track" id="about-film-track">
+                      <div class="about-film-strip">
+                        <div class="about-film-tongue" aria-hidden="true"></div>
+                        <div class="about-film-sprockets about-film-sprockets--top" aria-hidden="true"></div>
+                        <div class="about-film-frames" id="about-film-frames"></div>
+                        <div class="about-film-sprockets about-film-sprockets--bottom" aria-hidden="true"></div>
+                        <div class="about-film-leader" aria-hidden="true"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="about-film-controls">
+                <button
+                  type="button"
+                  class="about-film-fast"
+                  id="about-film-fast"
+                  aria-describedby="about-film-hint"
+                >
+                  Scroll down
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="about-scene" aria-label="Sound, focus, and contact">
+          <div class="about-scene-bg" aria-hidden="true">
+            <img
+              class="about-scene-photo"
+              src="./assets/about/renaissance-cruise-bg.jpg"
+              alt=""
+              width="1024"
+              height="571"
+              decoding="async"
+            />
+            <div class="about-scene-scrim"></div>
+            <div class="about-scene-grain"></div>
+            <div class="about-scene-reveal" id="about-scene-reveal"></div>
+          </div>
+          <div class="about-scene-copy">
+            <section class="about-block" aria-labelledby="about-sound">
+              <h2 id="about-sound"><span class="about-bracket">Sound</span></h2>
+              <div class="about-prose about-prose--scene">
+                <p>
+                  Kof Motif is a recording artist blending alternative R&amp;B with subtle Afrobeat textures.
+                  His debut album, <em>Renaissance Cruise</em>, is an 11-track exhale—intimate, unhurried, and quietly confident.
+                  Written for the moments after a long day, it pairs soft, honest vocals with warm, restrained production.
+                </p>
+              </div>
+            </section>
+
+            <section class="about-block" aria-labelledby="about-focus">
+              <h2 id="about-focus"><span class="about-bracket">Focus</span></h2>
+              <div class="about-prose about-prose--scene">
+                <p>
+                  Photography across fashion campaigns, editorial portraits, product, brand content, and creative direction—
+                  from first visual concept through final retouched assets.
+                </p>
+                <p>
+                  Approach: concept development, lighting and styling, retouching and delivery, visual storytelling,
+                  emotional honesty, intention over trend.
+                </p>
+              </div>
+            </section>
+
+            <section class="about-block about-end" aria-labelledby="about-end-contact">
+              <h2 id="about-end-contact"><span class="about-bracket">Contact</span></h2>
+              <a class="about-mail" href="mailto:kofmotivation@gmail.com">kofmotivation@gmail.com</a>
+              <p class="about-base">New York City · Los Angeles · Ghana</p>
+            </section>
+          </div>
+        </section>
+      </div>
+    </aside>
+
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@5.0.1/bundled/locomotive-scroll.min.js"></script>
+    <script src="./script.js"></script>
+    <script type="module" src="./particles-bg.js"></script>
+  </body>
+</html>

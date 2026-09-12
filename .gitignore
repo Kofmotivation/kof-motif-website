@@ -1,0 +1,8 @@
+.DS_Store
+.impeccable/
+*.log
+.env
+.env.*
+node_modules/
+.vscode/
+.idea/
