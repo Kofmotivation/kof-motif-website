@@ -6,7 +6,7 @@
     <title>Kof Motif</title>
     <meta
       name="description"
-      content="Kof Motif — photography, motion, music, diary, and shop."
+      content="Kof Motif — photography, motion, music, press, and shop."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,9 +22,9 @@
   </head>
   <body class="is-loading" data-active-view="work">
     <!--
-      THESIS: Multi-surface creative portfolio — Work collections open into a Gregor Collienne–style focus viewer; Motion, Music, Diary, Shop are peers.
+      THESIS: Multi-surface creative portfolio — Work collections open into a Gregor Collienne–style focus viewer; Motion, Music, Press, Shop are peers.
       OWN-WORLD: Black archive chrome; focus mode with thumb rail, centered still, LIGHT|DARK theme; About film-can frames.
-      STORY: Visitor loads, browses series, enters focus, explores Motion/Music/Diary/Shop, opens About, emails to hire.
+      STORY: Visitor loads, browses series, enters focus, explores Motion/Music/Press/Shop, opens About, emails to hire.
       FIRST VIEWPORT: After loader — three collection covers; KOF MOTIF; [MENU]; Grid/List.
       FORM: Photographer canon + menu IA + theater motion + Untitled music + Clennon/Ricc about dossier.
       FINISH: Shell rebuilt to match current script.js / styles.css selectors.
@@ -77,7 +77,7 @@
             <li><button type="button" data-view="work">Work</button></li>
             <li><button type="button" data-view="motion">Motion</button></li>
             <li><button type="button" data-view="music">Music</button></li>
-            <li><button type="button" data-view="diary">Diary</button></li>
+            <li><button type="button" data-view="press">Press</button></li>
             <li><button type="button" data-view="shop">Shop</button></li>
             <li><button type="button" id="info-open" aria-expanded="false" aria-controls="info-panel">About</button></li>
           </ul>
@@ -181,20 +181,57 @@
           <audio id="music-audio" preload="metadata"></audio>
         </section>
 
-        <section class="view view-diary" id="view-diary" data-view-panel="diary" aria-label="Diary" hidden>
+        <section class="view view-press" id="view-press" data-view-panel="press" aria-label="Press" hidden>
           <div class="section-head">
-            <h2>Diary</h2>
-            <p>Notes from set — placeholder entries.</p>
+            <h2>Press</h2>
+            <p>Selected features, interviews, and coverage.</p>
           </div>
-          <ul class="diary-list" id="diary-list"></ul>
+          <ul class="press-list" id="press-list"></ul>
         </section>
 
-        <section class="view view-shop" id="view-shop" data-view-panel="shop" aria-label="Shop" hidden>
-          <div class="section-head">
-            <h2>Shop</h2>
-            <p>Ritual objects — placeholder inventory.</p>
+        <section class="view view-shop" id="view-shop" data-view-panel="shop" aria-label="Kof's Wardrobe" hidden>
+          <div class="shop-shell">
+            <header class="shop-header">
+              <p class="shop-count" id="shop-count">0 pieces</p>
+              <p class="shop-season">Kof's Wardrobe</p>
+            </header>
+            <nav class="shop-filters" id="shop-filters" aria-label="Product categories"></nav>
+            <ul class="shop-grid" id="shop-grid"></ul>
           </div>
-          <ul class="shop-grid" id="shop-grid"></ul>
+
+          <div class="shop-drawer" id="shop-drawer" aria-hidden="true">
+            <button type="button" class="shop-drawer-backdrop" id="shop-drawer-backdrop" aria-label="Close product"></button>
+            <aside class="shop-drawer-panel" role="dialog" aria-modal="true" aria-labelledby="shop-drawer-title">
+              <header class="shop-drawer-top">
+                <button type="button" class="shop-drawer-close" id="shop-drawer-close" aria-label="Close">[ Close ]</button>
+              </header>
+              <div class="shop-drawer-scroll" data-lenis-prevent>
+                <figure class="shop-drawer-figure">
+                  <img
+                    id="shop-drawer-img"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                    alt=""
+                    width="800"
+                    height="1000"
+                  />
+                </figure>
+                <div class="shop-drawer-thumbs" id="shop-drawer-thumbs"></div>
+                <div class="shop-drawer-copy">
+                  <p class="shop-drawer-cat" id="shop-drawer-cat"></p>
+                  <h2 class="shop-drawer-title" id="shop-drawer-title"></h2>
+                  <p class="shop-drawer-price" id="shop-drawer-price"></p>
+                  <p class="shop-drawer-desc" id="shop-drawer-desc"></p>
+                </div>
+              </div>
+              <footer class="shop-drawer-buy">
+                <label class="shop-drawer-size">
+                  <span class="shop-drawer-size-label">Size</span>
+                  <select id="shop-drawer-size" aria-label="Select size"></select>
+                </label>
+                <button type="button" class="shop-drawer-add" id="shop-drawer-add" data-cursor="Add">Add to cart</button>
+              </footer>
+            </aside>
+          </div>
         </section>
       </main>
 

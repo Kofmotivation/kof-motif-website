@@ -601,51 +601,202 @@ const MOTION = [
   },
 ];
 
-const DIARY = [
+const PRESS = [
   {
-    date: "2026.03.12",
-    title: "Light on the terrace",
-    body: "Placeholder note — morning tests before the main frame.",
-    src: "./assets/work/series-20/01-v0a7531.jpg",
-  },
-  {
-    date: "2026.02.28",
-    title: "Roses, take three",
-    body: "Placeholder note — holding for the right wind in the garden.",
+    date: "2020.02.24",
+    outlet: "The Guardian Nigeria",
+    title: "Kofi Antwi Dua: The Photographer with a Magic Glow",
+    body: "Profile of Kofi Antwi Dua — craft, vision, and the glow behind the lens.",
+    href: "https://guardian.ng/life/kofi-antwi-dua-the-photographer-with-a-magic-glow/",
     src: "./assets/work/series-01/01-final.jpg",
   },
   {
-    date: "2026.01.19",
-    title: "Car window study",
-    body: "Placeholder note — chrome and skin under noon sun.",
+    date: "2019.02.08",
+    outlet: "Vogue",
+    title: "Ebonee Davis on Reclaiming Her African Identity and Seeing Ghana for the First Time",
+    body: "Janelle Okwodu on Davis’s Accra journey — with photography by Kofi Dua.",
+    href: "https://www.vogue.com/vogueworld/article/ebonee-davis-accra-ghana-trip",
     src: "./assets/work/series-03/01-img_3967.jpg",
   },
   {
-    date: "2025.11.04",
-    title: "Balcony railing",
-    body: "Placeholder note — looking down through white iron.",
-    src: "./assets/work/series-08/01-av0a124oo5.jpg",
+    date: "2017.08.30",
+    outlet: "ESSENCE",
+    title: "Model Ebonee Davis On AfroPunk, Identity And The Importance Of Creating Spaces To Celebrate Our Blackness",
+    body: "Davis’s AfroPunk essay — photographed by Kofi Dua (Kof Motivation).",
+    href: "https://www.essence.com/fashion/ebonee-davis-afropunk-blackness/",
+    src: "./assets/work/series-20/01-v0a7531.jpg",
+  },
+  {
+    date: "2017",
+    outlet: "DuJour",
+    title: "All the Must-See Fashion from Afropunk Music Festival",
+    body: "Afropunk Brooklyn through photographer Kofi Dua’s lens.",
+    href: "https://dujour.com/culture/afropunk-brooklyn-music-festival/",
+    src: "./assets/work/series-11/01-v0a1917.jpg",
+  },
+  {
+    date: "Interview",
+    outlet: "Akua Studios",
+    title: "Interview | Akua Studios",
+    body: "Conversation in Akua Studios’ archive spotlighting Black creatives.",
+    href: "https://akua-studios.com/Interview?id=69bfea55525c1cf9287f1146",
+    src: "./assets/work/series-25/01-v0a9631.jpg",
   },
 ];
 
+const SHOP_CATEGORIES = ["all", "tops", "outerwear", "bottoms"];
+
+const SHOP_SIZES_APPAREL = ["XS", "S", "M", "L", "XL", "XXL"];
+const SHOP_SIZES_PANTS = ["28", "30", "32", "34", "36", "38"];
+
 const SHOP = [
   {
-    title: "Renaissance Cruise Hoodie",
-    price: "$78.00",
-    src: "./assets/work/series-06/01-v0a6590.jpg",
-    alt: "Hoodie placeholder",
+    id: "accra-logo-hoodie",
+    title: "Accra Logo Hoodie",
+    price: "$75.00",
+    category: "outerwear",
+    collection: "Kof's Wardrobe",
+    soldOut: true,
+    sizes: SHOP_SIZES_APPAREL,
+    description:
+      "Archive Accra crest hoodie with flame mark. Soft fleece, regular fit. Front and back graphic. Currently sold out.",
+    src: "./assets/shop/accra-logo-hoodie/front.png",
+    back: "./assets/shop/accra-logo-hoodie/back.png",
+    alt: "Accra Logo Hoodie front",
   },
   {
-    title: "Renaissance Cruise Vinyl",
-    price: "$42.00",
-    src: "./assets/work/series-21/01-3t3a2614.jpg",
-    alt: "Vinyl placeholder",
+    id: "accra-logo-tee-black",
+    title: "Accra Logo Tee — Black",
+    price: "$45.00",
+    category: "tops",
+    collection: "Kof's Wardrobe",
+    soldOut: true,
+    sizes: SHOP_SIZES_APPAREL,
+    description:
+      "Black Accra logo tee. Soft cotton, regular fit. Archive chest mark. Currently sold out.",
+    src: "./assets/shop/accra-logo-tee-black/front.png",
+    alt: "Accra Logo Tee black",
   },
   {
-    title: "Moon River Tee",
-    price: "$38.00",
-    src: "./assets/work/series-09/01-v0a8807.jpg",
-    alt: "Tee placeholder",
+    id: "accra-logo-tee-white",
+    title: "Accra Logo Tee — White",
+    price: "$45.00",
+    category: "tops",
+    collection: "Kof's Wardrobe",
+    soldOut: true,
+    sizes: SHOP_SIZES_APPAREL,
+    description:
+      "White Accra logo tee. Soft cotton, regular fit. Archive chest mark. Currently sold out.",
+    src: "./assets/shop/accra-logo-tee-white/front.png",
+    alt: "Accra Logo Tee white",
+  },
+  {
+    id: "attw-hoodie",
+    title: "ATTW Hoodie",
+    price: "$75.00",
+    category: "outerwear",
+    collection: "Kof's Wardrobe",
+    soldOut: true,
+    sizes: SHOP_SIZES_APPAREL,
+    description:
+      "Africa To The World heavyweight hoodie. Graphic front and chrome star back. Regular fit. Currently sold out.",
+    src: "./assets/shop/attw-hoodie/front.png",
+    back: "./assets/shop/attw-hoodie/back.png",
+    alt: "ATTW Hoodie front",
+  },
+  {
+    id: "gttw-hoodie-black",
+    title: "Ghana To The World Hoodie (Black)",
+    price: "$75.00",
+    category: "outerwear",
+    collection: "Kof's Wardrobe",
+    soldOut: true,
+    sizes: SHOP_SIZES_APPAREL,
+    description:
+      "Regular fit hoodie. Mid-weight 80% cotton 20% polyester. Embroidered text on front, printed logo at the back. True to size. Machine wash cold separate, gentle cycle. Hang to dry.",
+    src: "./assets/shop/ghana-to-the-world-hoodie-black/front.png",
+    alt: "Ghana To The World hoodie black",
+  },
+  {
+    id: "gttw-hoodie-yellow",
+    title: "Ghana To The World Hoodie",
+    price: "$75.00",
+    category: "outerwear",
+    collection: "Kof's Wardrobe",
+    soldOut: true,
+    sizes: SHOP_SIZES_APPAREL,
+    description:
+      "Regular fit hoodie. Mid-weight 80% cotton 20% polyester. Embroidered text on front, printed logo at the back. True to size. Machine wash cold separate, gentle cycle. Hang to dry.",
+    src: "./assets/shop/ghana-to-the-world-hoodie-yellow/front.png",
+    alt: "Ghana To The World hoodie yellow",
+  },
+  {
+    id: "fisherman-denim-jacket",
+    title: "Fisherman Denim Jacket",
+    price: "$250.00",
+    category: "outerwear",
+    collection: "Kof's Wardrobe",
+    sizes: SHOP_SIZES_APPAREL,
+    description:
+      "100% Cotton Denim. Non-Stretch Printed Denim throughout. Tonal stitching. Button closure at front. Flap pockets at chest. Welt pockets at waist. Adjustable buttoned tabs at back hem. Model is 5 ft 11\" and wears L. Mens: True To Size. Womens: We recommend purchasing 1 size down for a regular fit. Purchase your normal size for an oversized look.",
+    src: "./assets/shop/fisherman-denim-jacket/front.png",
+    back: "./assets/shop/fisherman-denim-jacket/back.png",
+    alt: "Fisherman Denim Jacket front",
+  },
+  {
+    id: "airways-knit-sweater",
+    title: "GTTW Airways Knit Sweater",
+    price: "$200",
+    category: "tops",
+    collection: "Kof's Wardrobe",
+    soldOut: true,
+    sizes: SHOP_SIZES_APPAREL,
+    description:
+      "Long sleeve knit cotton and wool-blend sweater in baby blue. Rib knit crewneck collar, cuffs, and hem. Intarsia knit clouds, plane patch logo embroidery on the front. Model is 5 ft 11\" and wears M.",
+    src: "./assets/shop/airways-knit-sweater/front.png",
+    back: "./assets/shop/airways-knit-sweater/back.png",
+    alt: "GTTW Airways Knit Sweater front",
+  },
+  {
+    id: "yellow-jersey",
+    title: "GTTW Yellow Jersey",
+    price: "$85.00",
+    category: "tops",
+    collection: "Kof's Wardrobe",
+    soldOut: true,
+    sizes: SHOP_SIZES_APPAREL,
+    description:
+      "Athletic yellow GTTW jersey. Short sleeve, shadow stripe knit, dual-sided graphic. Currently sold out.",
+    src: "./assets/shop/yellow-jersey/front.png",
+    back: "./assets/shop/yellow-jersey/back.png",
+    alt: "GTTW Yellow Jersey front",
+  },
+  {
+    id: "fisherman-denim-pants",
+    title: "Mens Fisherman Denim Pants",
+    price: "$180",
+    category: "bottoms",
+    collection: "Kof's Wardrobe",
+    sizes: SHOP_SIZES_PANTS,
+    description:
+      "100% Cotton denim. Printed design throughout. Straight Leg. Tonal Stitching. Imported. Classic 5-pocket jeans. Size chart — Hip: XS (28) 34 1/2\" | S (30) 36\" | M (32) 38\" | L (34) 39 1/2\" | XL (36) 41\" | XXL (38) 42 1/2\". Inseam: XS 31 1/2\" | S 32\" | M 32\" | L 32 1/2\" | XL 33\" | XXL 33 1/2\".",
+    src: "./assets/shop/fisherman-denim-pants/front.png",
+    back: "./assets/shop/fisherman-denim-pants/back.png",
+    alt: "Mens Fisherman Denim Pants front",
+  },
+  {
+    id: "vim-button-up",
+    title: "Vim Button Up Shirt",
+    price: "$85.00",
+    category: "tops",
+    collection: "Kof's Wardrobe",
+    soldOut: true,
+    sizes: SHOP_SIZES_APPAREL,
+    description:
+      "100% Polyester. Satin. Short sleeve button up. Vim logo in different colors. The world is yours blimp. Patch pocket at chest. Open spread collar.",
+    src: "./assets/shop/vim-button-up/front.png",
+    back: "./assets/shop/vim-button-up/back.png",
+    alt: "Vim Button Up Shirt front",
   },
 ];
 
@@ -676,8 +827,24 @@ const motionStageTime = document.querySelector("#motion-stage-time");
 const motionClock = document.querySelector("#motion-clock");
 const motionTz = document.querySelector("#motion-tz");
 const soundBtns = [...document.querySelectorAll(".sound-btn")];
-const diaryList = document.querySelector("#diary-list");
+const pressList = document.querySelector("#press-list");
 const shopGrid = document.querySelector("#shop-grid");
+const shopFilters = document.querySelector("#shop-filters");
+const shopCount = document.querySelector("#shop-count");
+const shopDrawer = document.querySelector("#shop-drawer");
+const shopDrawerBackdrop = document.querySelector("#shop-drawer-backdrop");
+const shopDrawerClose = document.querySelector("#shop-drawer-close");
+const shopDrawerImg = document.querySelector("#shop-drawer-img");
+const shopDrawerCat = document.querySelector("#shop-drawer-cat");
+const shopDrawerTitle = document.querySelector("#shop-drawer-title");
+const shopDrawerPrice = document.querySelector("#shop-drawer-price");
+const shopDrawerDesc = document.querySelector("#shop-drawer-desc");
+const shopDrawerAdd = document.querySelector("#shop-drawer-add");
+const shopDrawerSize = document.querySelector("#shop-drawer-size");
+const shopDrawerBuy = document.querySelector(".shop-drawer-buy");
+const shopDrawerScroll = document.querySelector(".shop-drawer-scroll");
+let shopFilter = "all";
+let shopActiveIndex = -1;
 const musicTracklist = document.querySelector("#music-tracklist");
 const musicAudio = document.querySelector("#music-audio");
 const musicPlayBtn = document.querySelector("#music-play");
@@ -1408,47 +1575,186 @@ if (motionClock) motionClock.textContent = formatClock();
 if (motionTz) motionTz.textContent = formatTimezone();
 document.body.dataset.layout = layoutMode;
 
-const renderDiary = () => {
-  if (!diaryList) return;
-  diaryList.innerHTML = DIARY.map(
+const renderPress = () => {
+  if (!pressList) return;
+  pressList.innerHTML = PRESS.map(
     (d) => `
-    <li class="diary-entry">
-      <p class="diary-date">${d.date}</p>
-      <div>
-        <h3>${d.title}</h3>
-        <p>${d.body}</p>
-      </div>
-      <figure class="diary-thumb">
-        <img src="${d.src}" alt="" width="800" height="1000" loading="lazy" />
-      </figure>
+    <li class="press-entry">
+      <a class="press-link" href="${d.href}" target="_blank" rel="noopener noreferrer" data-cursor="Read">
+        <p class="press-date">${d.date}${d.outlet ? ` · ${d.outlet}` : ""}</p>
+        <div class="press-copy">
+          <h3>${d.title}</h3>
+          <p>${d.body}</p>
+        </div>
+        <figure class="press-thumb">
+          <img src="${d.src}" alt="" width="800" height="1000" loading="lazy" />
+        </figure>
+      </a>
     </li>`
   ).join("");
+};
+
+const getShopItems = () =>
+  SHOP.map((item, index) => ({ ...item, index })).filter(
+    (item) => shopFilter === "all" || item.category === shopFilter
+  );
+
+const closeShopDrawer = () => {
+  shopDrawer?.classList.remove("is-open");
+  shopDrawer?.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("shop-drawer-open");
+  shopGrid?.querySelectorAll(".shop-tile.is-active").forEach((el) => el.classList.remove("is-active"));
+  shopActiveIndex = -1;
+  if (shopDrawerAdd) {
+    shopDrawerAdd.textContent = "Add to cart";
+    shopDrawerAdd.disabled = false;
+  }
+  if (shopDrawerSize) {
+    shopDrawerSize.disabled = false;
+    shopDrawerSize.innerHTML = "";
+  }
+};
+
+const fillShopSizes = (item) => {
+  if (!shopDrawerSize) return;
+  const sizes = item.sizes?.length ? item.sizes : SHOP_SIZES_APPAREL;
+  shopDrawerSize.innerHTML = sizes.map((size) => `<option value="${size}">${size}</option>`).join("");
+  shopDrawerSize.disabled = Boolean(item.soldOut);
+  shopDrawerSize.value = sizes[0];
+};
+
+const openShopDrawer = (index) => {
+  const item = SHOP[index];
+  if (!item || !shopDrawer) return;
+  shopActiveIndex = index;
+  if (shopDrawerImg) {
+    shopDrawerImg.src = item.src;
+    shopDrawerImg.alt = item.alt || item.title;
+    shopDrawerImg.dataset.front = item.src;
+    shopDrawerImg.dataset.back = item.back || "";
+  }
+  if (shopDrawerCat) {
+    shopDrawerCat.textContent = item.soldOut
+      ? `${item.category || ""} · Sold Out`.replace(/^ · /, "")
+      : item.category || "";
+  }
+  if (shopDrawerTitle) shopDrawerTitle.textContent = item.title;
+  if (shopDrawerPrice) shopDrawerPrice.textContent = item.price;
+  if (shopDrawerDesc) shopDrawerDesc.textContent = item.description || "";
+  fillShopSizes(item);
+  if (shopDrawerAdd) {
+    shopDrawerAdd.dataset.product = String(index);
+    if (item.soldOut) {
+      shopDrawerAdd.textContent = "Sold Out";
+      shopDrawerAdd.disabled = true;
+    } else {
+      shopDrawerAdd.textContent = "Add to cart";
+      shopDrawerAdd.disabled = false;
+    }
+  }
+  if (shopDrawerBuy) {
+    shopDrawerBuy.classList.toggle("is-sold-out", Boolean(item.soldOut));
+  }
+
+  const thumbs = shopDrawer.querySelector("#shop-drawer-thumbs");
+  if (thumbs) {
+    const shots = [item.src, item.back].filter(Boolean);
+    thumbs.innerHTML = shots
+      .map(
+        (src, i) =>
+          `<button type="button" class="shop-drawer-thumb${i === 0 ? " is-active" : ""}" data-shop-shot="${src}" aria-label="View image ${i + 1}">
+            <img src="${src}" alt="" width="120" height="150" />
+          </button>`
+      )
+      .join("");
+    thumbs.querySelectorAll("[data-shop-shot]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        if (shopDrawerImg) {
+          shopDrawerImg.src = btn.dataset.shopShot;
+        }
+        thumbs.querySelectorAll(".shop-drawer-thumb").forEach((el) => el.classList.remove("is-active"));
+        btn.classList.add("is-active");
+      });
+    });
+  }
+
+  shopGrid?.querySelectorAll(".shop-tile").forEach((el) => {
+    el.classList.toggle("is-active", Number(el.dataset.product) === index);
+  });
+  shopDrawer.classList.add("is-open");
+  shopDrawer.setAttribute("aria-hidden", "false");
+  document.body.classList.add("shop-drawer-open");
+  if (shopDrawerScroll) shopDrawerScroll.scrollTop = 0;
+  shopDrawerClose?.focus();
+};
+
+const renderShopFilters = () => {
+  if (!shopFilters) return;
+  shopFilters.innerHTML = SHOP_CATEGORIES.map((cat) => {
+    const label = cat === "all" ? "All" : cat;
+    const on = shopFilter === cat;
+    return `<button type="button" class="shop-filter${on ? " is-active" : ""}" data-shop-filter="${cat}" aria-pressed="${on ? "true" : "false"}">${label}</button>`;
+  }).join("");
+
+  shopFilters.querySelectorAll("[data-shop-filter]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      shopFilter = btn.dataset.shopFilter || "all";
+      closeShopDrawer();
+      renderShop();
+    });
+  });
 };
 
 const renderShop = () => {
   if (!shopGrid) return;
-  shopGrid.innerHTML = SHOP.map(
-    (p, i) => `
-    <li class="product">
-      <figure>
-        <img src="${p.src}" alt="${p.alt}" width="800" height="1000" loading="lazy" />
-      </figure>
-      <h3>${p.title}</h3>
-      <p class="price">${p.price}</p>
-      <button type="button" data-product="${i}" data-cursor="Add">Add to cart</button>
-    </li>`
-  ).join("");
+  renderShopFilters();
+  const items = getShopItems();
+  if (shopCount) {
+    shopCount.textContent = `${items.length} piece${items.length === 1 ? "" : "s"}`;
+  }
 
-  shopGrid.querySelectorAll("[data-product]").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      cartCount += 1;
-      btn.textContent = `Added (${cartCount})`;
-      setTimeout(() => {
-        btn.textContent = "Add to cart";
-      }, 1400);
-    });
+  shopGrid.innerHTML = items
+    .map(
+      (p) => `
+    <li class="shop-item" data-category="${p.category}">
+      <button type="button" class="shop-tile${p.back ? " has-back" : ""}" data-product="${p.index}" data-cursor="View" aria-label="${p.title}">
+        <figure class="shop-tile-figure">
+          <img class="shop-tile-front" src="${p.src}" alt="" width="800" height="1000" loading="lazy" />
+          ${
+            p.back
+              ? `<img class="shop-tile-back" src="${p.back}" alt="" width="800" height="1000" loading="lazy" />`
+              : ""
+          }
+        </figure>
+      </button>
+    </li>`
+    )
+    .join("");
+
+  shopGrid.querySelectorAll(".shop-tile").forEach((btn) => {
+    btn.addEventListener("click", () => openShopDrawer(Number(btn.dataset.product)));
   });
 };
+
+shopDrawerBackdrop?.addEventListener("click", closeShopDrawer);
+shopDrawerClose?.addEventListener("click", closeShopDrawer);
+shopDrawerAdd?.addEventListener("click", () => {
+  const item = SHOP[shopActiveIndex];
+  if (!item || item.soldOut || shopDrawerAdd.disabled) return;
+  const size = shopDrawerSize?.value || item.sizes?.[0] || "";
+  const subject = encodeURIComponent(`Wardrobe order — ${item.title}`);
+  const body = encodeURIComponent(
+    `Hi Kof,\n\nI'd like to purchase:\n${item.title}\nSize: ${size}\nPrice: ${item.price}\n\nThanks.`
+  );
+  cartCount += 1;
+  shopDrawerAdd.textContent = `Added (${cartCount})`;
+  window.location.href = `mailto:kofmotivation@gmail.com?subject=${subject}&body=${body}`;
+  setTimeout(() => {
+    if (shopDrawer?.classList.contains("is-open") && !SHOP[shopActiveIndex]?.soldOut) {
+      shopDrawerAdd.textContent = "Add to cart";
+    }
+  }, 1600);
+});
 
 /* ——— Loader ——— */
 const buildLoaderStrip = () => {
@@ -1465,7 +1771,7 @@ const runLoader = () => {
   renderWork();
   renderMotion();
   renderMusic();
-  renderDiary();
+  renderPress();
   renderShop();
   document.body.dataset.activeView = "work";
 
@@ -2192,7 +2498,8 @@ const setupCursor = () => {
 /* ——— Keyboard ——— */
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") {
-    if (focusEl?.classList.contains("is-open")) closeFocus();
+    if (shopDrawer?.classList.contains("is-open")) closeShopDrawer();
+    else if (focusEl?.classList.contains("is-open")) closeFocus();
     else if (infoPanel?.classList.contains("is-open")) closeInfo();
     else if (menu?.classList.contains("is-open")) closeMenu();
   }
