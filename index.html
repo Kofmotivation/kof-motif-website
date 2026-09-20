@@ -46,7 +46,20 @@
     </div>
 
     <div class="cursor" id="cursor" aria-hidden="true">
-      <span class="cursor-ring"></span>
+      <div class="cursor-shutter">
+        <svg class="cursor-shutter-svg" viewBox="0 0 48 48" width="48" height="48">
+          <circle class="cursor-shutter-rim" cx="24" cy="24" r="21.5" />
+          <g class="cursor-shutter-blades">
+            <path class="cursor-blade" style="--i: 0" d="M24 24 L24 5.5 A18.5 18.5 0 0 1 40.03 14.75 Z" />
+            <path class="cursor-blade" style="--i: 1" d="M24 24 L24 5.5 A18.5 18.5 0 0 1 40.03 14.75 Z" />
+            <path class="cursor-blade" style="--i: 2" d="M24 24 L24 5.5 A18.5 18.5 0 0 1 40.03 14.75 Z" />
+            <path class="cursor-blade" style="--i: 3" d="M24 24 L24 5.5 A18.5 18.5 0 0 1 40.03 14.75 Z" />
+            <path class="cursor-blade" style="--i: 4" d="M24 24 L24 5.5 A18.5 18.5 0 0 1 40.03 14.75 Z" />
+            <path class="cursor-blade" style="--i: 5" d="M24 24 L24 5.5 A18.5 18.5 0 0 1 40.03 14.75 Z" />
+          </g>
+          <circle class="cursor-shutter-iris" cx="24" cy="24" r="3.2" />
+        </svg>
+      </div>
       <span class="cursor-label" id="cursor-label"></span>
     </div>
 

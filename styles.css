@@ -227,7 +227,7 @@ a {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* ——— Cursor ——— */
+/* ——— Cursor (camera shutter) ——— */
 .cursor {
   position: fixed;
   top: 0;
@@ -237,30 +237,101 @@ a {
   mix-blend-mode: difference;
   opacity: 0;
   transition: opacity 0.25s ease;
+  color: #fff;
 }
 
 body.has-cursor .cursor.is-on {
   opacity: 1;
 }
 
-.cursor-ring {
-  display: block;
-  width: 14px;
-  height: 14px;
-  border: 1px solid #fff;
-  border-radius: 50%;
+.cursor-shutter {
+  width: 18px;
+  height: 18px;
   transform: translate(-50%, -50%) scale(1);
-  transition: transform 0.35s var(--ease), background 0.25s ease;
+  transition: transform 380ms var(--ease);
+  will-change: transform;
 }
 
-.cursor.is-hover .cursor-ring {
-  transform: translate(-50%, -50%) scale(3.85);
-  background: rgba(255, 255, 255, 0.08);
+.cursor-shutter-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }
 
-.cursor.is-small .cursor-ring {
+.cursor-shutter-rim {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+}
+
+.cursor-blade {
+  fill: currentColor;
+  opacity: 0.92;
+  transform-box: view-box;
+  transform-origin: 24px 24px;
+  transform: rotate(calc(var(--i) * 60deg));
+  transition: transform 380ms var(--ease), opacity 280ms ease;
+}
+
+.cursor-shutter-iris {
+  fill: currentColor;
+  transform-box: view-box;
+  transform-origin: 24px 24px;
+  transition: transform 380ms var(--ease), opacity 280ms ease;
+}
+
+.cursor.is-hover .cursor-shutter {
+  transform: translate(-50%, -50%) scale(2.65);
+}
+
+.cursor.is-hover .cursor-blade {
+  /* open aperture slightly */
+  transform: rotate(calc(var(--i) * 60deg + 14deg));
+  opacity: 0.78;
+}
+
+.cursor.is-hover .cursor-shutter-iris {
+  transform: scale(1.55);
+}
+
+.cursor.is-small .cursor-shutter {
   transform: translate(-50%, -50%) scale(0.72);
-  background: transparent;
+}
+
+.cursor.is-small .cursor-blade {
+  transform: rotate(calc(var(--i) * 60deg));
+  opacity: 0.85;
+}
+
+.cursor.is-snap .cursor-shutter {
+  animation: shutterBodySnap 260ms var(--ease);
+}
+
+.cursor.is-snap .cursor-blade {
+  animation: shutterBladeSnap 260ms var(--ease);
+}
+
+.cursor.is-snap .cursor-shutter-iris {
+  animation: shutterIrisSnap 260ms var(--ease);
+}
+
+@keyframes shutterBodySnap {
+  0% { transform: translate(-50%, -50%) scale(2.65); }
+  35% { transform: translate(-50%, -50%) scale(2.15); }
+  100% { transform: translate(-50%, -50%) scale(2.65); }
+}
+
+@keyframes shutterBladeSnap {
+  0% { transform: rotate(calc(var(--i) * 60deg + 14deg)); }
+  40% { transform: rotate(calc(var(--i) * 60deg - 2deg)); }
+  100% { transform: rotate(calc(var(--i) * 60deg + 14deg)); }
+}
+
+@keyframes shutterIrisSnap {
+  0% { transform: scale(1.55); opacity: 1; }
+  40% { transform: scale(0.15); opacity: 0.35; }
+  100% { transform: scale(1.55); opacity: 1; }
 }
 
 .cursor-label {
@@ -274,6 +345,7 @@ body.has-cursor .cursor.is-on {
   white-space: nowrap;
   opacity: 0;
   transition: opacity 0.25s ease;
+  z-index: 1;
 }
 
 .cursor.is-hover .cursor-label {
@@ -1187,6 +1259,10 @@ body.focus-open .view-label,
 body.focus-open .cursor {
   opacity: 0;
   pointer-events: none;
+}
+
+body.focus-open .cursor.is-snap {
+  opacity: 1;
 }
 
 body.focus-open {

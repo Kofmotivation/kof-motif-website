@@ -4159,7 +4159,8 @@ const openFocus = (collectionIndex, stillIndex = 0) => {
   activeCollection = (collectionIndex + COLLECTIONS.length) % COLLECTIONS.length;
   const c = COLLECTIONS[activeCollection];
   if (!c) return;
-  openFocusSet(c.images, stillIndex, c.title);
+  snapCursor();
+  window.setTimeout(() => openFocusSet(c.images, stillIndex, c.title), 160);
 };
 
 const closeFocus = () => {
@@ -4247,6 +4248,15 @@ focusTheme?.addEventListener("pointerleave", () => {
 });
 
 /* ——— Cursor ——— */
+const snapCursor = () => {
+  if (!cursor || !document.body.classList.contains("has-cursor")) return;
+  cursor.classList.remove("is-snap");
+  // force reflow so repeated snaps retrigger
+  void cursor.offsetWidth;
+  cursor.classList.add("is-snap");
+  window.setTimeout(() => cursor.classList.remove("is-snap"), 280);
+};
+
 const setupCursor = () => {
   if (!finePointer || reduceMotion || !cursor) return;
   document.body.classList.add("has-cursor");
