@@ -2205,6 +2205,59 @@ const COLLECTIONS = [
     ]
   },
   {
+    "id": "series-36",
+    "title": "Series 36",
+    "meta": "9 stills",
+    "cover": "./assets/work/series-36/01-av0a6575.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-36/01-av0a6575.jpg",
+        "title": "Still 01",
+        "alt": "Series 36 still 01"
+      },
+      {
+        "src": "./assets/work/series-36/02-av0a6586.jpg",
+        "title": "Still 02",
+        "alt": "Series 36 still 02"
+      },
+      {
+        "src": "./assets/work/series-36/03-av0a6593.jpg",
+        "title": "Still 03",
+        "alt": "Series 36 still 03"
+      },
+      {
+        "src": "./assets/work/series-36/04-av0a6615.jpg",
+        "title": "Still 04",
+        "alt": "Series 36 still 04"
+      },
+      {
+        "src": "./assets/work/series-36/05-av0a6616.jpg",
+        "title": "Still 05",
+        "alt": "Series 36 still 05"
+      },
+      {
+        "src": "./assets/work/series-36/06-av0a6634.jpg",
+        "title": "Still 06",
+        "alt": "Series 36 still 06"
+      },
+      {
+        "src": "./assets/work/series-36/07-av0a6689.jpg",
+        "title": "Still 07",
+        "alt": "Series 36 still 07"
+      },
+      {
+        "src": "./assets/work/series-36/08-av0a6693.jpg",
+        "title": "Still 08",
+        "alt": "Series 36 still 08"
+      },
+      {
+        "src": "./assets/work/series-36/09-av0a6701.jpg",
+        "title": "Still 09",
+        "alt": "Series 36 still 09"
+      }
+    ]
+  },
+  {
     "id": "series-22",
     "title": "Series 22",
     "meta": "9 stills",
@@ -2258,7 +2311,6 @@ const COLLECTIONS = [
     ]
   }
 ];
-
 const MOTION = [
   {
     title: "Series I | Still Cut",
