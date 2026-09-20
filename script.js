@@ -2663,6 +2663,10 @@ let mosaicParallaxRaf = 0;
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+const isMobileUi = !finePointer || window.matchMedia("(max-width: 900px)").matches;
+
+const coverThumb = (cover) =>
+  typeof cover === "string" ? cover.replace(/\/[^/]+$/, "/cover-thumb.jpg") : cover;
 
 let locoScroll = null;
 
@@ -3119,7 +3123,7 @@ const initListSlideshow = () => {
   listSlideCleanups.forEach((fn) => fn());
   listSlideCleanups = [];
   listSlideStops = [];
-  if (!mosaic) return;
+  if (!mosaic || isMobileUi) return;
 
   mosaic.querySelectorAll(".mosaic-open").forEach((btn) => {
     const inner = btn.querySelector(".mosaic-tilt-inner");
@@ -3216,20 +3220,23 @@ const initListSlideshow = () => {
 const renderWork = () => {
   if (!mosaic) return;
   mosaic.innerHTML = COLLECTIONS.map(
-    (c, i) => `
+    (c, i) => {
+      const thumb = coverThumb(c.cover);
+      return `
     <li class="mosaic-item${i < 3 ? " is-feature" : ""}" data-collection="${i}">
       <button type="button" class="mosaic-open" data-collection="${i}">
         <figure class="mosaic-tilt" aria-hidden="true">
           <div class="mosaic-tilt-inner">
-            <img class="mosaic-tilt-img mosaic-tilt-img--a" src="${c.cover}" alt="" width="1067" height="1600" loading="${i < 3 ? "eager" : "lazy"}" decoding="async" draggable="false" />
-            <img class="mosaic-tilt-img mosaic-tilt-img--b" data-src="${c.cover}" alt="" width="1067" height="1600" loading="lazy" decoding="async" draggable="false" aria-hidden="true" />
+            <img class="mosaic-tilt-img mosaic-tilt-img--a" src="${thumb}" alt="" width="480" height="720" loading="${i < (isMobileUi ? 2 : 3) ? "eager" : "lazy"}" decoding="async" draggable="false" />
+            <img class="mosaic-tilt-img mosaic-tilt-img--b" data-src="${thumb}" alt="" width="480" height="720" loading="lazy" decoding="async" draggable="false" aria-hidden="true" />
             <span class="mosaic-tilt-glare" aria-hidden="true"></span>
           </div>
         </figure>
         <span class="mosaic-list-title">${c.title}</span>
         <span class="visually-hidden">${c.title} cover</span>
       </button>
-    </li>`
+    </li>`;
+    }
   ).join("");
 
   mosaic.querySelectorAll(".mosaic-open").forEach((btn) => {
@@ -3571,24 +3578,44 @@ shopDrawerAdd?.addEventListener("click", () => {
 /* ——— Loader ——— */
 const buildLoaderStrip = () => {
   if (!loaderStrip) return;
-  const sources = COLLECTIONS.flatMap((c) => c.images.map((img) => img.src)).slice(0, 12);
+  // Full-res strip was crashing iOS Safari (dozens of decoded photos at once)
+  if (isMobileUi || reduceMotion) {
+    loaderStrip.innerHTML = "";
+    return;
+  }
+  const sources = COLLECTIONS.map((c) => coverThumb(c.cover)).slice(0, 6);
   const doubled = [...sources, ...sources];
   loaderStrip.innerHTML = doubled
-    .map((src) => `<img src="${src}" alt="" width="400" height="533" />`)
+    .map((src) => `<img src="${src}" alt="" width="240" height="320" decoding="async" />`)
     .join("");
+};
+
+const viewsReady = { motion: false, press: false, shop: false, music: false };
+
+const ensureView = (name) => {
+  if (name === "motion" && !viewsReady.motion) {
+    renderMotion();
+    viewsReady.motion = true;
+  } else if (name === "press" && !viewsReady.press) {
+    renderPress();
+    viewsReady.press = true;
+  } else if (name === "shop" && !viewsReady.shop) {
+    renderShop();
+    viewsReady.shop = true;
+  } else if (name === "music" && !viewsReady.music) {
+    renderMusic();
+    viewsReady.music = true;
+  }
 };
 
 const runLoader = () => {
   buildLoaderStrip();
   renderWork();
-  renderMotion();
-  renderMusic();
-  renderPress();
-  renderShop();
   document.body.dataset.activeView = "work";
 
-  if (reduceMotion) {
-    finishLoader();
+  if (reduceMotion || isMobileUi) {
+    // Fast path: don't wait on a strip of images
+    window.setTimeout(finishLoader, reduceMotion ? 0 : 420);
     return;
   }
 
@@ -3622,7 +3649,7 @@ const runLoader = () => {
 
   window.setTimeout(() => {
     target = Math.max(target, 100);
-  }, 2200);
+  }, 1800);
 
   requestAnimationFrame(tick);
 };
@@ -3667,6 +3694,7 @@ const closeMenu = () => {
 const setView = (name) => {
   activeView = name;
   document.body.dataset.activeView = name;
+  ensureView(name);
   document.querySelectorAll("[data-view-panel]").forEach((panel) => {
     const on = panel.dataset.viewPanel === name;
     panel.toggleAttribute("hidden", !on);
@@ -4109,13 +4137,33 @@ const renderFocusRail = () => {
       (still, i) => `
     <button type="button" class="focus-thumb${i === focusIndex ? " is-active" : ""}" data-focus="${i}" style="--focus-slide-ms:${FOCUS_SLIDE_MS}ms" aria-label="${still.title || `Still ${i + 1}`}" aria-current="${i === focusIndex ? "true" : "false"}">
       <span class="focus-thumb-progress" aria-hidden="true"></span>
-      <img src="${still.src}" alt="" width="120" height="160" loading="lazy" />
+      <img data-src="${still.src}" alt="" width="120" height="160" decoding="async" />
     </button>`
     )
     .join("");
 
+  const hydrateRailImg = (img) => {
+    if (!img || img.src || !img.dataset.src) return;
+    img.src = img.dataset.src;
+    delete img.dataset.src;
+  };
+
+  const railIo = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        hydrateRailImg(entry.target.querySelector("img"));
+        railIo.unobserve(entry.target);
+      });
+    },
+    { root: focusRail, rootMargin: "80px 0px", threshold: 0.01 }
+  );
+
   focusRail.querySelectorAll(".focus-thumb").forEach((btn) => {
     btn.addEventListener("click", () => showFocusStill(Number(btn.dataset.focus), { direction: "next" }));
+    const idx = Number(btn.dataset.focus);
+    if (Math.abs(idx - focusIndex) <= 1) hydrateRailImg(btn.querySelector("img"));
+    else railIo.observe(btn);
   });
 
   const active = focusRail.querySelector(".focus-thumb.is-active");

@@ -922,9 +922,18 @@ body.is-loading .work-particles {
   outline-offset: -2px;
 }
 
-@media (hover: none), (pointer: coarse) {
+@media (hover: none), (pointer: coarse), (max-width: 900px) {
+  .loader-strip {
+    display: none !important;
+  }
+
   .work-particles {
     display: none !important;
+  }
+
+  .mosaic-item {
+    content-visibility: auto;
+    contain-intrinsic-size: 420px;
   }
 }
 
