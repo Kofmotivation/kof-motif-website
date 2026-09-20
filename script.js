@@ -3627,12 +3627,13 @@ shopDrawerAdd?.addEventListener("click", () => {
 /* ——— Loader ——— */
 const buildLoaderStrip = () => {
   if (!loaderStrip) return;
-  // Full-res strip was crashing iOS Safari (dozens of decoded photos at once)
-  if (isMobileUi || reduceMotion) {
+  if (reduceMotion) {
     loaderStrip.innerHTML = "";
     return;
   }
-  const sources = COLLECTIONS.map((c) => coverThumb(c.cover)).slice(0, 6);
+  // Same strip on desktop + mobile; thumbs keep Safari from OOM
+  const count = isMobileUi ? 4 : 6;
+  const sources = COLLECTIONS.map((c) => coverThumb(c.cover)).slice(0, count);
   const doubled = [...sources, ...sources];
   loaderStrip.innerHTML = doubled
     .map((src) => `<img src="${src}" alt="" width="240" height="320" decoding="async" />`)
@@ -3662,13 +3663,16 @@ const runLoader = () => {
   renderWork();
   document.body.dataset.activeView = "work";
 
-  if (reduceMotion || isMobileUi) {
-    // Fast path: don't wait on a strip of images
-    window.setTimeout(finishLoader, reduceMotion ? 0 : 420);
+  if (reduceMotion) {
+    finishLoader();
     return;
   }
 
-  const images = [...document.querySelectorAll(".mosaic-item.is-feature img, .loader-strip-track img")];
+  // Same countdown loader on desktop and mobile
+  const images = [
+    ...document.querySelectorAll(".mosaic-item.is-feature img.mosaic-tilt-img--a"),
+    ...document.querySelectorAll(".loader-strip-track img"),
+  ];
   let loaded = 0;
   const total = Math.max(images.length, 1);
   let progress = 0;
@@ -3689,7 +3693,7 @@ const runLoader = () => {
   };
 
   images.forEach((img) => {
-    if (img.complete) bump();
+    if (img.complete && img.naturalWidth) bump();
     else {
       img.addEventListener("load", bump, { once: true });
       img.addEventListener("error", bump, { once: true });
@@ -3698,7 +3702,7 @@ const runLoader = () => {
 
   window.setTimeout(() => {
     target = Math.max(target, 100);
-  }, 1800);
+  }, isMobileUi ? 2000 : 2200);
 
   requestAnimationFrame(tick);
 };
