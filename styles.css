@@ -935,6 +935,14 @@ body.is-loading .work-particles {
     content-visibility: auto;
     contain-intrinsic-size: 420px;
   }
+
+  .mosaic-sentinel {
+    list-style: none;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -2665,6 +2665,7 @@ const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").match
 const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 const isMobileUi = !finePointer || window.matchMedia("(max-width: 900px)").matches;
 
+/** Decorative loader strip only — never used for the Work grid. */
 const coverThumb = (cover) =>
   typeof cover === "string" ? cover.replace(/\/[^/]+$/, "/cover-thumb.jpg") : cover;
 
@@ -2972,6 +2973,11 @@ const setLayoutMode = (mode) => {
   if (activeView === "work" && mosaic) {
     mosaic.classList.toggle("is-grid", layoutMode === "grid");
     mosaic.classList.toggle("is-list", layoutMode === "list");
+    // List mode needs the full archive mounted
+    if (layoutMode === "list" && mosaicMounted < COLLECTIONS.length) {
+      mosaic.querySelector(".mosaic-sentinel")?.remove();
+      while (mosaicMounted < COLLECTIONS.length) appendMosaicBatch();
+    }
     mosaic.querySelectorAll(".mosaic-item").forEach((item) => {
       if (layoutMode === "list") item.classList.add("is-in");
     });
@@ -3217,18 +3223,13 @@ const initListSlideshow = () => {
 };
 
 /* ——— Render ——— */
-const renderWork = () => {
-  if (!mosaic) return;
-  mosaic.innerHTML = COLLECTIONS.map(
-    (c, i) => {
-      const thumb = coverThumb(c.cover);
-      return `
+const mosaicItemHtml = (c, i) => `
     <li class="mosaic-item${i < 3 ? " is-feature" : ""}" data-collection="${i}">
       <button type="button" class="mosaic-open" data-collection="${i}">
         <figure class="mosaic-tilt" aria-hidden="true">
           <div class="mosaic-tilt-inner">
-            <img class="mosaic-tilt-img mosaic-tilt-img--a" src="${thumb}" alt="" width="480" height="720" loading="${i < (isMobileUi ? 2 : 3) ? "eager" : "lazy"}" decoding="async" draggable="false" />
-            <img class="mosaic-tilt-img mosaic-tilt-img--b" data-src="${thumb}" alt="" width="480" height="720" loading="lazy" decoding="async" draggable="false" aria-hidden="true" />
+            <img class="mosaic-tilt-img mosaic-tilt-img--a" src="${c.cover}" alt="" width="1067" height="1600" loading="${i < (isMobileUi ? 2 : 3) ? "eager" : "lazy"}" decoding="async" fetchpriority="${i < 2 ? "high" : "auto"}" draggable="false" />
+            <img class="mosaic-tilt-img mosaic-tilt-img--b" data-src="${c.cover}" alt="" width="1067" height="1600" loading="lazy" decoding="async" draggable="false" aria-hidden="true" />
             <span class="mosaic-tilt-glare" aria-hidden="true"></span>
           </div>
         </figure>
@@ -3236,17 +3237,18 @@ const renderWork = () => {
         <span class="visually-hidden">${c.title} cover</span>
       </button>
     </li>`;
-    }
-  ).join("");
 
-  mosaic.querySelectorAll(".mosaic-open").forEach((btn) => {
+const bindMosaicItems = (scope = mosaic) => {
+  scope?.querySelectorAll(".mosaic-open").forEach((btn) => {
+    if (btn.dataset.bound === "1") return;
+    btn.dataset.bound = "1";
     btn.addEventListener("click", () => openFocus(Number(btn.dataset.collection), 0));
   });
+};
 
-  mosaic.classList.toggle("is-grid", layoutMode === "grid" || activeView !== "work");
-  mosaic.classList.toggle("is-list", layoutMode === "list" && activeView === "work");
-
-  const items = [...mosaic.querySelectorAll(".mosaic-item")];
+const revealMosaicItems = () => {
+  if (!mosaic) return;
+  const items = [...mosaic.querySelectorAll(".mosaic-item:not([data-reveal-bound])")];
   const reveal = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -3259,13 +3261,60 @@ const renderWork = () => {
     { threshold: 0.12, rootMargin: "40px 0px" }
   );
   items.forEach((item, i) => {
-    item.style.transitionDelay = `${Math.min(i, 8) * 45}ms`;
-    if (i < 3 || (layoutMode === "list" && activeView === "work")) item.classList.add("is-in");
+    item.dataset.revealBound = "1";
+    const index = Number(item.dataset.collection);
+    item.style.transitionDelay = `${Math.min(index, 8) * 45}ms`;
+    if (index < 3 || (layoutMode === "list" && activeView === "work")) item.classList.add("is-in");
     else reveal.observe(item);
   });
+};
+
+let mosaicMounted = 0;
+const MOSAIC_BATCH = isMobileUi ? 6 : COLLECTIONS.length;
+
+const appendMosaicBatch = () => {
+  if (!mosaic || mosaicMounted >= COLLECTIONS.length) return;
+  const next = Math.min(COLLECTIONS.length, mosaicMounted + (isMobileUi ? MOSAIC_BATCH : COLLECTIONS.length));
+  const chunk = COLLECTIONS.slice(mosaicMounted, next)
+    .map((c, offset) => mosaicItemHtml(c, mosaicMounted + offset))
+    .join("");
+  mosaic.insertAdjacentHTML("beforeend", chunk);
+  mosaicMounted = next;
+  bindMosaicItems();
+  revealMosaicItems();
   initMosaicTilt();
   initListSlideshow();
   requestMosaicParallax();
+  refreshLocoScroll();
+};
+
+const watchMosaicTail = () => {
+  if (!mosaic || !isMobileUi || mosaicMounted >= COLLECTIONS.length) return;
+  const sentinel = document.createElement("li");
+  sentinel.className = "mosaic-sentinel";
+  sentinel.setAttribute("aria-hidden", "true");
+  mosaic.appendChild(sentinel);
+  const io = new IntersectionObserver(
+    (entries) => {
+      if (!entries.some((e) => e.isIntersecting)) return;
+      sentinel.remove();
+      io.disconnect();
+      appendMosaicBatch();
+      watchMosaicTail();
+    },
+    { rootMargin: "600px 0px" }
+  );
+  io.observe(sentinel);
+};
+
+const renderWork = () => {
+  if (!mosaic) return;
+  mosaicMounted = 0;
+  mosaic.innerHTML = "";
+  mosaic.classList.toggle("is-grid", layoutMode === "grid" || activeView !== "work");
+  mosaic.classList.toggle("is-list", layoutMode === "list" && activeView === "work");
+  appendMosaicBatch();
+  watchMosaicTail();
 };
 
 const setMotionReel = (index) => {
