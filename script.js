@@ -3,564 +3,2260 @@ const PLACEHOLDER = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABA
 /** Neutral series titles — placeholders until real collections are supplied. */
 const COLLECTIONS = [
   {
-    id: "series-31",
-    title: "Series 31",
-    meta: "19 stills",
-    cover: "./assets/work/series-31/15-_dsc0934.jpg",
-    images: [
-      { src: "./assets/work/series-31/15-_dsc0934.jpg", title: "Still 01", alt: "Series 31 still 01" },
-      { src: "./assets/work/series-31/01-_dsc0119.jpg", title: "Still 02", alt: "Series 31 still 02" },
-      { src: "./assets/work/series-31/02-_dsc0124.jpg", title: "Still 03", alt: "Series 31 still 03" },
-      { src: "./assets/work/series-31/03-_dsc0147.jpg", title: "Still 04", alt: "Series 31 still 04" },
-      { src: "./assets/work/series-31/04-_dsc0184.jpg", title: "Still 05", alt: "Series 31 still 05" },
-      { src: "./assets/work/series-31/05-_dsc0226.jpg", title: "Still 06", alt: "Series 31 still 06" },
-      { src: "./assets/work/series-31/06-_dsc0233.jpg", title: "Still 07", alt: "Series 31 still 07" },
-      { src: "./assets/work/series-31/07-_dsc0530.jpg", title: "Still 08", alt: "Series 31 still 08" },
-      { src: "./assets/work/series-31/08-_dsc0556.jpg", title: "Still 09", alt: "Series 31 still 09" },
-      { src: "./assets/work/series-31/09-_dsc0712.jpg", title: "Still 10", alt: "Series 31 still 10" },
-      { src: "./assets/work/series-31/10-_dsc0738.jpg", title: "Still 11", alt: "Series 31 still 11" },
-      { src: "./assets/work/series-31/11-_dsc0746.jpg", title: "Still 12", alt: "Series 31 still 12" },
-      { src: "./assets/work/series-31/12-_dsc0812.jpg", title: "Still 13", alt: "Series 31 still 13" },
-      { src: "./assets/work/series-31/13-_dsc0915.jpg", title: "Still 14", alt: "Series 31 still 14" },
-      { src: "./assets/work/series-31/14-_dsc0916.jpg", title: "Still 15", alt: "Series 31 still 15" },
-      { src: "./assets/work/series-31/16-_dsc1134.jpg", title: "Still 16", alt: "Series 31 still 16" },
-      { src: "./assets/work/series-31/17-_dsc1166.jpg", title: "Still 17", alt: "Series 31 still 17" },
-      { src: "./assets/work/series-31/18-_dsc1169.jpg", title: "Still 18", alt: "Series 31 still 18" },
-      { src: "./assets/work/series-31/19-_dsc1170.jpg", title: "Still 19", alt: "Series 31 still 19" },
-    ],
+    "id": "series-31",
+    "title": "Series 31",
+    "meta": "19 stills",
+    "cover": "./assets/work/series-31/01-dsc0119.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-31/01-dsc0119.jpg",
+        "title": "Still 01",
+        "alt": "Series 31 still 01"
+      },
+      {
+        "src": "./assets/work/series-31/02-dsc0124.jpg",
+        "title": "Still 02",
+        "alt": "Series 31 still 02"
+      },
+      {
+        "src": "./assets/work/series-31/03-dsc0147.jpg",
+        "title": "Still 03",
+        "alt": "Series 31 still 03"
+      },
+      {
+        "src": "./assets/work/series-31/04-dsc0184.jpg",
+        "title": "Still 04",
+        "alt": "Series 31 still 04"
+      },
+      {
+        "src": "./assets/work/series-31/05-dsc0226.jpg",
+        "title": "Still 05",
+        "alt": "Series 31 still 05"
+      },
+      {
+        "src": "./assets/work/series-31/06-dsc0233.jpg",
+        "title": "Still 06",
+        "alt": "Series 31 still 06"
+      },
+      {
+        "src": "./assets/work/series-31/07-dsc0530.jpg",
+        "title": "Still 07",
+        "alt": "Series 31 still 07"
+      },
+      {
+        "src": "./assets/work/series-31/08-dsc0556-copy.jpg",
+        "title": "Still 08",
+        "alt": "Series 31 still 08"
+      },
+      {
+        "src": "./assets/work/series-31/09-dsc0712.jpg",
+        "title": "Still 09",
+        "alt": "Series 31 still 09"
+      },
+      {
+        "src": "./assets/work/series-31/10-dsc0738.jpg",
+        "title": "Still 10",
+        "alt": "Series 31 still 10"
+      },
+      {
+        "src": "./assets/work/series-31/11-dsc0746.jpg",
+        "title": "Still 11",
+        "alt": "Series 31 still 11"
+      },
+      {
+        "src": "./assets/work/series-31/12-dsc0812-copy.jpg",
+        "title": "Still 12",
+        "alt": "Series 31 still 12"
+      },
+      {
+        "src": "./assets/work/series-31/13-dsc0915.jpg",
+        "title": "Still 13",
+        "alt": "Series 31 still 13"
+      },
+      {
+        "src": "./assets/work/series-31/14-dsc0916.jpg",
+        "title": "Still 14",
+        "alt": "Series 31 still 14"
+      },
+      {
+        "src": "./assets/work/series-31/15-dsc0934.jpg",
+        "title": "Still 15",
+        "alt": "Series 31 still 15"
+      },
+      {
+        "src": "./assets/work/series-31/16-dsc1134.jpg",
+        "title": "Still 16",
+        "alt": "Series 31 still 16"
+      },
+      {
+        "src": "./assets/work/series-31/17-dsc1166.jpg",
+        "title": "Still 17",
+        "alt": "Series 31 still 17"
+      },
+      {
+        "src": "./assets/work/series-31/18-dsc1169.jpg",
+        "title": "Still 18",
+        "alt": "Series 31 still 18"
+      },
+      {
+        "src": "./assets/work/series-31/19-dsc1170.jpg",
+        "title": "Still 19",
+        "alt": "Series 31 still 19"
+      }
+    ]
   },
   {
-    id: "series-03",
-    title: "Series 3",
-    meta: "5 stills",
-    cover: "./assets/work/series-03/01-img_3967.jpg",
-    images: [
-      { src: "./assets/work/series-03/01-img_3967.jpg", title: "Still 01", alt: "Series 3 still 01" },
-      { src: "./assets/work/series-03/02-img_3968.jpg", title: "Still 02", alt: "Series 3 still 02" },
-      { src: "./assets/work/series-03/03-img_3970.jpg", title: "Still 03", alt: "Series 3 still 03" },
-      { src: "./assets/work/series-03/04-img_3975.jpg", title: "Still 04", alt: "Series 3 still 04" },
-      { src: "./assets/work/series-03/05-img_3978.jpg", title: "Still 05", alt: "Series 3 still 05" },
-    ],
+    "id": "series-03",
+    "title": "Series 3",
+    "meta": "5 stills",
+    "cover": "./assets/work/series-03/01-img-3967.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-03/01-img-3967.jpg",
+        "title": "Still 01",
+        "alt": "Series 3 still 01"
+      },
+      {
+        "src": "./assets/work/series-03/02-img-3968.jpg",
+        "title": "Still 02",
+        "alt": "Series 3 still 02"
+      },
+      {
+        "src": "./assets/work/series-03/03-img-3970.jpg",
+        "title": "Still 03",
+        "alt": "Series 3 still 03"
+      },
+      {
+        "src": "./assets/work/series-03/04-img-3975.jpg",
+        "title": "Still 04",
+        "alt": "Series 3 still 04"
+      },
+      {
+        "src": "./assets/work/series-03/05-img-3978.jpg",
+        "title": "Still 05",
+        "alt": "Series 3 still 05"
+      }
+    ]
   },
   {
-    id: "series-11",
-    title: "Series 11",
-    meta: "12 stills",
-    cover: "./assets/work/series-11/01-v0a1917.jpg",
-    images: [
-      { src: "./assets/work/series-11/01-v0a1917.jpg", title: "Still 01", alt: "Series 11 still 01" },
-      { src: "./assets/work/series-11/02-v0a1921.jpg", title: "Still 02", alt: "Series 11 still 02" },
-      { src: "./assets/work/series-11/03-v0a1972.jpg", title: "Still 03", alt: "Series 11 still 03" },
-      { src: "./assets/work/series-11/04-v0a2009.jpg", title: "Still 04", alt: "Series 11 still 04" },
-      { src: "./assets/work/series-11/05-v0a2037.jpg", title: "Still 05", alt: "Series 11 still 05" },
-      { src: "./assets/work/series-11/06-v0a2156.jpg", title: "Still 06", alt: "Series 11 still 06" },
-      { src: "./assets/work/series-11/07-v0a2170.jpg", title: "Still 07", alt: "Series 11 still 07" },
-      { src: "./assets/work/series-11/08-v0a2326.jpg", title: "Still 08", alt: "Series 11 still 08" },
-      { src: "./assets/work/series-11/09-fire.jpg", title: "Still 09", alt: "Series 11 still 09" },
-      { src: "./assets/work/series-11/10-img_5520.jpg", title: "Still 10", alt: "Series 11 still 10" },
-      { src: "./assets/work/series-11/11-img_6674.jpg", title: "Still 11", alt: "Series 11 still 11" },
-      { src: "./assets/work/series-11/12-img_6676.jpg", title: "Still 12", alt: "Series 11 still 12" },
-    ],
+    "id": "series-11",
+    "title": "Series 11",
+    "meta": "12 stills",
+    "cover": "./assets/work/series-11/01-v0a1917.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-11/01-v0a1917.jpg",
+        "title": "Still 01",
+        "alt": "Series 11 still 01"
+      },
+      {
+        "src": "./assets/work/series-11/02-v0a1921.jpg",
+        "title": "Still 02",
+        "alt": "Series 11 still 02"
+      },
+      {
+        "src": "./assets/work/series-11/03-v0a1972.jpg",
+        "title": "Still 03",
+        "alt": "Series 11 still 03"
+      },
+      {
+        "src": "./assets/work/series-11/04-v0a2009.jpg",
+        "title": "Still 04",
+        "alt": "Series 11 still 04"
+      },
+      {
+        "src": "./assets/work/series-11/05-v0a2037.jpg",
+        "title": "Still 05",
+        "alt": "Series 11 still 05"
+      },
+      {
+        "src": "./assets/work/series-11/06-v0a2156.jpg",
+        "title": "Still 06",
+        "alt": "Series 11 still 06"
+      },
+      {
+        "src": "./assets/work/series-11/07-v0a2170.jpg",
+        "title": "Still 07",
+        "alt": "Series 11 still 07"
+      },
+      {
+        "src": "./assets/work/series-11/08-v0a2326.jpg",
+        "title": "Still 08",
+        "alt": "Series 11 still 08"
+      },
+      {
+        "src": "./assets/work/series-11/09-fire.jpg",
+        "title": "Still 09",
+        "alt": "Series 11 still 09"
+      },
+      {
+        "src": "./assets/work/series-11/10-img-5520.jpg",
+        "title": "Still 10",
+        "alt": "Series 11 still 10"
+      },
+      {
+        "src": "./assets/work/series-11/11-img-6674.jpg",
+        "title": "Still 11",
+        "alt": "Series 11 still 11"
+      },
+      {
+        "src": "./assets/work/series-11/12-img-6676.jpg",
+        "title": "Still 12",
+        "alt": "Series 11 still 12"
+      }
+    ]
   },
   {
-    id: "series-21",
-    title: "Series 21",
-    meta: "12 stills",
-    cover: "./assets/work/series-21/01-3t3a2614.jpg",
-    images: [
-      { src: "./assets/work/series-21/01-3t3a2614.jpg", title: "Still 01", alt: "Series 21 still 01" },
-      { src: "./assets/work/series-21/02-3t3a2628.jpg", title: "Still 02", alt: "Series 21 still 02" },
-      { src: "./assets/work/series-21/03-3t3a2678.jpg", title: "Still 03", alt: "Series 21 still 03" },
-      { src: "./assets/work/series-21/04-3t3a2697.jpg", title: "Still 04", alt: "Series 21 still 04" },
-      { src: "./assets/work/series-21/05-3t3a2720.jpg", title: "Still 05", alt: "Series 21 still 05" },
-      { src: "./assets/work/series-21/06-3t3a2732.jpg", title: "Still 06", alt: "Series 21 still 06" },
-      { src: "./assets/work/series-21/07-3t3a2756.jpg", title: "Still 07", alt: "Series 21 still 07" },
-      { src: "./assets/work/series-21/08-3t3a2793.jpg", title: "Still 08", alt: "Series 21 still 08" },
-      { src: "./assets/work/series-21/09-3t3a2796.jpg", title: "Still 09", alt: "Series 21 still 09" },
-      { src: "./assets/work/series-21/10-3t3a2798.jpg", title: "Still 10", alt: "Series 21 still 10" },
-      { src: "./assets/work/series-21/11-3t3a2802.jpg", title: "Still 11", alt: "Series 21 still 11" },
-      { src: "./assets/work/series-21/12-3t3a2911.jpg", title: "Still 12", alt: "Series 21 still 12" },
-    ],
+    "id": "series-21",
+    "title": "Series 21",
+    "meta": "12 stills",
+    "cover": "./assets/work/series-21/01-3t3a2614.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-21/01-3t3a2614.jpg",
+        "title": "Still 01",
+        "alt": "Series 21 still 01"
+      },
+      {
+        "src": "./assets/work/series-21/02-3t3a2628.jpg",
+        "title": "Still 02",
+        "alt": "Series 21 still 02"
+      },
+      {
+        "src": "./assets/work/series-21/03-3t3a2678.jpg",
+        "title": "Still 03",
+        "alt": "Series 21 still 03"
+      },
+      {
+        "src": "./assets/work/series-21/04-3t3a2697.jpg",
+        "title": "Still 04",
+        "alt": "Series 21 still 04"
+      },
+      {
+        "src": "./assets/work/series-21/05-3t3a2720.jpg",
+        "title": "Still 05",
+        "alt": "Series 21 still 05"
+      },
+      {
+        "src": "./assets/work/series-21/06-3t3a2732.jpg",
+        "title": "Still 06",
+        "alt": "Series 21 still 06"
+      },
+      {
+        "src": "./assets/work/series-21/07-3t3a2756.jpg",
+        "title": "Still 07",
+        "alt": "Series 21 still 07"
+      },
+      {
+        "src": "./assets/work/series-21/08-3t3a2793.jpg",
+        "title": "Still 08",
+        "alt": "Series 21 still 08"
+      },
+      {
+        "src": "./assets/work/series-21/09-3t3a2796.jpg",
+        "title": "Still 09",
+        "alt": "Series 21 still 09"
+      },
+      {
+        "src": "./assets/work/series-21/10-3t3a2798.jpg",
+        "title": "Still 10",
+        "alt": "Series 21 still 10"
+      },
+      {
+        "src": "./assets/work/series-21/11-3t3a2802.jpg",
+        "title": "Still 11",
+        "alt": "Series 21 still 11"
+      },
+      {
+        "src": "./assets/work/series-21/12-3t3a2911.jpg",
+        "title": "Still 12",
+        "alt": "Series 21 still 12"
+      }
+    ]
   },
   {
-    id: "series-25",
-    title: "Series 25",
-    meta: "24 stills",
-    cover: "./assets/work/series-25/01-v0a9631.jpg",
-    images: [
-      { src: "./assets/work/series-25/01-v0a9631.jpg", title: "Still 01", alt: "Series 25 still 01" },
-      { src: "./assets/work/series-25/02-v0a9645.jpg", title: "Still 02", alt: "Series 25 still 02" },
-      { src: "./assets/work/series-25/03-v0a9650.jpg", title: "Still 03", alt: "Series 25 still 03" },
-      { src: "./assets/work/series-25/04-v0a9661.jpg", title: "Still 04", alt: "Series 25 still 04" },
-      { src: "./assets/work/series-25/05-v0a9664.jpg", title: "Still 05", alt: "Series 25 still 05" },
-      { src: "./assets/work/series-25/06-v0a9669.jpg", title: "Still 06", alt: "Series 25 still 06" },
-      { src: "./assets/work/series-25/07-v0a9678.jpg", title: "Still 07", alt: "Series 25 still 07" },
-      { src: "./assets/work/series-25/08-v0a9681.jpg", title: "Still 08", alt: "Series 25 still 08" },
-      { src: "./assets/work/series-25/09-v0a9686.jpg", title: "Still 09", alt: "Series 25 still 09" },
-      { src: "./assets/work/series-25/10-v0a9691.jpg", title: "Still 10", alt: "Series 25 still 10" },
-      { src: "./assets/work/series-25/11-v0a9692.jpg", title: "Still 11", alt: "Series 25 still 11" },
-      { src: "./assets/work/series-25/12-v0a9696.jpg", title: "Still 12", alt: "Series 25 still 12" },
-      { src: "./assets/work/series-25/13-v0a969m6.jpg", title: "Still 13", alt: "Series 25 still 13" },
-      { src: "./assets/work/series-25/14-v0a9719.jpg", title: "Still 14", alt: "Series 25 still 14" },
-      { src: "./assets/work/series-25/15-v0a9731.jpg", title: "Still 15", alt: "Series 25 still 15" },
-      { src: "./assets/work/series-25/16-v0a9741.jpg", title: "Still 16", alt: "Series 25 still 16" },
-      { src: "./assets/work/series-25/17-v0a9750.jpg", title: "Still 17", alt: "Series 25 still 17" },
-      { src: "./assets/work/series-25/18-v0a9762.jpg", title: "Still 18", alt: "Series 25 still 18" },
-      { src: "./assets/work/series-25/19-v0a9763.jpg", title: "Still 19", alt: "Series 25 still 19" },
-      { src: "./assets/work/series-25/20-v0a9772.jpg", title: "Still 20", alt: "Series 25 still 20" },
-      { src: "./assets/work/series-25/21-v0a9774.jpg", title: "Still 21", alt: "Series 25 still 21" },
-      { src: "./assets/work/series-25/22-v0a9793.jpg", title: "Still 22", alt: "Series 25 still 22" },
-      { src: "./assets/work/series-25/23-v0a9813.jpg", title: "Still 23", alt: "Series 25 still 23" },
-      { src: "./assets/work/series-25/24-v0a9844.jpg", title: "Still 24", alt: "Series 25 still 24" },
-    ],
+    "id": "series-25",
+    "title": "Series 25",
+    "meta": "24 stills",
+    "cover": "./assets/work/series-25/01-v0a9631.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-25/01-v0a9631.jpg",
+        "title": "Still 01",
+        "alt": "Series 25 still 01"
+      },
+      {
+        "src": "./assets/work/series-25/02-v0a9645.jpg",
+        "title": "Still 02",
+        "alt": "Series 25 still 02"
+      },
+      {
+        "src": "./assets/work/series-25/03-v0a9650.jpg",
+        "title": "Still 03",
+        "alt": "Series 25 still 03"
+      },
+      {
+        "src": "./assets/work/series-25/04-v0a9661.jpg",
+        "title": "Still 04",
+        "alt": "Series 25 still 04"
+      },
+      {
+        "src": "./assets/work/series-25/05-v0a9664.jpg",
+        "title": "Still 05",
+        "alt": "Series 25 still 05"
+      },
+      {
+        "src": "./assets/work/series-25/06-v0a9669.jpg",
+        "title": "Still 06",
+        "alt": "Series 25 still 06"
+      },
+      {
+        "src": "./assets/work/series-25/07-v0a9678.jpg",
+        "title": "Still 07",
+        "alt": "Series 25 still 07"
+      },
+      {
+        "src": "./assets/work/series-25/08-v0a9681.jpg",
+        "title": "Still 08",
+        "alt": "Series 25 still 08"
+      },
+      {
+        "src": "./assets/work/series-25/09-v0a9686.jpg",
+        "title": "Still 09",
+        "alt": "Series 25 still 09"
+      },
+      {
+        "src": "./assets/work/series-25/10-v0a9691.jpg",
+        "title": "Still 10",
+        "alt": "Series 25 still 10"
+      },
+      {
+        "src": "./assets/work/series-25/11-v0a9692.jpg",
+        "title": "Still 11",
+        "alt": "Series 25 still 11"
+      },
+      {
+        "src": "./assets/work/series-25/12-v0a9696.jpg",
+        "title": "Still 12",
+        "alt": "Series 25 still 12"
+      },
+      {
+        "src": "./assets/work/series-25/13-v0a969m6.jpg",
+        "title": "Still 13",
+        "alt": "Series 25 still 13"
+      },
+      {
+        "src": "./assets/work/series-25/14-v0a9719.jpg",
+        "title": "Still 14",
+        "alt": "Series 25 still 14"
+      },
+      {
+        "src": "./assets/work/series-25/15-v0a9731.jpg",
+        "title": "Still 15",
+        "alt": "Series 25 still 15"
+      },
+      {
+        "src": "./assets/work/series-25/16-v0a9741.jpg",
+        "title": "Still 16",
+        "alt": "Series 25 still 16"
+      },
+      {
+        "src": "./assets/work/series-25/17-v0a9750.jpg",
+        "title": "Still 17",
+        "alt": "Series 25 still 17"
+      },
+      {
+        "src": "./assets/work/series-25/18-v0a9762.jpg",
+        "title": "Still 18",
+        "alt": "Series 25 still 18"
+      },
+      {
+        "src": "./assets/work/series-25/19-v0a9763.jpg",
+        "title": "Still 19",
+        "alt": "Series 25 still 19"
+      },
+      {
+        "src": "./assets/work/series-25/20-v0a9772.jpg",
+        "title": "Still 20",
+        "alt": "Series 25 still 20"
+      },
+      {
+        "src": "./assets/work/series-25/21-v0a9774.jpg",
+        "title": "Still 21",
+        "alt": "Series 25 still 21"
+      },
+      {
+        "src": "./assets/work/series-25/22-v0a9793.jpg",
+        "title": "Still 22",
+        "alt": "Series 25 still 22"
+      },
+      {
+        "src": "./assets/work/series-25/23-v0a9813.jpg",
+        "title": "Still 23",
+        "alt": "Series 25 still 23"
+      },
+      {
+        "src": "./assets/work/series-25/24-v0a9844.jpg",
+        "title": "Still 24",
+        "alt": "Series 25 still 24"
+      }
+    ]
   },
   {
-    id: "series-18",
-    title: "Series 18",
-    meta: "11 stills",
-    cover: "./assets/work/series-18/01-v0a9089.jpg",
-    images: [
-      { src: "./assets/work/series-18/01-v0a9089.jpg", title: "Still 01", alt: "Series 18 still 01" },
-      { src: "./assets/work/series-18/02-v0a9098.jpg", title: "Still 02", alt: "Series 18 still 02" },
-      { src: "./assets/work/series-18/03-v0a9102.jpg", title: "Still 03", alt: "Series 18 still 03" },
-      { src: "./assets/work/series-18/04-v0a9114.jpg", title: "Still 04", alt: "Series 18 still 04" },
-      { src: "./assets/work/series-18/05-v0a9118.jpg", title: "Still 05", alt: "Series 18 still 05" },
-      { src: "./assets/work/series-18/06-v0a911m4.jpg", title: "Still 06", alt: "Series 18 still 06" },
-      { src: "./assets/work/series-18/07-v0a9185.jpg", title: "Still 07", alt: "Series 18 still 07" },
-      { src: "./assets/work/series-18/08-v0a9190.jpg", title: "Still 08", alt: "Series 18 still 08" },
-      { src: "./assets/work/series-18/09-v0a9216.jpg", title: "Still 09", alt: "Series 18 still 09" },
-      { src: "./assets/work/series-18/10-v0a9219.jpg", title: "Still 10", alt: "Series 18 still 10" },
-      { src: "./assets/work/series-18/11-v0a9243.jpg", title: "Still 11", alt: "Series 18 still 11" },
-    ],
+    "id": "series-18",
+    "title": "Series 18",
+    "meta": "11 stills",
+    "cover": "./assets/work/series-18/01-v0a9089.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-18/01-v0a9089.jpg",
+        "title": "Still 01",
+        "alt": "Series 18 still 01"
+      },
+      {
+        "src": "./assets/work/series-18/02-v0a9098-copy.jpg",
+        "title": "Still 02",
+        "alt": "Series 18 still 02"
+      },
+      {
+        "src": "./assets/work/series-18/03-v0a9102-copy.jpg",
+        "title": "Still 03",
+        "alt": "Series 18 still 03"
+      },
+      {
+        "src": "./assets/work/series-18/04-v0a9114.jpg",
+        "title": "Still 04",
+        "alt": "Series 18 still 04"
+      },
+      {
+        "src": "./assets/work/series-18/05-v0a9118.jpg",
+        "title": "Still 05",
+        "alt": "Series 18 still 05"
+      },
+      {
+        "src": "./assets/work/series-18/06-v0a911m4.jpg",
+        "title": "Still 06",
+        "alt": "Series 18 still 06"
+      },
+      {
+        "src": "./assets/work/series-18/07-v0a9185-copy.jpg",
+        "title": "Still 07",
+        "alt": "Series 18 still 07"
+      },
+      {
+        "src": "./assets/work/series-18/08-v0a9190.jpg",
+        "title": "Still 08",
+        "alt": "Series 18 still 08"
+      },
+      {
+        "src": "./assets/work/series-18/09-v0a9216-copy.jpg",
+        "title": "Still 09",
+        "alt": "Series 18 still 09"
+      },
+      {
+        "src": "./assets/work/series-18/10-v0a9219.jpg",
+        "title": "Still 10",
+        "alt": "Series 18 still 10"
+      },
+      {
+        "src": "./assets/work/series-18/11-v0a9243.jpg",
+        "title": "Still 11",
+        "alt": "Series 18 still 11"
+      }
+    ]
   },
   {
-    id: "series-12",
-    title: "Series 12",
-    meta: "9 stills",
-    cover: "./assets/work/series-12/01-dsc9904.jpg",
-    images: [
-      { src: "./assets/work/series-12/01-dsc9904.jpg", title: "Still 01", alt: "Series 12 still 01" },
-      { src: "./assets/work/series-12/02-dsc9905.jpg", title: "Still 02", alt: "Series 12 still 02" },
-      { src: "./assets/work/series-12/03-dsc9912.jpg", title: "Still 03", alt: "Series 12 still 03" },
-      { src: "./assets/work/series-12/04-dsc9916.jpg", title: "Still 04", alt: "Series 12 still 04" },
-      { src: "./assets/work/series-12/05-v0a0006.jpg", title: "Still 05", alt: "Series 12 still 05" },
-      { src: "./assets/work/series-12/06-v0a0015.jpg", title: "Still 06", alt: "Series 12 still 06" },
-      { src: "./assets/work/series-12/07-v0a0020.jpg", title: "Still 07", alt: "Series 12 still 07" },
-      { src: "./assets/work/series-12/08-v0a9920.jpg", title: "Still 08", alt: "Series 12 still 08" },
-      { src: "./assets/work/series-12/09-v0a9953-copy-2.jpg", title: "Still 09", alt: "Series 12 still 09" },
-    ],
+    "id": "series-12",
+    "title": "Series 12",
+    "meta": "16 stills",
+    "cover": "./assets/work/series-12/01-dsc9904.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-12/01-dsc9904.jpg",
+        "title": "Still 01",
+        "alt": "Series 12 still 01"
+      },
+      {
+        "src": "./assets/work/series-12/02-dsc9905.jpg",
+        "title": "Still 02",
+        "alt": "Series 12 still 02"
+      },
+      {
+        "src": "./assets/work/series-12/03-dsc9912.jpg",
+        "title": "Still 03",
+        "alt": "Series 12 still 03"
+      },
+      {
+        "src": "./assets/work/series-12/04-dsc9916.jpg",
+        "title": "Still 04",
+        "alt": "Series 12 still 04"
+      },
+      {
+        "src": "./assets/work/series-12/05-dsc9936.jpg",
+        "title": "Still 05",
+        "alt": "Series 12 still 05"
+      },
+      {
+        "src": "./assets/work/series-12/06-v0a0006.jpg",
+        "title": "Still 06",
+        "alt": "Series 12 still 06"
+      },
+      {
+        "src": "./assets/work/series-12/07-v0a0015.jpg",
+        "title": "Still 07",
+        "alt": "Series 12 still 07"
+      },
+      {
+        "src": "./assets/work/series-12/08-v0a0020.jpg",
+        "title": "Still 08",
+        "alt": "Series 12 still 08"
+      },
+      {
+        "src": "./assets/work/series-12/09-v0a9920.jpg",
+        "title": "Still 09",
+        "alt": "Series 12 still 09"
+      },
+      {
+        "src": "./assets/work/series-12/10-v0a9953-copy-2.jpg",
+        "title": "Still 10",
+        "alt": "Series 12 still 10"
+      },
+      {
+        "src": "./assets/work/series-12/11-v0a9990w.jpg",
+        "title": "Still 11",
+        "alt": "Series 12 still 11"
+      },
+      {
+        "src": "./assets/work/series-12/12-v0a9d990.jpg",
+        "title": "Still 12",
+        "alt": "Series 12 still 12"
+      },
+      {
+        "src": "./assets/work/series-12/13-img-0875.jpg",
+        "title": "Still 13",
+        "alt": "Series 12 still 13"
+      },
+      {
+        "src": "./assets/work/series-12/14-img-5714.jpg",
+        "title": "Still 14",
+        "alt": "Series 12 still 14"
+      },
+      {
+        "src": "./assets/work/series-12/15-img-5717.jpg",
+        "title": "Still 15",
+        "alt": "Series 12 still 15"
+      },
+      {
+        "src": "./assets/work/series-12/16-img-5720.jpg",
+        "title": "Still 16",
+        "alt": "Series 12 still 16"
+      }
+    ]
   },
   {
-    id: "series-07",
-    title: "Series 7",
-    meta: "5 stills",
-    cover: "./assets/work/series-07/01-img_0681.jpg",
-    images: [
-      { src: "./assets/work/series-07/01-img_0681.jpg", title: "Still 01", alt: "Series 7 still 01" },
-      { src: "./assets/work/series-07/02-img_1452.jpg", title: "Still 02", alt: "Series 7 still 02" },
-      { src: "./assets/work/series-07/03-img_1454.jpg", title: "Still 03", alt: "Series 7 still 03" },
-      { src: "./assets/work/series-07/04-img_1480.jpg", title: "Still 04", alt: "Series 7 still 04" },
-      { src: "./assets/work/series-07/05-img_1481.jpg", title: "Still 05", alt: "Series 7 still 05" },
-    ],
+    "id": "series-07",
+    "title": "Series 7",
+    "meta": "5 stills",
+    "cover": "./assets/work/series-07/01-img-0681.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-07/01-img-0681.jpg",
+        "title": "Still 01",
+        "alt": "Series 7 still 01"
+      },
+      {
+        "src": "./assets/work/series-07/02-img-1452.jpg",
+        "title": "Still 02",
+        "alt": "Series 7 still 02"
+      },
+      {
+        "src": "./assets/work/series-07/03-img-1454.jpg",
+        "title": "Still 03",
+        "alt": "Series 7 still 03"
+      },
+      {
+        "src": "./assets/work/series-07/04-img-1480.jpg",
+        "title": "Still 04",
+        "alt": "Series 7 still 04"
+      },
+      {
+        "src": "./assets/work/series-07/05-img-1481.jpg",
+        "title": "Still 05",
+        "alt": "Series 7 still 05"
+      }
+    ]
   },
   {
-    id: "series-24",
-    title: "Series 24",
-    meta: "11 stills",
-    cover: "./assets/work/series-24/01-v0a7565.jpg",
-    images: [
-      { src: "./assets/work/series-24/01-v0a7565.jpg", title: "Still 01", alt: "Series 24 still 01" },
-      { src: "./assets/work/series-24/02-v0a7565n.jpg", title: "Still 02", alt: "Series 24 still 02" },
-      { src: "./assets/work/series-24/03-v0a7583.jpg", title: "Still 03", alt: "Series 24 still 03" },
-      { src: "./assets/work/series-24/04-v0a7592.jpg", title: "Still 04", alt: "Series 24 still 04" },
-      { src: "./assets/work/series-24/05-v0a7592-2.jpg", title: "Still 05", alt: "Series 24 still 05" },
-      { src: "./assets/work/series-24/06-v0a7613.jpg", title: "Still 06", alt: "Series 24 still 06" },
-      { src: "./assets/work/series-24/07-v0a7625.jpg", title: "Still 07", alt: "Series 24 still 07" },
-      { src: "./assets/work/series-24/08-v0a7628.jpg", title: "Still 08", alt: "Series 24 still 08" },
-      { src: "./assets/work/series-24/09-v0a7658.jpg", title: "Still 09", alt: "Series 24 still 09" },
-      { src: "./assets/work/series-24/10-img_4112.jpg", title: "Still 10", alt: "Series 24 still 10" },
-      { src: "./assets/work/series-24/11-img_4113.jpg", title: "Still 11", alt: "Series 24 still 11" },
-    ],
+    "id": "series-24",
+    "title": "Series 24",
+    "meta": "11 stills",
+    "cover": "./assets/work/series-24/01-v0a7565.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-24/01-v0a7565.jpg",
+        "title": "Still 01",
+        "alt": "Series 24 still 01"
+      },
+      {
+        "src": "./assets/work/series-24/02-v0a7565n.jpg",
+        "title": "Still 02",
+        "alt": "Series 24 still 02"
+      },
+      {
+        "src": "./assets/work/series-24/03-v0a7583.jpg",
+        "title": "Still 03",
+        "alt": "Series 24 still 03"
+      },
+      {
+        "src": "./assets/work/series-24/04-v0a7592-2.jpg",
+        "title": "Still 04",
+        "alt": "Series 24 still 04"
+      },
+      {
+        "src": "./assets/work/series-24/05-v0a7592.jpg",
+        "title": "Still 05",
+        "alt": "Series 24 still 05"
+      },
+      {
+        "src": "./assets/work/series-24/06-v0a7613.jpg",
+        "title": "Still 06",
+        "alt": "Series 24 still 06"
+      },
+      {
+        "src": "./assets/work/series-24/07-v0a7625.jpg",
+        "title": "Still 07",
+        "alt": "Series 24 still 07"
+      },
+      {
+        "src": "./assets/work/series-24/08-v0a7628.jpg",
+        "title": "Still 08",
+        "alt": "Series 24 still 08"
+      },
+      {
+        "src": "./assets/work/series-24/09-v0a7658.jpg",
+        "title": "Still 09",
+        "alt": "Series 24 still 09"
+      },
+      {
+        "src": "./assets/work/series-24/10-img-4112.jpg",
+        "title": "Still 10",
+        "alt": "Series 24 still 10"
+      },
+      {
+        "src": "./assets/work/series-24/11-img-4113.jpg",
+        "title": "Still 11",
+        "alt": "Series 24 still 11"
+      }
+    ]
   },
   {
-    id: "series-06",
-    title: "Series 6",
-    meta: "8 stills",
-    cover: "./assets/work/series-06/01-v0a6590.jpg",
-    images: [
-      { src: "./assets/work/series-06/01-v0a6590.jpg", title: "Still 01", alt: "Series 6 still 01" },
-      { src: "./assets/work/series-06/02-v0a6599.jpg", title: "Still 02", alt: "Series 6 still 02" },
-      { src: "./assets/work/series-06/03-v0a6604.jpg", title: "Still 03", alt: "Series 6 still 03" },
-      { src: "./assets/work/series-06/04-v0a6609.jpg", title: "Still 04", alt: "Series 6 still 04" },
-      { src: "./assets/work/series-06/05-v0a6624.jpg", title: "Still 05", alt: "Series 6 still 05" },
-      { src: "./assets/work/series-06/06-v0a6626.jpg", title: "Still 06", alt: "Series 6 still 06" },
-      { src: "./assets/work/series-06/07-v0a6632.jpg", title: "Still 07", alt: "Series 6 still 07" },
-      { src: "./assets/work/series-06/08-v0a6635.jpg", title: "Still 08", alt: "Series 6 still 08" },
-    ],
+    "id": "series-06",
+    "title": "Series 6",
+    "meta": "8 stills",
+    "cover": "./assets/work/series-06/01-v0a6590.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-06/01-v0a6590.jpg",
+        "title": "Still 01",
+        "alt": "Series 6 still 01"
+      },
+      {
+        "src": "./assets/work/series-06/02-v0a6599.jpg",
+        "title": "Still 02",
+        "alt": "Series 6 still 02"
+      },
+      {
+        "src": "./assets/work/series-06/03-v0a6604.jpg",
+        "title": "Still 03",
+        "alt": "Series 6 still 03"
+      },
+      {
+        "src": "./assets/work/series-06/04-v0a6609.jpg",
+        "title": "Still 04",
+        "alt": "Series 6 still 04"
+      },
+      {
+        "src": "./assets/work/series-06/05-v0a6624.jpg",
+        "title": "Still 05",
+        "alt": "Series 6 still 05"
+      },
+      {
+        "src": "./assets/work/series-06/06-v0a6626.jpg",
+        "title": "Still 06",
+        "alt": "Series 6 still 06"
+      },
+      {
+        "src": "./assets/work/series-06/07-v0a6632.jpg",
+        "title": "Still 07",
+        "alt": "Series 6 still 07"
+      },
+      {
+        "src": "./assets/work/series-06/08-v0a6635.jpg",
+        "title": "Still 08",
+        "alt": "Series 6 still 08"
+      }
+    ]
   },
   {
-    id: "series-28",
-    title: "Series 28",
-    meta: "10 stills",
-    cover: "./assets/work/series-28/01-v0a1053.jpg",
-    images: [
-      { src: "./assets/work/series-28/01-v0a1053.jpg", title: "Still 01", alt: "Series 28 still 01" },
-      { src: "./assets/work/series-28/02-v0a1099d.jpg", title: "Still 02", alt: "Series 28 still 02" },
-      { src: "./assets/work/series-28/03-v0a1359.jpg", title: "Still 03", alt: "Series 28 still 03" },
-      { src: "./assets/work/series-28/04-v0a1434.jpg", title: "Still 04", alt: "Series 28 still 04" },
-      { src: "./assets/work/series-28/05-v0a1507.jpg", title: "Still 05", alt: "Series 28 still 05" },
-      { src: "./assets/work/series-28/06-v0a1785.jpg", title: "Still 06", alt: "Series 28 still 06" },
-      { src: "./assets/work/series-28/07-v0a1852.jpg", title: "Still 07", alt: "Series 28 still 07" },
-      { src: "./assets/work/series-28/08-v0a1878.jpg", title: "Still 08", alt: "Series 28 still 08" },
-      { src: "./assets/work/series-28/09-v0a1881.jpg", title: "Still 09", alt: "Series 28 still 09" },
-      { src: "./assets/work/series-28/10-v0a1882.jpg", title: "Still 10", alt: "Series 28 still 10" },
-    ],
+    "id": "series-28",
+    "title": "Series 28",
+    "meta": "10 stills",
+    "cover": "./assets/work/series-28/01-v0a1053.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-28/01-v0a1053.jpg",
+        "title": "Still 01",
+        "alt": "Series 28 still 01"
+      },
+      {
+        "src": "./assets/work/series-28/02-v0a1099d.jpg",
+        "title": "Still 02",
+        "alt": "Series 28 still 02"
+      },
+      {
+        "src": "./assets/work/series-28/03-v0a1359.jpg",
+        "title": "Still 03",
+        "alt": "Series 28 still 03"
+      },
+      {
+        "src": "./assets/work/series-28/04-v0a1434.jpg",
+        "title": "Still 04",
+        "alt": "Series 28 still 04"
+      },
+      {
+        "src": "./assets/work/series-28/05-v0a1507.jpg",
+        "title": "Still 05",
+        "alt": "Series 28 still 05"
+      },
+      {
+        "src": "./assets/work/series-28/06-v0a1785.jpg",
+        "title": "Still 06",
+        "alt": "Series 28 still 06"
+      },
+      {
+        "src": "./assets/work/series-28/07-v0a1852-copy.jpg",
+        "title": "Still 07",
+        "alt": "Series 28 still 07"
+      },
+      {
+        "src": "./assets/work/series-28/08-v0a1878.jpg",
+        "title": "Still 08",
+        "alt": "Series 28 still 08"
+      },
+      {
+        "src": "./assets/work/series-28/09-v0a1881.jpg",
+        "title": "Still 09",
+        "alt": "Series 28 still 09"
+      },
+      {
+        "src": "./assets/work/series-28/10-v0a1882.jpg",
+        "title": "Still 10",
+        "alt": "Series 28 still 10"
+      }
+    ]
   },
   {
-    id: "series-04",
-    title: "Series 4",
-    meta: "7 stills",
-    cover: "./assets/work/series-04/01-ebvintage.jpg",
-    images: [
-      { src: "./assets/work/series-04/01-ebvintage.jpg", title: "Still 01", alt: "Series 4 still 01" },
-      { src: "./assets/work/series-04/02-img_6337.jpg", title: "Still 02", alt: "Series 4 still 02" },
-      { src: "./assets/work/series-04/03-img_6342.jpg", title: "Still 03", alt: "Series 4 still 03" },
-      { src: "./assets/work/series-04/04-img_6345.jpg", title: "Still 04", alt: "Series 4 still 04" },
-      { src: "./assets/work/series-04/05-img_6346.jpg", title: "Still 05", alt: "Series 4 still 05" },
-      { src: "./assets/work/series-04/06-img_6347.jpg", title: "Still 06", alt: "Series 4 still 06" },
-      { src: "./assets/work/series-04/07-img_6348.jpg", title: "Still 07", alt: "Series 4 still 07" },
-    ],
+    "id": "series-04",
+    "title": "Series 4",
+    "meta": "7 stills",
+    "cover": "./assets/work/series-04/01-ebvintage.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-04/01-ebvintage.jpg",
+        "title": "Still 01",
+        "alt": "Series 4 still 01"
+      },
+      {
+        "src": "./assets/work/series-04/02-img-6337.jpg",
+        "title": "Still 02",
+        "alt": "Series 4 still 02"
+      },
+      {
+        "src": "./assets/work/series-04/03-img-6342.jpg",
+        "title": "Still 03",
+        "alt": "Series 4 still 03"
+      },
+      {
+        "src": "./assets/work/series-04/04-img-6345.jpg",
+        "title": "Still 04",
+        "alt": "Series 4 still 04"
+      },
+      {
+        "src": "./assets/work/series-04/05-img-6346.jpg",
+        "title": "Still 05",
+        "alt": "Series 4 still 05"
+      },
+      {
+        "src": "./assets/work/series-04/06-img-6347.jpg",
+        "title": "Still 06",
+        "alt": "Series 4 still 06"
+      },
+      {
+        "src": "./assets/work/series-04/07-img-6348.jpg",
+        "title": "Still 07",
+        "alt": "Series 4 still 07"
+      }
+    ]
   },
   {
-    id: "series-17",
-    title: "Series 17",
-    meta: "7 stills",
-    cover: "./assets/work/series-17/01-v0a1689.jpg",
-    images: [
-      { src: "./assets/work/series-17/01-v0a1689.jpg", title: "Still 01", alt: "Series 17 still 01" },
-      { src: "./assets/work/series-17/02-v0a1690.jpg", title: "Still 02", alt: "Series 17 still 02" },
-      { src: "./assets/work/series-17/03-v0a1734.jpg", title: "Still 03", alt: "Series 17 still 03" },
-      { src: "./assets/work/series-17/04-v0a1739.jpg", title: "Still 04", alt: "Series 17 still 04" },
-      { src: "./assets/work/series-17/05-v0a1744.jpg", title: "Still 05", alt: "Series 17 still 05" },
-      { src: "./assets/work/series-17/06-v0a1769.jpg", title: "Still 06", alt: "Series 17 still 06" },
-      { src: "./assets/work/series-17/07-v0a1821.jpg", title: "Still 07", alt: "Series 17 still 07" },
-    ],
+    "id": "series-17",
+    "title": "Series 17",
+    "meta": "7 stills",
+    "cover": "./assets/work/series-17/01-v0a1689.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-17/01-v0a1689.jpg",
+        "title": "Still 01",
+        "alt": "Series 17 still 01"
+      },
+      {
+        "src": "./assets/work/series-17/02-v0a1690.jpg",
+        "title": "Still 02",
+        "alt": "Series 17 still 02"
+      },
+      {
+        "src": "./assets/work/series-17/03-v0a1734.jpg",
+        "title": "Still 03",
+        "alt": "Series 17 still 03"
+      },
+      {
+        "src": "./assets/work/series-17/04-v0a1739.jpg",
+        "title": "Still 04",
+        "alt": "Series 17 still 04"
+      },
+      {
+        "src": "./assets/work/series-17/05-v0a1744.jpg",
+        "title": "Still 05",
+        "alt": "Series 17 still 05"
+      },
+      {
+        "src": "./assets/work/series-17/06-v0a1769.jpg",
+        "title": "Still 06",
+        "alt": "Series 17 still 06"
+      },
+      {
+        "src": "./assets/work/series-17/07-v0a1821.jpg",
+        "title": "Still 07",
+        "alt": "Series 17 still 07"
+      }
+    ]
   },
   {
-    id: "series-23",
-    title: "Series 23",
-    meta: "20 stills",
-    cover: "./assets/work/series-23/01-v0a9947.jpg",
-    images: [
-      { src: "./assets/work/series-23/01-v0a9947.jpg", title: "Still 01", alt: "Series 23 still 01" },
-      { src: "./assets/work/series-23/02-v0a9949.jpg", title: "Still 02", alt: "Series 23 still 02" },
-      { src: "./assets/work/series-23/03-v0a9952.jpg", title: "Still 03", alt: "Series 23 still 03" },
-      { src: "./assets/work/series-23/04-v0a9953.jpg", title: "Still 04", alt: "Series 23 still 04" },
-      { src: "./assets/work/series-23/05-v0a9955.jpg", title: "Still 05", alt: "Series 23 still 05" },
-      { src: "./assets/work/series-23/06-v0a9960.jpg", title: "Still 06", alt: "Series 23 still 06" },
-      { src: "./assets/work/series-23/07-v0a9961.jpg", title: "Still 07", alt: "Series 23 still 07" },
-      { src: "./assets/work/series-23/08-v0a9964.jpg", title: "Still 08", alt: "Series 23 still 08" },
-      { src: "./assets/work/series-23/09-v0a9966.jpg", title: "Still 09", alt: "Series 23 still 09" },
-      { src: "./assets/work/series-23/10-v0a9967.jpg", title: "Still 10", alt: "Series 23 still 10" },
-      { src: "./assets/work/series-23/11-v0a9969.jpg", title: "Still 11", alt: "Series 23 still 11" },
-      { src: "./assets/work/series-23/12-v0a9970.jpg", title: "Still 12", alt: "Series 23 still 12" },
-      { src: "./assets/work/series-23/13-v0a9974.jpg", title: "Still 13", alt: "Series 23 still 13" },
-      { src: "./assets/work/series-23/14-v0a9978.jpg", title: "Still 14", alt: "Series 23 still 14" },
-      { src: "./assets/work/series-23/15-v0a9982.jpg", title: "Still 15", alt: "Series 23 still 15" },
-      { src: "./assets/work/series-23/16-v0a9984.jpg", title: "Still 16", alt: "Series 23 still 16" },
-      { src: "./assets/work/series-23/17-v0a9987.jpg", title: "Still 17", alt: "Series 23 still 17" },
-      { src: "./assets/work/series-23/18-v0a9988.jpg", title: "Still 18", alt: "Series 23 still 18" },
-      { src: "./assets/work/series-23/19-v0a9993.jpg", title: "Still 19", alt: "Series 23 still 19" },
-      { src: "./assets/work/series-23/20-black-and-white.jpg", title: "Still 20", alt: "Series 23 still 20" },
-    ],
+    "id": "series-23",
+    "title": "Series 23",
+    "meta": "20 stills",
+    "cover": "./assets/work/series-23/01-v0a9947.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-23/01-v0a9947.jpg",
+        "title": "Still 01",
+        "alt": "Series 23 still 01"
+      },
+      {
+        "src": "./assets/work/series-23/02-v0a9949.jpg",
+        "title": "Still 02",
+        "alt": "Series 23 still 02"
+      },
+      {
+        "src": "./assets/work/series-23/03-v0a9952.jpg",
+        "title": "Still 03",
+        "alt": "Series 23 still 03"
+      },
+      {
+        "src": "./assets/work/series-23/04-v0a9953.jpg",
+        "title": "Still 04",
+        "alt": "Series 23 still 04"
+      },
+      {
+        "src": "./assets/work/series-23/05-v0a9955.jpg",
+        "title": "Still 05",
+        "alt": "Series 23 still 05"
+      },
+      {
+        "src": "./assets/work/series-23/06-v0a9960.jpg",
+        "title": "Still 06",
+        "alt": "Series 23 still 06"
+      },
+      {
+        "src": "./assets/work/series-23/07-v0a9961.jpg",
+        "title": "Still 07",
+        "alt": "Series 23 still 07"
+      },
+      {
+        "src": "./assets/work/series-23/08-v0a9964.jpg",
+        "title": "Still 08",
+        "alt": "Series 23 still 08"
+      },
+      {
+        "src": "./assets/work/series-23/09-v0a9966.jpg",
+        "title": "Still 09",
+        "alt": "Series 23 still 09"
+      },
+      {
+        "src": "./assets/work/series-23/10-v0a9967.jpg",
+        "title": "Still 10",
+        "alt": "Series 23 still 10"
+      },
+      {
+        "src": "./assets/work/series-23/11-v0a9969.jpg",
+        "title": "Still 11",
+        "alt": "Series 23 still 11"
+      },
+      {
+        "src": "./assets/work/series-23/12-v0a9970.jpg",
+        "title": "Still 12",
+        "alt": "Series 23 still 12"
+      },
+      {
+        "src": "./assets/work/series-23/13-v0a9974.jpg",
+        "title": "Still 13",
+        "alt": "Series 23 still 13"
+      },
+      {
+        "src": "./assets/work/series-23/14-v0a9978.jpg",
+        "title": "Still 14",
+        "alt": "Series 23 still 14"
+      },
+      {
+        "src": "./assets/work/series-23/15-v0a9982.jpg",
+        "title": "Still 15",
+        "alt": "Series 23 still 15"
+      },
+      {
+        "src": "./assets/work/series-23/16-v0a9984.jpg",
+        "title": "Still 16",
+        "alt": "Series 23 still 16"
+      },
+      {
+        "src": "./assets/work/series-23/17-v0a9987.jpg",
+        "title": "Still 17",
+        "alt": "Series 23 still 17"
+      },
+      {
+        "src": "./assets/work/series-23/18-v0a9988.jpg",
+        "title": "Still 18",
+        "alt": "Series 23 still 18"
+      },
+      {
+        "src": "./assets/work/series-23/19-v0a9993.jpg",
+        "title": "Still 19",
+        "alt": "Series 23 still 19"
+      },
+      {
+        "src": "./assets/work/series-23/20-black-and-white.jpg",
+        "title": "Still 20",
+        "alt": "Series 23 still 20"
+      }
+    ]
   },
   {
-    id: "series-08",
-    title: "Series 8",
-    meta: "6 stills",
-    cover: "./assets/work/series-08/01-av0a124oo5.jpg",
-    images: [
-      { src: "./assets/work/series-08/01-av0a124oo5.jpg", title: "Still 01", alt: "Series 8 still 01" },
-      { src: "./assets/work/series-08/02-av0a1kj245.jpg", title: "Still 02", alt: "Series 8 still 02" },
-      { src: "./assets/work/series-08/03-av0ako1245.jpg", title: "Still 03", alt: "Series 8 still 03" },
-      { src: "./assets/work/series-08/04-av0apo1245.jpg", title: "Still 04", alt: "Series 8 still 04" },
-      { src: "./assets/work/series-08/05-av0na1245.jpg", title: "Still 05", alt: "Series 8 still 05" },
-      { src: "./assets/work/series-08/06-avhu0a1245.jpg", title: "Still 06", alt: "Series 8 still 06" },
-    ],
+    "id": "series-08",
+    "title": "Series 8",
+    "meta": "6 stills",
+    "cover": "./assets/work/series-08/01-av0a124oo5.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-08/01-av0a124oo5.jpg",
+        "title": "Still 01",
+        "alt": "Series 8 still 01"
+      },
+      {
+        "src": "./assets/work/series-08/02-av0a1kj245.jpg",
+        "title": "Still 02",
+        "alt": "Series 8 still 02"
+      },
+      {
+        "src": "./assets/work/series-08/03-av0ako1245.jpg",
+        "title": "Still 03",
+        "alt": "Series 8 still 03"
+      },
+      {
+        "src": "./assets/work/series-08/04-av0apo1245.jpg",
+        "title": "Still 04",
+        "alt": "Series 8 still 04"
+      },
+      {
+        "src": "./assets/work/series-08/05-av0na1245.jpg",
+        "title": "Still 05",
+        "alt": "Series 8 still 05"
+      },
+      {
+        "src": "./assets/work/series-08/06-avhu0a1245.jpg",
+        "title": "Still 06",
+        "alt": "Series 8 still 06"
+      }
+    ]
   },
   {
-    id: "series-20",
-    title: "Series 20",
-    meta: "4 stills",
-    cover: "./assets/work/series-20/01-v0a7531.jpg",
-    images: [
-      { src: "./assets/work/series-20/01-v0a7531.jpg", title: "Still 01", alt: "Series 20 still 01" },
-      { src: "./assets/work/series-20/02-v0a7535.jpg", title: "Still 02", alt: "Series 20 still 02" },
-      { src: "./assets/work/series-20/03-v0a7573.jpg", title: "Still 03", alt: "Series 20 still 03" },
-      { src: "./assets/work/series-20/04-v0a7599.jpg", title: "Still 04", alt: "Series 20 still 04" },
-    ],
+    "id": "series-20",
+    "title": "Series 20",
+    "meta": "4 stills",
+    "cover": "./assets/work/series-20/01-v0a7531.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-20/01-v0a7531.jpg",
+        "title": "Still 01",
+        "alt": "Series 20 still 01"
+      },
+      {
+        "src": "./assets/work/series-20/02-v0a7535.jpg",
+        "title": "Still 02",
+        "alt": "Series 20 still 02"
+      },
+      {
+        "src": "./assets/work/series-20/03-v0a7573.jpg",
+        "title": "Still 03",
+        "alt": "Series 20 still 03"
+      },
+      {
+        "src": "./assets/work/series-20/04-v0a7599.jpg",
+        "title": "Still 04",
+        "alt": "Series 20 still 04"
+      }
+    ]
   },
   {
-    id: "series-26",
-    title: "Series 26",
-    meta: "11 stills",
-    cover: "./assets/work/series-26/01-v0a0805.jpg",
-    images: [
-      { src: "./assets/work/series-26/01-v0a0805.jpg", title: "Still 01", alt: "Series 26 still 01" },
-      { src: "./assets/work/series-26/02-v0a0832.jpg", title: "Still 02", alt: "Series 26 still 02" },
-      { src: "./assets/work/series-26/03-v0a0840.jpg", title: "Still 03", alt: "Series 26 still 03" },
-      { src: "./assets/work/series-26/04-v0a0993.jpg", title: "Still 04", alt: "Series 26 still 04" },
-      { src: "./assets/work/series-26/05-v0a0996.jpg", title: "Still 05", alt: "Series 26 still 05" },
-      { src: "./assets/work/series-26/06-v0a1033.jpg", title: "Still 06", alt: "Series 26 still 06" },
-      { src: "./assets/work/series-26/07-m1.jpg", title: "Still 07", alt: "Series 26 still 07" },
-      { src: "./assets/work/series-26/08-m2copy.jpg", title: "Still 08", alt: "Series 26 still 08" },
-      { src: "./assets/work/series-26/09-m3copy.jpg", title: "Still 09", alt: "Series 26 still 09" },
-      { src: "./assets/work/series-26/10-m5copy.jpg", title: "Still 10", alt: "Series 26 still 10" },
-      { src: "./assets/work/series-26/11-m6copyy.jpg", title: "Still 11", alt: "Series 26 still 11" },
-    ],
+    "id": "series-26",
+    "title": "Series 26",
+    "meta": "11 stills",
+    "cover": "./assets/work/series-26/01-v0a0805.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-26/01-v0a0805.jpg",
+        "title": "Still 01",
+        "alt": "Series 26 still 01"
+      },
+      {
+        "src": "./assets/work/series-26/02-v0a0832.jpg",
+        "title": "Still 02",
+        "alt": "Series 26 still 02"
+      },
+      {
+        "src": "./assets/work/series-26/03-v0a0840.jpg",
+        "title": "Still 03",
+        "alt": "Series 26 still 03"
+      },
+      {
+        "src": "./assets/work/series-26/04-v0a0993.jpg",
+        "title": "Still 04",
+        "alt": "Series 26 still 04"
+      },
+      {
+        "src": "./assets/work/series-26/05-v0a0996.jpg",
+        "title": "Still 05",
+        "alt": "Series 26 still 05"
+      },
+      {
+        "src": "./assets/work/series-26/06-v0a1033.jpg",
+        "title": "Still 06",
+        "alt": "Series 26 still 06"
+      },
+      {
+        "src": "./assets/work/series-26/07-m1-copy.jpg",
+        "title": "Still 07",
+        "alt": "Series 26 still 07"
+      },
+      {
+        "src": "./assets/work/series-26/08-m2copy.jpg",
+        "title": "Still 08",
+        "alt": "Series 26 still 08"
+      },
+      {
+        "src": "./assets/work/series-26/09-m3copy.jpg",
+        "title": "Still 09",
+        "alt": "Series 26 still 09"
+      },
+      {
+        "src": "./assets/work/series-26/10-m5copy.jpg",
+        "title": "Still 10",
+        "alt": "Series 26 still 10"
+      },
+      {
+        "src": "./assets/work/series-26/11-m6copyy.jpg",
+        "title": "Still 11",
+        "alt": "Series 26 still 11"
+      }
+    ]
   },
   {
-    id: "series-01",
-    title: "Series 1",
-    meta: "13 stills",
-    cover: "./assets/work/series-01/01-final.jpg",
-    images: [
-      { src: "./assets/work/series-01/01-final.jpg", title: "Still 01", alt: "Series 1 still 01" },
-      { src: "./assets/work/series-01/02-final2.jpg", title: "Still 02", alt: "Series 1 still 02" },
-      { src: "./assets/work/series-01/03-final3.jpg", title: "Still 03", alt: "Series 1 still 03" },
-      { src: "./assets/work/series-01/04-final4.jpg", title: "Still 04", alt: "Series 1 still 04" },
-      { src: "./assets/work/series-01/05-final5.jpg", title: "Still 05", alt: "Series 1 still 05" },
-      { src: "./assets/work/series-01/06-dsc8327.jpg", title: "Still 06", alt: "Series 1 still 06" },
-      { src: "./assets/work/series-01/07-dsc8381.jpg", title: "Still 07", alt: "Series 1 still 07" },
-      { src: "./assets/work/series-01/08-dsc8391.jpg", title: "Still 08", alt: "Series 1 still 08" },
-      { src: "./assets/work/series-01/09-dsc8399.jpg", title: "Still 09", alt: "Series 1 still 09" },
-      { src: "./assets/work/series-01/10-dsc8454.jpg", title: "Still 10", alt: "Series 1 still 10" },
-      { src: "./assets/work/series-01/11-dsc8536.jpg", title: "Still 11", alt: "Series 1 still 11" },
-      { src: "./assets/work/series-01/12-dsc8566.jpg", title: "Still 12", alt: "Series 1 still 12" },
-      { src: "./assets/work/series-01/13-dsc8588.jpg", title: "Still 13", alt: "Series 1 still 13" },
-    ],
+    "id": "series-01",
+    "title": "Series 1",
+    "meta": "13 stills",
+    "cover": "./assets/work/series-01/01-dsc8327.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-01/01-dsc8327.jpg",
+        "title": "Still 01",
+        "alt": "Series 1 still 01"
+      },
+      {
+        "src": "./assets/work/series-01/02-dsc8381.jpg",
+        "title": "Still 02",
+        "alt": "Series 1 still 02"
+      },
+      {
+        "src": "./assets/work/series-01/03-dsc8391.jpg",
+        "title": "Still 03",
+        "alt": "Series 1 still 03"
+      },
+      {
+        "src": "./assets/work/series-01/04-dsc8399.jpg",
+        "title": "Still 04",
+        "alt": "Series 1 still 04"
+      },
+      {
+        "src": "./assets/work/series-01/05-dsc8454.jpg",
+        "title": "Still 05",
+        "alt": "Series 1 still 05"
+      },
+      {
+        "src": "./assets/work/series-01/06-dsc8536.jpg",
+        "title": "Still 06",
+        "alt": "Series 1 still 06"
+      },
+      {
+        "src": "./assets/work/series-01/07-dsc8566-copy.jpg",
+        "title": "Still 07",
+        "alt": "Series 1 still 07"
+      },
+      {
+        "src": "./assets/work/series-01/08-dsc8588.jpg",
+        "title": "Still 08",
+        "alt": "Series 1 still 08"
+      },
+      {
+        "src": "./assets/work/series-01/09-final.jpg",
+        "title": "Still 09",
+        "alt": "Series 1 still 09"
+      },
+      {
+        "src": "./assets/work/series-01/10-final2.jpg",
+        "title": "Still 10",
+        "alt": "Series 1 still 10"
+      },
+      {
+        "src": "./assets/work/series-01/11-final3.jpg",
+        "title": "Still 11",
+        "alt": "Series 1 still 11"
+      },
+      {
+        "src": "./assets/work/series-01/12-final4.jpg",
+        "title": "Still 12",
+        "alt": "Series 1 still 12"
+      },
+      {
+        "src": "./assets/work/series-01/13-final5.jpg",
+        "title": "Still 13",
+        "alt": "Series 1 still 13"
+      }
+    ]
   },
   {
-    id: "series-27",
-    title: "Series 27",
-    meta: "19 stills",
-    cover: "./assets/work/series-27/01-47460001.jpg",
-    images: [
-      { src: "./assets/work/series-27/01-47460001.jpg", title: "Still 01", alt: "Series 27 still 01" },
-      { src: "./assets/work/series-27/02-47460002.jpg", title: "Still 02", alt: "Series 27 still 02" },
-      { src: "./assets/work/series-27/03-47470009.jpg", title: "Still 03", alt: "Series 27 still 03" },
-      { src: "./assets/work/series-27/04-47470010.jpg", title: "Still 04", alt: "Series 27 still 04" },
-      { src: "./assets/work/series-27/05-47480001.jpg", title: "Still 05", alt: "Series 27 still 05" },
-      { src: "./assets/work/series-27/06-47480002.jpg", title: "Still 06", alt: "Series 27 still 06" },
-      { src: "./assets/work/series-27/07-47480003.jpg", title: "Still 07", alt: "Series 27 still 07" },
-      { src: "./assets/work/series-27/08-47480005.jpg", title: "Still 08", alt: "Series 27 still 08" },
-      { src: "./assets/work/series-27/09-47480023.jpg", title: "Still 09", alt: "Series 27 still 09" },
-      { src: "./assets/work/series-27/10-v0a7849.jpg", title: "Still 10", alt: "Series 27 still 10" },
-      { src: "./assets/work/series-27/11-v0a7913.jpg", title: "Still 11", alt: "Series 27 still 11" },
-      { src: "./assets/work/series-27/12-v0a8224.jpg", title: "Still 12", alt: "Series 27 still 12" },
-      { src: "./assets/work/series-27/13-v0a8241.jpg", title: "Still 13", alt: "Series 27 still 13" },
-      { src: "./assets/work/series-27/14-v0a8242.jpg", title: "Still 14", alt: "Series 27 still 14" },
-      { src: "./assets/work/series-27/15-v0a8251.jpg", title: "Still 15", alt: "Series 27 still 15" },
-      { src: "./assets/work/series-27/16-v0a8267.jpg", title: "Still 16", alt: "Series 27 still 16" },
-      { src: "./assets/work/series-27/17-v0a8274.jpg", title: "Still 17", alt: "Series 27 still 17" },
-      { src: "./assets/work/series-27/18-img_3595.jpg", title: "Still 18", alt: "Series 27 still 18" },
-      { src: "./assets/work/series-27/19-img_3851.jpg", title: "Still 19", alt: "Series 27 still 19" },
-    ],
+    "id": "series-27",
+    "title": "Series 27",
+    "meta": "19 stills",
+    "cover": "./assets/work/series-27/01-47460001.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-27/01-47460001.jpg",
+        "title": "Still 01",
+        "alt": "Series 27 still 01"
+      },
+      {
+        "src": "./assets/work/series-27/02-47460002.jpg",
+        "title": "Still 02",
+        "alt": "Series 27 still 02"
+      },
+      {
+        "src": "./assets/work/series-27/03-47470009.jpg",
+        "title": "Still 03",
+        "alt": "Series 27 still 03"
+      },
+      {
+        "src": "./assets/work/series-27/04-47470010.jpg",
+        "title": "Still 04",
+        "alt": "Series 27 still 04"
+      },
+      {
+        "src": "./assets/work/series-27/05-47480001.jpg",
+        "title": "Still 05",
+        "alt": "Series 27 still 05"
+      },
+      {
+        "src": "./assets/work/series-27/06-47480002.jpg",
+        "title": "Still 06",
+        "alt": "Series 27 still 06"
+      },
+      {
+        "src": "./assets/work/series-27/07-47480003.jpg",
+        "title": "Still 07",
+        "alt": "Series 27 still 07"
+      },
+      {
+        "src": "./assets/work/series-27/08-47480005.jpg",
+        "title": "Still 08",
+        "alt": "Series 27 still 08"
+      },
+      {
+        "src": "./assets/work/series-27/09-47480023.jpg",
+        "title": "Still 09",
+        "alt": "Series 27 still 09"
+      },
+      {
+        "src": "./assets/work/series-27/10-v0a7849.jpg",
+        "title": "Still 10",
+        "alt": "Series 27 still 10"
+      },
+      {
+        "src": "./assets/work/series-27/11-v0a7913.jpg",
+        "title": "Still 11",
+        "alt": "Series 27 still 11"
+      },
+      {
+        "src": "./assets/work/series-27/12-v0a8224.jpg",
+        "title": "Still 12",
+        "alt": "Series 27 still 12"
+      },
+      {
+        "src": "./assets/work/series-27/13-v0a8241.jpg",
+        "title": "Still 13",
+        "alt": "Series 27 still 13"
+      },
+      {
+        "src": "./assets/work/series-27/14-v0a8242.jpg",
+        "title": "Still 14",
+        "alt": "Series 27 still 14"
+      },
+      {
+        "src": "./assets/work/series-27/15-v0a8251.jpg",
+        "title": "Still 15",
+        "alt": "Series 27 still 15"
+      },
+      {
+        "src": "./assets/work/series-27/16-v0a8267.jpg",
+        "title": "Still 16",
+        "alt": "Series 27 still 16"
+      },
+      {
+        "src": "./assets/work/series-27/17-v0a8274.jpg",
+        "title": "Still 17",
+        "alt": "Series 27 still 17"
+      },
+      {
+        "src": "./assets/work/series-27/18-img-3595.jpg",
+        "title": "Still 18",
+        "alt": "Series 27 still 18"
+      },
+      {
+        "src": "./assets/work/series-27/19-img-3851.jpg",
+        "title": "Still 19",
+        "alt": "Series 27 still 19"
+      }
+    ]
   },
   {
-    id: "series-02",
-    title: "Series 2",
-    meta: "6 stills",
-    cover: "./assets/work/series-02/01-dsc0615.jpg",
-    images: [
-      { src: "./assets/work/series-02/01-dsc0615.jpg", title: "Still 01", alt: "Series 2 still 01" },
-      { src: "./assets/work/series-02/02-dsc0691.jpg", title: "Still 02", alt: "Series 2 still 02" },
-      { src: "./assets/work/series-02/03-dsc0826.jpg", title: "Still 03", alt: "Series 2 still 03" },
-      { src: "./assets/work/series-02/04-dsc0880.jpg", title: "Still 04", alt: "Series 2 still 04" },
-      { src: "./assets/work/series-02/05-dsc1104.jpg", title: "Still 05", alt: "Series 2 still 05" },
-      { src: "./assets/work/series-02/06-dsc1358.jpg", title: "Still 06", alt: "Series 2 still 06" },
-    ],
+    "id": "series-02",
+    "title": "Series 2",
+    "meta": "6 stills",
+    "cover": "./assets/work/series-02/01-dsc0615.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-02/01-dsc0615.jpg",
+        "title": "Still 01",
+        "alt": "Series 2 still 01"
+      },
+      {
+        "src": "./assets/work/series-02/02-dsc0691.jpg",
+        "title": "Still 02",
+        "alt": "Series 2 still 02"
+      },
+      {
+        "src": "./assets/work/series-02/03-dsc0826.jpg",
+        "title": "Still 03",
+        "alt": "Series 2 still 03"
+      },
+      {
+        "src": "./assets/work/series-02/04-dsc0880.jpg",
+        "title": "Still 04",
+        "alt": "Series 2 still 04"
+      },
+      {
+        "src": "./assets/work/series-02/05-dsc1104.jpg",
+        "title": "Still 05",
+        "alt": "Series 2 still 05"
+      },
+      {
+        "src": "./assets/work/series-02/06-dsc1358.jpg",
+        "title": "Still 06",
+        "alt": "Series 2 still 06"
+      }
+    ]
   },
   {
-    id: "series-30",
-    title: "Series 30",
-    meta: "24 stills",
-    cover: "./assets/work/series-30/01-dsc05623.jpg",
-    images: [
-      { src: "./assets/work/series-30/01-dsc05623.jpg", title: "Still 01", alt: "Series 30 still 01" },
-      { src: "./assets/work/series-30/02-dsc05626.jpg", title: "Still 02", alt: "Series 30 still 02" },
-      { src: "./assets/work/series-30/03-dsc05633.jpg", title: "Still 03", alt: "Series 30 still 03" },
-      { src: "./assets/work/series-30/04-dsc05635.jpg", title: "Still 04", alt: "Series 30 still 04" },
-      { src: "./assets/work/series-30/05-dsc05637.jpg", title: "Still 05", alt: "Series 30 still 05" },
-      { src: "./assets/work/series-30/06-dsc05747.jpg", title: "Still 06", alt: "Series 30 still 06" },
-      { src: "./assets/work/series-30/07-dsc05754.jpg", title: "Still 07", alt: "Series 30 still 07" },
-      { src: "./assets/work/series-30/08-dsc05767.jpg", title: "Still 08", alt: "Series 30 still 08" },
-      { src: "./assets/work/series-30/09-dsc05784.jpg", title: "Still 09", alt: "Series 30 still 09" },
-      { src: "./assets/work/series-30/10-dsc05787.jpg", title: "Still 10", alt: "Series 30 still 10" },
-      { src: "./assets/work/series-30/11-dsc05796.jpg", title: "Still 11", alt: "Series 30 still 11" },
-      { src: "./assets/work/series-30/12-dsc05800.jpg", title: "Still 12", alt: "Series 30 still 12" },
-      { src: "./assets/work/series-30/13-dsc05803.jpg", title: "Still 13", alt: "Series 30 still 13" },
-      { src: "./assets/work/series-30/14-dsc05815.jpg", title: "Still 14", alt: "Series 30 still 14" },
-      { src: "./assets/work/series-30/15-dsc05828.jpg", title: "Still 15", alt: "Series 30 still 15" },
-      { src: "./assets/work/series-30/16-dsc0584.jpg", title: "Still 16", alt: "Series 30 still 16" },
-      { src: "./assets/work/series-30/17-dsc05841.jpg", title: "Still 17", alt: "Series 30 still 17" },
-      { src: "./assets/work/series-30/18-dsc05843.jpg", title: "Still 18", alt: "Series 30 still 18" },
-      { src: "./assets/work/series-30/19-dsc05845.jpg", title: "Still 19", alt: "Series 30 still 19" },
-      { src: "./assets/work/series-30/20-dsc05870.jpg", title: "Still 20", alt: "Series 30 still 20" },
-      { src: "./assets/work/series-30/21-dsc05880.jpg", title: "Still 21", alt: "Series 30 still 21" },
-      { src: "./assets/work/series-30/22-dsc05889.jpg", title: "Still 22", alt: "Series 30 still 22" },
-      { src: "./assets/work/series-30/23-dsc05891.jpg", title: "Still 23", alt: "Series 30 still 23" },
-      { src: "./assets/work/series-30/24-dsc05893.jpg", title: "Still 24", alt: "Series 30 still 24" },
-    ],
+    "id": "series-30",
+    "title": "Series 30",
+    "meta": "24 stills",
+    "cover": "./assets/work/series-30/01-dsc05623.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-30/01-dsc05623.jpg",
+        "title": "Still 01",
+        "alt": "Series 30 still 01"
+      },
+      {
+        "src": "./assets/work/series-30/02-dsc05626.jpg",
+        "title": "Still 02",
+        "alt": "Series 30 still 02"
+      },
+      {
+        "src": "./assets/work/series-30/03-dsc05633.jpg",
+        "title": "Still 03",
+        "alt": "Series 30 still 03"
+      },
+      {
+        "src": "./assets/work/series-30/04-dsc05635.jpg",
+        "title": "Still 04",
+        "alt": "Series 30 still 04"
+      },
+      {
+        "src": "./assets/work/series-30/05-dsc05637-copy.jpg",
+        "title": "Still 05",
+        "alt": "Series 30 still 05"
+      },
+      {
+        "src": "./assets/work/series-30/06-dsc05747.jpg",
+        "title": "Still 06",
+        "alt": "Series 30 still 06"
+      },
+      {
+        "src": "./assets/work/series-30/07-dsc05754.jpg",
+        "title": "Still 07",
+        "alt": "Series 30 still 07"
+      },
+      {
+        "src": "./assets/work/series-30/08-dsc05767.jpg",
+        "title": "Still 08",
+        "alt": "Series 30 still 08"
+      },
+      {
+        "src": "./assets/work/series-30/09-dsc05784.jpg",
+        "title": "Still 09",
+        "alt": "Series 30 still 09"
+      },
+      {
+        "src": "./assets/work/series-30/10-dsc05787.jpg",
+        "title": "Still 10",
+        "alt": "Series 30 still 10"
+      },
+      {
+        "src": "./assets/work/series-30/11-dsc05796.jpg",
+        "title": "Still 11",
+        "alt": "Series 30 still 11"
+      },
+      {
+        "src": "./assets/work/series-30/12-dsc05800.jpg",
+        "title": "Still 12",
+        "alt": "Series 30 still 12"
+      },
+      {
+        "src": "./assets/work/series-30/13-dsc05803.jpg",
+        "title": "Still 13",
+        "alt": "Series 30 still 13"
+      },
+      {
+        "src": "./assets/work/series-30/14-dsc05815.jpg",
+        "title": "Still 14",
+        "alt": "Series 30 still 14"
+      },
+      {
+        "src": "./assets/work/series-30/15-dsc05828.jpg",
+        "title": "Still 15",
+        "alt": "Series 30 still 15"
+      },
+      {
+        "src": "./assets/work/series-30/16-dsc0584.jpg",
+        "title": "Still 16",
+        "alt": "Series 30 still 16"
+      },
+      {
+        "src": "./assets/work/series-30/17-dsc05841.jpg",
+        "title": "Still 17",
+        "alt": "Series 30 still 17"
+      },
+      {
+        "src": "./assets/work/series-30/18-dsc05843.jpg",
+        "title": "Still 18",
+        "alt": "Series 30 still 18"
+      },
+      {
+        "src": "./assets/work/series-30/19-dsc05845.jpg",
+        "title": "Still 19",
+        "alt": "Series 30 still 19"
+      },
+      {
+        "src": "./assets/work/series-30/20-dsc05870.jpg",
+        "title": "Still 20",
+        "alt": "Series 30 still 20"
+      },
+      {
+        "src": "./assets/work/series-30/21-dsc05880.jpg",
+        "title": "Still 21",
+        "alt": "Series 30 still 21"
+      },
+      {
+        "src": "./assets/work/series-30/22-dsc05889.jpg",
+        "title": "Still 22",
+        "alt": "Series 30 still 22"
+      },
+      {
+        "src": "./assets/work/series-30/23-dsc05891.jpg",
+        "title": "Still 23",
+        "alt": "Series 30 still 23"
+      },
+      {
+        "src": "./assets/work/series-30/24-dsc05893.jpg",
+        "title": "Still 24",
+        "alt": "Series 30 still 24"
+      }
+    ]
   },
   {
-    id: "series-13",
-    title: "Series 13",
-    meta: "4 stills",
-    cover: "./assets/work/series-13/01-dsc0058.jpg",
-    images: [
-      { src: "./assets/work/series-13/01-dsc0058.jpg", title: "Still 01", alt: "Series 13 still 01" },
-      { src: "./assets/work/series-13/02-dsc0089.jpg", title: "Still 02", alt: "Series 13 still 02" },
-      { src: "./assets/work/series-13/03-ff.jpg", title: "Still 03", alt: "Series 13 still 03" },
-      { src: "./assets/work/series-13/04-gh.jpg", title: "Still 04", alt: "Series 13 still 04" },
-    ],
+    "id": "series-13",
+    "title": "Series 13",
+    "meta": "4 stills",
+    "cover": "./assets/work/series-13/01-dsc0058.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-13/01-dsc0058.jpg",
+        "title": "Still 01",
+        "alt": "Series 13 still 01"
+      },
+      {
+        "src": "./assets/work/series-13/02-dsc0089-copy.jpg",
+        "title": "Still 02",
+        "alt": "Series 13 still 02"
+      },
+      {
+        "src": "./assets/work/series-13/03-ff.jpg",
+        "title": "Still 03",
+        "alt": "Series 13 still 03"
+      },
+      {
+        "src": "./assets/work/series-13/04-gh.jpg",
+        "title": "Still 04",
+        "alt": "Series 13 still 04"
+      }
+    ]
   },
   {
-    id: "series-19",
-    title: "Series 19",
-    meta: "12 stills",
-    cover: "./assets/work/series-19/01-3t3a019hm0.jpg",
-    images: [
-      { src: "./assets/work/series-19/01-3t3a019hm0.jpg", title: "Still 01", alt: "Series 19 still 01" },
-      { src: "./assets/work/series-19/02-3t3a0226.jpg", title: "Still 02", alt: "Series 19 still 02" },
-      { src: "./assets/work/series-19/03-3t3a0232.jpg", title: "Still 03", alt: "Series 19 still 03" },
-      { src: "./assets/work/series-19/04-3t3a0234.jpg", title: "Still 04", alt: "Series 19 still 04" },
-      { src: "./assets/work/series-19/05-3t3a0238.jpg", title: "Still 05", alt: "Series 19 still 05" },
-      { src: "./assets/work/series-19/06-3t3a0244.jpg", title: "Still 06", alt: "Series 19 still 06" },
-      { src: "./assets/work/series-19/07-3t3a0396.jpg", title: "Still 07", alt: "Series 19 still 07" },
-      { src: "./assets/work/series-19/08-img_3073m.jpg", title: "Still 08", alt: "Series 19 still 08" },
-      { src: "./assets/work/series-19/09-img_3073n.jpg", title: "Still 09", alt: "Series 19 still 09" },
-      { src: "./assets/work/series-19/10-img_3073nj.jpg", title: "Still 10", alt: "Series 19 still 10" },
-      { src: "./assets/work/series-19/11-img_3089.jpg", title: "Still 11", alt: "Series 19 still 11" },
-      { src: "./assets/work/series-19/12-vic.jpg", title: "Still 12", alt: "Series 19 still 12" },
-    ],
+    "id": "series-19",
+    "title": "Series 19",
+    "meta": "12 stills",
+    "cover": "./assets/work/series-19/01-3t3a019hm0.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-19/01-3t3a019hm0.jpg",
+        "title": "Still 01",
+        "alt": "Series 19 still 01"
+      },
+      {
+        "src": "./assets/work/series-19/02-3t3a0226.jpg",
+        "title": "Still 02",
+        "alt": "Series 19 still 02"
+      },
+      {
+        "src": "./assets/work/series-19/03-3t3a0232.jpg",
+        "title": "Still 03",
+        "alt": "Series 19 still 03"
+      },
+      {
+        "src": "./assets/work/series-19/04-3t3a0234.jpg",
+        "title": "Still 04",
+        "alt": "Series 19 still 04"
+      },
+      {
+        "src": "./assets/work/series-19/05-3t3a0238.jpg",
+        "title": "Still 05",
+        "alt": "Series 19 still 05"
+      },
+      {
+        "src": "./assets/work/series-19/06-3t3a0244.jpg",
+        "title": "Still 06",
+        "alt": "Series 19 still 06"
+      },
+      {
+        "src": "./assets/work/series-19/07-3t3a0396-copy.jpg",
+        "title": "Still 07",
+        "alt": "Series 19 still 07"
+      },
+      {
+        "src": "./assets/work/series-19/08-img-3073m.jpg",
+        "title": "Still 08",
+        "alt": "Series 19 still 08"
+      },
+      {
+        "src": "./assets/work/series-19/09-img-3073n.jpg",
+        "title": "Still 09",
+        "alt": "Series 19 still 09"
+      },
+      {
+        "src": "./assets/work/series-19/10-img-3073nj.jpg",
+        "title": "Still 10",
+        "alt": "Series 19 still 10"
+      },
+      {
+        "src": "./assets/work/series-19/11-img-3089.jpg",
+        "title": "Still 11",
+        "alt": "Series 19 still 11"
+      },
+      {
+        "src": "./assets/work/series-19/12-vic.jpg",
+        "title": "Still 12",
+        "alt": "Series 19 still 12"
+      }
+    ]
   },
   {
-    id: "series-15",
-    title: "Series 15",
-    meta: "20 stills",
-    cover: "./assets/work/series-15/01-v0a0001.jpg",
-    images: [
-      { src: "./assets/work/series-15/01-v0a0001.jpg", title: "Still 01", alt: "Series 15 still 01" },
-      { src: "./assets/work/series-15/02-v0a0002.jpg", title: "Still 02", alt: "Series 15 still 02" },
-      { src: "./assets/work/series-15/03-v0a0028.jpg", title: "Still 03", alt: "Series 15 still 03" },
-      { src: "./assets/work/series-15/04-v0a0035.jpg", title: "Still 04", alt: "Series 15 still 04" },
-      { src: "./assets/work/series-15/05-v0a0079.jpg", title: "Still 05", alt: "Series 15 still 05" },
-      { src: "./assets/work/series-15/06-v0a0081.jpg", title: "Still 06", alt: "Series 15 still 06" },
-      { src: "./assets/work/series-15/07-v0a0102.jpg", title: "Still 07", alt: "Series 15 still 07" },
-      { src: "./assets/work/series-15/08-v0a0126.jpg", title: "Still 08", alt: "Series 15 still 08" },
-      { src: "./assets/work/series-15/09-v0a0135.jpg", title: "Still 09", alt: "Series 15 still 09" },
-      { src: "./assets/work/series-15/10-v0a0146.jpg", title: "Still 10", alt: "Series 15 still 10" },
-      { src: "./assets/work/series-15/11-v0a0197.jpg", title: "Still 11", alt: "Series 15 still 11" },
-      { src: "./assets/work/series-15/12-v0a0199.jpg", title: "Still 12", alt: "Series 15 still 12" },
-      { src: "./assets/work/series-15/13-v0a0208.jpg", title: "Still 13", alt: "Series 15 still 13" },
-      { src: "./assets/work/series-15/14-v0a0218.jpg", title: "Still 14", alt: "Series 15 still 14" },
-      { src: "./assets/work/series-15/15-v0a0304.jpg", title: "Still 15", alt: "Series 15 still 15" },
-      { src: "./assets/work/series-15/16-v0a0342.jpg", title: "Still 16", alt: "Series 15 still 16" },
-      { src: "./assets/work/series-15/17-v0a9912.jpg", title: "Still 17", alt: "Series 15 still 17" },
-      { src: "./assets/work/series-15/18-v0a9924.jpg", title: "Still 18", alt: "Series 15 still 18" },
-      { src: "./assets/work/series-15/19-v0a9976.jpg", title: "Still 19", alt: "Series 15 still 19" },
-      { src: "./assets/work/series-15/20-v0a9996.jpg", title: "Still 20", alt: "Series 15 still 20" },
-    ],
+    "id": "series-15",
+    "title": "Series 15",
+    "meta": "20 stills",
+    "cover": "./assets/work/series-15/01-v0a0001.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-15/01-v0a0001.jpg",
+        "title": "Still 01",
+        "alt": "Series 15 still 01"
+      },
+      {
+        "src": "./assets/work/series-15/02-v0a0002.jpg",
+        "title": "Still 02",
+        "alt": "Series 15 still 02"
+      },
+      {
+        "src": "./assets/work/series-15/03-v0a0028.jpg",
+        "title": "Still 03",
+        "alt": "Series 15 still 03"
+      },
+      {
+        "src": "./assets/work/series-15/04-v0a0035.jpg",
+        "title": "Still 04",
+        "alt": "Series 15 still 04"
+      },
+      {
+        "src": "./assets/work/series-15/05-v0a0079.jpg",
+        "title": "Still 05",
+        "alt": "Series 15 still 05"
+      },
+      {
+        "src": "./assets/work/series-15/06-v0a0081.jpg",
+        "title": "Still 06",
+        "alt": "Series 15 still 06"
+      },
+      {
+        "src": "./assets/work/series-15/07-v0a0102.jpg",
+        "title": "Still 07",
+        "alt": "Series 15 still 07"
+      },
+      {
+        "src": "./assets/work/series-15/08-v0a0126.jpg",
+        "title": "Still 08",
+        "alt": "Series 15 still 08"
+      },
+      {
+        "src": "./assets/work/series-15/09-v0a0135.jpg",
+        "title": "Still 09",
+        "alt": "Series 15 still 09"
+      },
+      {
+        "src": "./assets/work/series-15/10-v0a0146.jpg",
+        "title": "Still 10",
+        "alt": "Series 15 still 10"
+      },
+      {
+        "src": "./assets/work/series-15/11-v0a0197.jpg",
+        "title": "Still 11",
+        "alt": "Series 15 still 11"
+      },
+      {
+        "src": "./assets/work/series-15/12-v0a0199.jpg",
+        "title": "Still 12",
+        "alt": "Series 15 still 12"
+      },
+      {
+        "src": "./assets/work/series-15/13-v0a0208.jpg",
+        "title": "Still 13",
+        "alt": "Series 15 still 13"
+      },
+      {
+        "src": "./assets/work/series-15/14-v0a0218.jpg",
+        "title": "Still 14",
+        "alt": "Series 15 still 14"
+      },
+      {
+        "src": "./assets/work/series-15/15-v0a0304.jpg",
+        "title": "Still 15",
+        "alt": "Series 15 still 15"
+      },
+      {
+        "src": "./assets/work/series-15/16-v0a0342.jpg",
+        "title": "Still 16",
+        "alt": "Series 15 still 16"
+      },
+      {
+        "src": "./assets/work/series-15/17-v0a9912.jpg",
+        "title": "Still 17",
+        "alt": "Series 15 still 17"
+      },
+      {
+        "src": "./assets/work/series-15/18-v0a9924.jpg",
+        "title": "Still 18",
+        "alt": "Series 15 still 18"
+      },
+      {
+        "src": "./assets/work/series-15/19-v0a9976.jpg",
+        "title": "Still 19",
+        "alt": "Series 15 still 19"
+      },
+      {
+        "src": "./assets/work/series-15/20-v0a9996.jpg",
+        "title": "Still 20",
+        "alt": "Series 15 still 20"
+      }
+    ]
   },
   {
-    id: "series-14",
-    title: "Series 14",
-    meta: "4 stills",
-    cover: "./assets/work/series-14/01-1.jpg",
-    images: [
-      { src: "./assets/work/series-14/01-1.jpg", title: "Still 01", alt: "Series 14 still 01" },
-      { src: "./assets/work/series-14/02-2.jpg", title: "Still 02", alt: "Series 14 still 02" },
-      { src: "./assets/work/series-14/03-3.jpg", title: "Still 03", alt: "Series 14 still 03" },
-      { src: "./assets/work/series-14/04-6.jpg", title: "Still 04", alt: "Series 14 still 04" },
-    ],
+    "id": "series-14",
+    "title": "Series 14",
+    "meta": "4 stills",
+    "cover": "./assets/work/series-14/01-1.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-14/01-1.jpg",
+        "title": "Still 01",
+        "alt": "Series 14 still 01"
+      },
+      {
+        "src": "./assets/work/series-14/02-2.jpg",
+        "title": "Still 02",
+        "alt": "Series 14 still 02"
+      },
+      {
+        "src": "./assets/work/series-14/03-3.jpg",
+        "title": "Still 03",
+        "alt": "Series 14 still 03"
+      },
+      {
+        "src": "./assets/work/series-14/04-6.jpg",
+        "title": "Still 04",
+        "alt": "Series 14 still 04"
+      }
+    ]
   },
   {
-    id: "series-29",
-    title: "Series 29",
-    meta: "7 stills",
-    cover: "./assets/work/series-29/01-v0a0396.jpg",
-    images: [
-      { src: "./assets/work/series-29/01-v0a0396.jpg", title: "Still 01", alt: "Series 29 still 01" },
-      { src: "./assets/work/series-29/02-v0a0404.jpg", title: "Still 02", alt: "Series 29 still 02" },
-      { src: "./assets/work/series-29/03-v0a0415.jpg", title: "Still 03", alt: "Series 29 still 03" },
-      { src: "./assets/work/series-29/04-v0a04206.jpg", title: "Still 04", alt: "Series 29 still 04" },
-      { src: "./assets/work/series-29/05-v0a0426.jpg", title: "Still 05", alt: "Series 29 still 05" },
-      { src: "./assets/work/series-29/06-v0a0455.jpg", title: "Still 06", alt: "Series 29 still 06" },
-      { src: "./assets/work/series-29/07-nneka.jpg", title: "Still 07", alt: "Series 29 still 07" },
-    ],
+    "id": "series-29",
+    "title": "Series 29",
+    "meta": "7 stills",
+    "cover": "./assets/work/series-29/01-v0a0396.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-29/01-v0a0396.jpg",
+        "title": "Still 01",
+        "alt": "Series 29 still 01"
+      },
+      {
+        "src": "./assets/work/series-29/02-v0a0404-copy.jpg",
+        "title": "Still 02",
+        "alt": "Series 29 still 02"
+      },
+      {
+        "src": "./assets/work/series-29/03-v0a0415.jpg",
+        "title": "Still 03",
+        "alt": "Series 29 still 03"
+      },
+      {
+        "src": "./assets/work/series-29/04-v0a04206.jpg",
+        "title": "Still 04",
+        "alt": "Series 29 still 04"
+      },
+      {
+        "src": "./assets/work/series-29/05-v0a0426.jpg",
+        "title": "Still 05",
+        "alt": "Series 29 still 05"
+      },
+      {
+        "src": "./assets/work/series-29/06-v0a0455.jpg",
+        "title": "Still 06",
+        "alt": "Series 29 still 06"
+      },
+      {
+        "src": "./assets/work/series-29/07-nneka.jpg",
+        "title": "Still 07",
+        "alt": "Series 29 still 07"
+      }
+    ]
   },
   {
-    id: "series-09",
-    title: "Series 9",
-    meta: "3 stills",
-    cover: "./assets/work/series-09/01-v0a8807.jpg",
-    images: [
-      { src: "./assets/work/series-09/01-v0a8807.jpg", title: "Still 01", alt: "Series 9 still 01" },
-      { src: "./assets/work/series-09/02-cp2.jpg", title: "Still 02", alt: "Series 9 still 02" },
-      { src: "./assets/work/series-09/03-cp4.jpg", title: "Still 03", alt: "Series 9 still 03" },
-    ],
+    "id": "series-09",
+    "title": "Series 9",
+    "meta": "3 stills",
+    "cover": "./assets/work/series-09/01-v0a8807.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-09/01-v0a8807.jpg",
+        "title": "Still 01",
+        "alt": "Series 9 still 01"
+      },
+      {
+        "src": "./assets/work/series-09/02-cp2.jpg",
+        "title": "Still 02",
+        "alt": "Series 9 still 02"
+      },
+      {
+        "src": "./assets/work/series-09/03-cp4.jpg",
+        "title": "Still 03",
+        "alt": "Series 9 still 03"
+      }
+    ]
   },
   {
-    id: "series-05",
-    title: "Series 5",
-    meta: "7 stills",
-    cover: "./assets/work/series-05/01-dsc7676.jpg",
-    images: [
-      { src: "./assets/work/series-05/01-dsc7676.jpg", title: "Still 01", alt: "Series 5 still 01" },
-      { src: "./assets/work/series-05/02-av0a6859.jpg", title: "Still 02", alt: "Series 5 still 02" },
-      { src: "./assets/work/series-05/03-av0a6891.jpg", title: "Still 03", alt: "Series 5 still 03" },
-      { src: "./assets/work/series-05/04-img_1172.jpg", title: "Still 04", alt: "Series 5 still 04" },
-      { src: "./assets/work/series-05/05-img_6484.jpg", title: "Still 05", alt: "Series 5 still 05" },
-      { src: "./assets/work/series-05/06-img_6600.jpg", title: "Still 06", alt: "Series 5 still 06" },
-      { src: "./assets/work/series-05/07-img_6601.jpg", title: "Still 07", alt: "Series 5 still 07" },
-    ],
+    "id": "series-05",
+    "title": "Series 5",
+    "meta": "7 stills",
+    "cover": "./assets/work/series-05/01-dsc7676-copy.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-05/01-dsc7676-copy.jpg",
+        "title": "Still 01",
+        "alt": "Series 5 still 01"
+      },
+      {
+        "src": "./assets/work/series-05/02-av0a6859.jpg",
+        "title": "Still 02",
+        "alt": "Series 5 still 02"
+      },
+      {
+        "src": "./assets/work/series-05/03-av0a6891.jpg",
+        "title": "Still 03",
+        "alt": "Series 5 still 03"
+      },
+      {
+        "src": "./assets/work/series-05/04-img-1172.jpg",
+        "title": "Still 04",
+        "alt": "Series 5 still 04"
+      },
+      {
+        "src": "./assets/work/series-05/05-img-6484.jpg",
+        "title": "Still 05",
+        "alt": "Series 5 still 05"
+      },
+      {
+        "src": "./assets/work/series-05/06-img-6600.jpg",
+        "title": "Still 06",
+        "alt": "Series 5 still 06"
+      },
+      {
+        "src": "./assets/work/series-05/07-img-6601.jpg",
+        "title": "Still 07",
+        "alt": "Series 5 still 07"
+      }
+    ]
   },
   {
-    id: "series-16",
-    title: "Series 16",
-    meta: "9 stills",
-    cover: "./assets/work/series-16/01-373d441b-b77a-49fb-8402-0f45f4a03258.jpg",
-    images: [
-      { src: "./assets/work/series-16/01-373d441b-b77a-49fb-8402-0f45f4a03258.jpg", title: "Still 01", alt: "Series 16 still 01" },
-      { src: "./assets/work/series-16/02-4bc11492-2ff8-418a-b4c0-6c35ca6c5c12.jpg", title: "Still 02", alt: "Series 16 still 02" },
-      { src: "./assets/work/series-16/03-928ace01-4b6d-49cd-9e49-ea0cc2bc5233.jpg", title: "Still 03", alt: "Series 16 still 03" },
-      { src: "./assets/work/series-16/04-dsc2569.jpg", title: "Still 04", alt: "Series 16 still 04" },
-      { src: "./assets/work/series-16/05-dsc2574.jpg", title: "Still 05", alt: "Series 16 still 05" },
-      { src: "./assets/work/series-16/06-dsc2585.jpg", title: "Still 06", alt: "Series 16 still 06" },
-      { src: "./assets/work/series-16/07-dsc2610.jpg", title: "Still 07", alt: "Series 16 still 07" },
-      { src: "./assets/work/series-16/08-dsc2736.jpg", title: "Still 08", alt: "Series 16 still 08" },
-      { src: "./assets/work/series-16/09-b561e067-e7fa-44fb-8b64-adf6d533b39f.jpg", title: "Still 09", alt: "Series 16 still 09" },
-    ],
+    "id": "series-16",
+    "title": "Series 16",
+    "meta": "9 stills",
+    "cover": "./assets/work/series-16/01-dsc2569.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-16/01-dsc2569.jpg",
+        "title": "Still 01",
+        "alt": "Series 16 still 01"
+      },
+      {
+        "src": "./assets/work/series-16/02-dsc2574.jpg",
+        "title": "Still 02",
+        "alt": "Series 16 still 02"
+      },
+      {
+        "src": "./assets/work/series-16/03-dsc2585.jpg",
+        "title": "Still 03",
+        "alt": "Series 16 still 03"
+      },
+      {
+        "src": "./assets/work/series-16/04-dsc2610.jpg",
+        "title": "Still 04",
+        "alt": "Series 16 still 04"
+      },
+      {
+        "src": "./assets/work/series-16/05-dsc2736.jpg",
+        "title": "Still 05",
+        "alt": "Series 16 still 05"
+      },
+      {
+        "src": "./assets/work/series-16/06-373d441b-b77a-49fb-8402-0f45f4a03258.jpg",
+        "title": "Still 06",
+        "alt": "Series 16 still 06"
+      },
+      {
+        "src": "./assets/work/series-16/07-4bc11492-2ff8-418a-b4c0-6c35ca6c5c12.jpg",
+        "title": "Still 07",
+        "alt": "Series 16 still 07"
+      },
+      {
+        "src": "./assets/work/series-16/08-928ace01-4b6d-49cd-9e49-ea0cc2bc5233.jpg",
+        "title": "Still 08",
+        "alt": "Series 16 still 08"
+      },
+      {
+        "src": "./assets/work/series-16/09-b561e067-e7fa-44fb-8b64-adf6d533b39f.jpg",
+        "title": "Still 09",
+        "alt": "Series 16 still 09"
+      }
+    ]
   },
   {
-    id: "series-10",
-    title: "Series 10",
-    meta: "10 stills",
-    cover: "./assets/work/series-10/01-v0a1058.jpg",
-    images: [
-      { src: "./assets/work/series-10/01-v0a1058.jpg", title: "Still 01", alt: "Series 10 still 01" },
-      { src: "./assets/work/series-10/02-v0a1138.jpg", title: "Still 02", alt: "Series 10 still 02" },
-      { src: "./assets/work/series-10/03-v0a1157.jpg", title: "Still 03", alt: "Series 10 still 03" },
-      { src: "./assets/work/series-10/04-v0a1161.jpg", title: "Still 04", alt: "Series 10 still 04" },
-      { src: "./assets/work/series-10/05-v0a1169.jpg", title: "Still 05", alt: "Series 10 still 05" },
-      { src: "./assets/work/series-10/06-v0a1194.jpg", title: "Still 06", alt: "Series 10 still 06" },
-      { src: "./assets/work/series-10/07-v0a1208.jpg", title: "Still 07", alt: "Series 10 still 07" },
-      { src: "./assets/work/series-10/08-v0a1220.jpg", title: "Still 08", alt: "Series 10 still 08" },
-      { src: "./assets/work/series-10/09-v0a1284.jpg", title: "Still 09", alt: "Series 10 still 09" },
-      { src: "./assets/work/series-10/10-v0a1304.jpg", title: "Still 10", alt: "Series 10 still 10" },
-    ],
+    "id": "series-10",
+    "title": "Series 10",
+    "meta": "10 stills",
+    "cover": "./assets/work/series-10/01-v0a1058.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-10/01-v0a1058.jpg",
+        "title": "Still 01",
+        "alt": "Series 10 still 01"
+      },
+      {
+        "src": "./assets/work/series-10/02-v0a1138.jpg",
+        "title": "Still 02",
+        "alt": "Series 10 still 02"
+      },
+      {
+        "src": "./assets/work/series-10/03-v0a1157.jpg",
+        "title": "Still 03",
+        "alt": "Series 10 still 03"
+      },
+      {
+        "src": "./assets/work/series-10/04-v0a1161.jpg",
+        "title": "Still 04",
+        "alt": "Series 10 still 04"
+      },
+      {
+        "src": "./assets/work/series-10/05-v0a1169.jpg",
+        "title": "Still 05",
+        "alt": "Series 10 still 05"
+      },
+      {
+        "src": "./assets/work/series-10/06-v0a1194.jpg",
+        "title": "Still 06",
+        "alt": "Series 10 still 06"
+      },
+      {
+        "src": "./assets/work/series-10/07-v0a1208.jpg",
+        "title": "Still 07",
+        "alt": "Series 10 still 07"
+      },
+      {
+        "src": "./assets/work/series-10/08-v0a1220.jpg",
+        "title": "Still 08",
+        "alt": "Series 10 still 08"
+      },
+      {
+        "src": "./assets/work/series-10/09-v0a1284.jpg",
+        "title": "Still 09",
+        "alt": "Series 10 still 09"
+      },
+      {
+        "src": "./assets/work/series-10/10-v0a1304.jpg",
+        "title": "Still 10",
+        "alt": "Series 10 still 10"
+      }
+    ]
   },
+  {
+    "id": "series-32",
+    "title": "Series 32",
+    "meta": "4 stills",
+    "cover": "./assets/work/series-32/01-dsc0058.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-32/01-dsc0058.jpg",
+        "title": "Still 01",
+        "alt": "Series 32 still 01"
+      },
+      {
+        "src": "./assets/work/series-32/02-dsc0089-copy.jpg",
+        "title": "Still 02",
+        "alt": "Series 32 still 02"
+      },
+      {
+        "src": "./assets/work/series-32/03-ff.jpg",
+        "title": "Still 03",
+        "alt": "Series 32 still 03"
+      },
+      {
+        "src": "./assets/work/series-32/04-gh.jpg",
+        "title": "Still 04",
+        "alt": "Series 32 still 04"
+      }
+    ]
+  },
+  {
+    "id": "series-33",
+    "title": "Series 33",
+    "meta": "15 stills",
+    "cover": "./assets/work/series-33/01-v0a2086.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-33/01-v0a2086.jpg",
+        "title": "Still 01",
+        "alt": "Series 33 still 01"
+      },
+      {
+        "src": "./assets/work/series-33/02-v0a2089.jpg",
+        "title": "Still 02",
+        "alt": "Series 33 still 02"
+      },
+      {
+        "src": "./assets/work/series-33/03-v0a2092.jpg",
+        "title": "Still 03",
+        "alt": "Series 33 still 03"
+      },
+      {
+        "src": "./assets/work/series-33/04-v0a2093.jpg",
+        "title": "Still 04",
+        "alt": "Series 33 still 04"
+      },
+      {
+        "src": "./assets/work/series-33/05-v0a2094.jpg",
+        "title": "Still 05",
+        "alt": "Series 33 still 05"
+      },
+      {
+        "src": "./assets/work/series-33/06-v0a2095.jpg",
+        "title": "Still 06",
+        "alt": "Series 33 still 06"
+      },
+      {
+        "src": "./assets/work/series-33/07-v0a2097.jpg",
+        "title": "Still 07",
+        "alt": "Series 33 still 07"
+      },
+      {
+        "src": "./assets/work/series-33/08-v0a20977.jpg",
+        "title": "Still 08",
+        "alt": "Series 33 still 08"
+      },
+      {
+        "src": "./assets/work/series-33/09-v0a2105.jpg",
+        "title": "Still 09",
+        "alt": "Series 33 still 09"
+      },
+      {
+        "src": "./assets/work/series-33/10-v0a2111.jpg",
+        "title": "Still 10",
+        "alt": "Series 33 still 10"
+      },
+      {
+        "src": "./assets/work/series-33/11-v0a2114.jpg",
+        "title": "Still 11",
+        "alt": "Series 33 still 11"
+      },
+      {
+        "src": "./assets/work/series-33/12-v0a2116.jpg",
+        "title": "Still 12",
+        "alt": "Series 33 still 12"
+      },
+      {
+        "src": "./assets/work/series-33/13-v0a2121.jpg",
+        "title": "Still 13",
+        "alt": "Series 33 still 13"
+      },
+      {
+        "src": "./assets/work/series-33/14-v0a2122.jpg",
+        "title": "Still 14",
+        "alt": "Series 33 still 14"
+      },
+      {
+        "src": "./assets/work/series-33/15-v0a2126.jpg",
+        "title": "Still 15",
+        "alt": "Series 33 still 15"
+      }
+    ]
+  },
+  {
+    "id": "series-34",
+    "title": "Series 34",
+    "meta": "27 stills",
+    "cover": "./assets/work/series-34/01-v0a0031.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-34/01-v0a0031.jpg",
+        "title": "Still 01",
+        "alt": "Series 34 still 01"
+      },
+      {
+        "src": "./assets/work/series-34/02-v0a0049.jpg",
+        "title": "Still 02",
+        "alt": "Series 34 still 02"
+      },
+      {
+        "src": "./assets/work/series-34/03-v0a0062.jpg",
+        "title": "Still 03",
+        "alt": "Series 34 still 03"
+      },
+      {
+        "src": "./assets/work/series-34/04-v0a0084.jpg",
+        "title": "Still 04",
+        "alt": "Series 34 still 04"
+      },
+      {
+        "src": "./assets/work/series-34/05-v0a9502.jpg",
+        "title": "Still 05",
+        "alt": "Series 34 still 05"
+      },
+      {
+        "src": "./assets/work/series-34/06-v0a9512.jpg",
+        "title": "Still 06",
+        "alt": "Series 34 still 06"
+      },
+      {
+        "src": "./assets/work/series-34/07-v0a9520.jpg",
+        "title": "Still 07",
+        "alt": "Series 34 still 07"
+      },
+      {
+        "src": "./assets/work/series-34/08-v0a9523.jpg",
+        "title": "Still 08",
+        "alt": "Series 34 still 08"
+      },
+      {
+        "src": "./assets/work/series-34/09-v0a9536.jpg",
+        "title": "Still 09",
+        "alt": "Series 34 still 09"
+      },
+      {
+        "src": "./assets/work/series-34/10-v0a9599.jpg",
+        "title": "Still 10",
+        "alt": "Series 34 still 10"
+      },
+      {
+        "src": "./assets/work/series-34/11-v0a9622.jpg",
+        "title": "Still 11",
+        "alt": "Series 34 still 11"
+      },
+      {
+        "src": "./assets/work/series-34/12-v0a9633.jpg",
+        "title": "Still 12",
+        "alt": "Series 34 still 12"
+      },
+      {
+        "src": "./assets/work/series-34/13-v0a9637.jpg",
+        "title": "Still 13",
+        "alt": "Series 34 still 13"
+      },
+      {
+        "src": "./assets/work/series-34/14-v0a9640.jpg",
+        "title": "Still 14",
+        "alt": "Series 34 still 14"
+      },
+      {
+        "src": "./assets/work/series-34/15-v0a9665.jpg",
+        "title": "Still 15",
+        "alt": "Series 34 still 15"
+      },
+      {
+        "src": "./assets/work/series-34/16-v0a9785.jpg",
+        "title": "Still 16",
+        "alt": "Series 34 still 16"
+      },
+      {
+        "src": "./assets/work/series-34/17-v0a9798.jpg",
+        "title": "Still 17",
+        "alt": "Series 34 still 17"
+      },
+      {
+        "src": "./assets/work/series-34/18-v0a9799.jpg",
+        "title": "Still 18",
+        "alt": "Series 34 still 18"
+      },
+      {
+        "src": "./assets/work/series-34/19-v0a9829.jpg",
+        "title": "Still 19",
+        "alt": "Series 34 still 19"
+      },
+      {
+        "src": "./assets/work/series-34/20-v0a9850.jpg",
+        "title": "Still 20",
+        "alt": "Series 34 still 20"
+      },
+      {
+        "src": "./assets/work/series-34/21-v0a9851.jpg",
+        "title": "Still 21",
+        "alt": "Series 34 still 21"
+      },
+      {
+        "src": "./assets/work/series-34/22-v0a9859.jpg",
+        "title": "Still 22",
+        "alt": "Series 34 still 22"
+      },
+      {
+        "src": "./assets/work/series-34/23-v0a9873.jpg",
+        "title": "Still 23",
+        "alt": "Series 34 still 23"
+      },
+      {
+        "src": "./assets/work/series-34/24-v0a9921.jpg",
+        "title": "Still 24",
+        "alt": "Series 34 still 24"
+      },
+      {
+        "src": "./assets/work/series-34/25-v0a9933.jpg",
+        "title": "Still 25",
+        "alt": "Series 34 still 25"
+      },
+      {
+        "src": "./assets/work/series-34/26-v0a9944.jpg",
+        "title": "Still 26",
+        "alt": "Series 34 still 26"
+      },
+      {
+        "src": "./assets/work/series-34/27-v0a9986.jpg",
+        "title": "Still 27",
+        "alt": "Series 34 still 27"
+      }
+    ]
+  },
+  {
+    "id": "series-35",
+    "title": "Series 35",
+    "meta": "14 stills",
+    "cover": "./assets/work/series-35/01-dsc9691.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-35/01-dsc9691.jpg",
+        "title": "Still 01",
+        "alt": "Series 35 still 01"
+      },
+      {
+        "src": "./assets/work/series-35/02-dsc9694.jpg",
+        "title": "Still 02",
+        "alt": "Series 35 still 02"
+      },
+      {
+        "src": "./assets/work/series-35/03-dsc9713.jpg",
+        "title": "Still 03",
+        "alt": "Series 35 still 03"
+      },
+      {
+        "src": "./assets/work/series-35/04-dsc9728.jpg",
+        "title": "Still 04",
+        "alt": "Series 35 still 04"
+      },
+      {
+        "src": "./assets/work/series-35/05-dsc9730.jpg",
+        "title": "Still 05",
+        "alt": "Series 35 still 05"
+      },
+      {
+        "src": "./assets/work/series-35/06-dsc9733.jpg",
+        "title": "Still 06",
+        "alt": "Series 35 still 06"
+      },
+      {
+        "src": "./assets/work/series-35/07-dsc9736.jpg",
+        "title": "Still 07",
+        "alt": "Series 35 still 07"
+      },
+      {
+        "src": "./assets/work/series-35/08-dsc9759.jpg",
+        "title": "Still 08",
+        "alt": "Series 35 still 08"
+      },
+      {
+        "src": "./assets/work/series-35/09-dsc9762.jpg",
+        "title": "Still 09",
+        "alt": "Series 35 still 09"
+      },
+      {
+        "src": "./assets/work/series-35/10-dsc9764.jpg",
+        "title": "Still 10",
+        "alt": "Series 35 still 10"
+      },
+      {
+        "src": "./assets/work/series-35/11-dsc9765.jpg",
+        "title": "Still 11",
+        "alt": "Series 35 still 11"
+      },
+      {
+        "src": "./assets/work/series-35/12-dsc9767-copy.jpg",
+        "title": "Still 12",
+        "alt": "Series 35 still 12"
+      },
+      {
+        "src": "./assets/work/series-35/13-dsc9769.jpg",
+        "title": "Still 13",
+        "alt": "Series 35 still 13"
+      },
+      {
+        "src": "./assets/work/series-35/14-dsc9769a.jpg",
+        "title": "Still 14",
+        "alt": "Series 35 still 14"
+      }
+    ]
+  },
+  {
+    "id": "series-22",
+    "title": "Series 22",
+    "meta": "9 stills",
+    "cover": "./assets/work/series-22/01-v0a2702.jpg",
+    "images": [
+      {
+        "src": "./assets/work/series-22/01-v0a2702.jpg",
+        "title": "Still 01",
+        "alt": "Series 22 still 01"
+      },
+      {
+        "src": "./assets/work/series-22/02-v0a2719.jpg",
+        "title": "Still 02",
+        "alt": "Series 22 still 02"
+      },
+      {
+        "src": "./assets/work/series-22/03-v0a2722.jpg",
+        "title": "Still 03",
+        "alt": "Series 22 still 03"
+      },
+      {
+        "src": "./assets/work/series-22/04-v0a2726.jpg",
+        "title": "Still 04",
+        "alt": "Series 22 still 04"
+      },
+      {
+        "src": "./assets/work/series-22/05-v0a2727.jpg",
+        "title": "Still 05",
+        "alt": "Series 22 still 05"
+      },
+      {
+        "src": "./assets/work/series-22/06-v0a2765.jpg",
+        "title": "Still 06",
+        "alt": "Series 22 still 06"
+      },
+      {
+        "src": "./assets/work/series-22/07-v0a2788.jpg",
+        "title": "Still 07",
+        "alt": "Series 22 still 07"
+      },
+      {
+        "src": "./assets/work/series-22/08-v0a2793.jpg",
+        "title": "Still 08",
+        "alt": "Series 22 still 08"
+      },
+      {
+        "src": "./assets/work/series-22/09-v0a2798.jpg",
+        "title": "Still 09",
+        "alt": "Series 22 still 09"
+      }
+    ]
+  }
 ];
 
 const MOTION = [
@@ -568,7 +2264,7 @@ const MOTION = [
     title: "Series I | Still Cut",
     duration: "00:00:11",
     seconds: 11,
-    src: "./assets/work/series-01/01-final.jpg",
+    src: "./assets/work/series-01/01-dsc8327.jpg",
     alt: "Motion still from Series 1",
   },
   {
@@ -582,7 +2278,7 @@ const MOTION = [
     title: "Bloom | Procession",
     duration: "00:00:14",
     seconds: 14,
-    src: "./assets/work/series-05/01-dsc7676.jpg",
+    src: "./assets/work/series-05/01-dsc7676-copy.jpg",
     alt: "Motion still from Series 5",
   },
   {
@@ -608,7 +2304,7 @@ const PRESS = [
     title: "Kofi Antwi Dua: The Photographer with a Magic Glow",
     body: "Profile of Kofi Antwi Dua — craft, vision, and the glow behind the lens.",
     href: "https://guardian.ng/life/kofi-antwi-dua-the-photographer-with-a-magic-glow/",
-    src: "./assets/work/series-01/01-final.jpg",
+    src: "./assets/work/series-01/01-dsc8327.jpg",
   },
   {
     date: "2019.02.08",
@@ -616,7 +2312,7 @@ const PRESS = [
     title: "Ebonee Davis on Reclaiming Her African Identity and Seeing Ghana for the First Time",
     body: "Janelle Okwodu on Davis’s Accra journey — with photography by Kofi Dua.",
     href: "https://www.vogue.com/vogueworld/article/ebonee-davis-accra-ghana-trip",
-    src: "./assets/work/series-03/01-img_3967.jpg",
+    src: "./assets/work/series-03/01-img-3967.jpg",
   },
   {
     date: "2017.08.30",
@@ -853,6 +2549,13 @@ const musicNowTitle = document.querySelector("#music-now-title");
 const musicTime = document.querySelector("#music-time");
 const musicSeek = document.querySelector("#music-seek");
 const musicAlbumMeta = document.querySelector("#music-album-meta");
+const musicGate = document.querySelector("#music-gate");
+const musicGateForm = document.querySelector("#music-gate-form");
+const musicGateInput = document.querySelector("#music-gate-input");
+const musicGateError = document.querySelector("#music-gate-error");
+const musicShell = document.querySelector("#music-shell");
+const MUSIC_PASSWORD = "motivation";
+const MUSIC_UNLOCK_KEY = "kof-music-unlocked";
 const viewToggle = document.querySelector("#view-toggle");
 const viewBtns = [...document.querySelectorAll(".view-btn")];
 const loader = document.querySelector("#loader");
@@ -1091,6 +2794,44 @@ const renderMusic = () => {
   setMusicTrack(0, { autoplay: false });
   if (musicNowbar) musicNowbar.hidden = true;
 };
+
+const isMusicUnlocked = () => sessionStorage.getItem(MUSIC_UNLOCK_KEY) === "1";
+
+const setMusicUnlocked = (unlocked) => {
+  if (unlocked) sessionStorage.setItem(MUSIC_UNLOCK_KEY, "1");
+  else sessionStorage.removeItem(MUSIC_UNLOCK_KEY);
+  musicGate?.toggleAttribute("hidden", unlocked);
+  musicGate?.setAttribute("aria-hidden", unlocked ? "true" : "false");
+  musicShell?.toggleAttribute("hidden", !unlocked);
+  if (!unlocked) {
+    musicAudio?.pause();
+    if (musicNowbar) musicNowbar.hidden = true;
+  }
+};
+
+const unlockMusicWithPassword = (value) => {
+  const ok = String(value || "").trim() === MUSIC_PASSWORD;
+  if (!ok) {
+    if (musicGateError) musicGateError.hidden = false;
+    musicGateInput?.focus();
+    musicGateInput?.select();
+    return false;
+  }
+  if (musicGateError) musicGateError.hidden = true;
+  setMusicUnlocked(true);
+  return true;
+};
+
+musicGateForm?.addEventListener("submit", (e) => {
+  e.preventDefault();
+  unlockMusicWithPassword(musicGateInput?.value);
+});
+
+musicGateInput?.addEventListener("input", () => {
+  if (musicGateError) musicGateError.hidden = true;
+});
+
+setMusicUnlocked(isMusicUnlocked());
 
 musicPlayBtn?.addEventListener("click", toggleMusicPlayback);
 
@@ -1870,6 +3611,11 @@ const setView = (name) => {
     musicAudio?.pause();
   } else if (name === "music") {
     stopMotionTimer();
+    if (!isMusicUnlocked()) {
+      musicAudio?.pause();
+      if (musicNowbar) musicNowbar.hidden = true;
+      window.setTimeout(() => musicGateInput?.focus(), 80);
+    }
   } else {
     stopMotionTimer();
     musicAudio?.pause();

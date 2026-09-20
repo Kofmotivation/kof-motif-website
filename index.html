@@ -133,7 +133,27 @@
         </section>
 
         <section class="view view-music" id="view-music" data-view-panel="music" aria-label="Music" hidden>
-          <div class="music-shell">
+          <div class="music-gate" id="music-gate" aria-hidden="false">
+            <form class="music-gate-form" id="music-gate-form" autocomplete="off">
+              <h2 class="music-gate-title">Music</h2>
+              <p class="music-gate-copy">Enter password to open the listening room.</p>
+              <label class="music-gate-field">
+                <span class="music-gate-label">Password</span>
+                <input
+                  type="password"
+                  id="music-gate-input"
+                  name="music-password"
+                  autocomplete="current-password"
+                  required
+                  placeholder="Password"
+                />
+              </label>
+              <p class="music-gate-error" id="music-gate-error" hidden>Wrong password.</p>
+              <button type="submit" class="music-gate-submit" data-cursor="Enter">Enter</button>
+            </form>
+          </div>
+
+          <div class="music-shell" id="music-shell" hidden>
             <figure class="music-cover">
               <img
                 id="music-cover-img"
