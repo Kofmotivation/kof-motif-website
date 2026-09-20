@@ -94,9 +94,11 @@ const OPTIONS = {
 };
 
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 const container = document.querySelector("#work-particles");
 
-if (!container || reduceMotion) {
+// Skip WebGL particles on touch / mobile — heavy GPU load can crash-reload Safari
+if (!container || reduceMotion || !finePointer) {
   container?.setAttribute("hidden", "");
 } else {
   const pixelRatio = Math.min(window.devicePixelRatio || 1, 1.75);

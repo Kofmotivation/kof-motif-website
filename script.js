@@ -2667,7 +2667,15 @@ const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matc
 let locoScroll = null;
 
 const initLocoScroll = () => {
-  if (reduceMotion || typeof LocomotiveScroll === "undefined" || locoScroll) return;
+  // Skip on touch / coarse pointers — Lenis + iOS URL-bar resize feels like a reload loop
+  if (
+    reduceMotion ||
+    !finePointer ||
+    typeof LocomotiveScroll === "undefined" ||
+    locoScroll
+  ) {
+    return;
+  }
   locoScroll = new LocomotiveScroll({
     lenisOptions: {
       lerp: 0.085,
@@ -2999,7 +3007,7 @@ let mosaicTiltCleanups = [];
 const initMosaicTilt = () => {
   mosaicTiltCleanups.forEach((fn) => fn());
   mosaicTiltCleanups = [];
-  if (!mosaic || reduceMotion) return;
+  if (!mosaic || reduceMotion || !finePointer) return;
 
   mosaic.querySelectorAll(".mosaic-tilt").forEach((figure) => {
     const inner = figure.querySelector(".mosaic-tilt-inner");
@@ -3127,10 +3135,21 @@ const initListSlideshow = () => {
     let timer = 0;
     let active = false;
 
+    const ensureB = (src) => {
+      if (imgB.dataset.src) {
+        imgB.src = imgB.dataset.src;
+        delete imgB.dataset.src;
+      }
+      if (src) imgB.src = src;
+    };
+
     const paintFrame = (src, { instant = false } = {}) => {
       if (instant || reduceMotion || frames.length < 2) {
         imgA.src = src;
-        imgB.src = cover;
+        if (imgB.src) {
+          imgB.removeAttribute("src");
+          imgB.dataset.src = cover;
+        }
         inner.classList.remove("is-showing-b");
         showingB = false;
         return;
@@ -3140,7 +3159,7 @@ const initListSlideshow = () => {
         inner.classList.remove("is-showing-b");
         showingB = false;
       } else {
-        imgB.src = src;
+        ensureB(src);
         inner.classList.add("is-showing-b");
         showingB = true;
       }
@@ -3199,11 +3218,11 @@ const renderWork = () => {
   mosaic.innerHTML = COLLECTIONS.map(
     (c, i) => `
     <li class="mosaic-item${i < 3 ? " is-feature" : ""}" data-collection="${i}">
-      <button type="button" class="mosaic-open" data-collection="${i}" data-cursor="Focus">
+      <button type="button" class="mosaic-open" data-collection="${i}">
         <figure class="mosaic-tilt" aria-hidden="true">
           <div class="mosaic-tilt-inner">
-            <img class="mosaic-tilt-img mosaic-tilt-img--a" src="${c.cover}" alt="" width="1067" height="1600" loading="${i < 3 ? "eager" : "lazy"}" draggable="false" />
-            <img class="mosaic-tilt-img mosaic-tilt-img--b" src="${c.cover}" alt="" width="1067" height="1600" loading="lazy" draggable="false" aria-hidden="true" />
+            <img class="mosaic-tilt-img mosaic-tilt-img--a" src="${c.cover}" alt="" width="1067" height="1600" loading="${i < 3 ? "eager" : "lazy"}" decoding="async" draggable="false" />
+            <img class="mosaic-tilt-img mosaic-tilt-img--b" data-src="${c.cover}" alt="" width="1067" height="1600" loading="lazy" decoding="async" draggable="false" aria-hidden="true" />
             <span class="mosaic-tilt-glare" aria-hidden="true"></span>
           </div>
         </figure>
@@ -3608,7 +3627,11 @@ const runLoader = () => {
   requestAnimationFrame(tick);
 };
 
+let loaderFinished = false;
+
 const finishLoader = () => {
+  if (loaderFinished) return;
+  loaderFinished = true;
   if (loaderCount) loaderCount.textContent = "100";
   if (loaderLine) loaderLine.style.transform = "scaleX(1)";
   document.body.classList.remove("is-loading");

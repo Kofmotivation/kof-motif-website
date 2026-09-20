@@ -922,6 +922,12 @@ body.is-loading .work-particles {
   outline-offset: -2px;
 }
 
+@media (hover: none), (pointer: coarse) {
+  .work-particles {
+    display: none !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .work-particles {
     display: none !important;
