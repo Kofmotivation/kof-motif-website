@@ -924,7 +924,9 @@ body.is-loading .work-particles {
 
 @media (hover: none), (pointer: coarse), (max-width: 900px) {
   .loader-strip {
-    display: none !important;
+    inset: 22% 0 auto;
+    height: min(34vh, 280px);
+    opacity: 0.5;
   }
 
   .work-particles {
