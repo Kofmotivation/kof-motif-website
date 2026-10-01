@@ -2576,13 +2576,25 @@ const motionClock = document.querySelector("#motion-clock");
 const motionTz = document.querySelector("#motion-tz");
 const soundBtns = [...document.querySelectorAll(".sound-btn")];
 const pressList = document.querySelector("#press-list");
-const shopGrid = document.querySelector("#shop-grid");
+const shopRail = document.querySelector("#shop-rail");
+const shopStage = document.querySelector("#shop-stage");
 const shopFilters = document.querySelector("#shop-filters");
 const shopCount = document.querySelector("#shop-count");
+const shopFocusTitle = document.querySelector("#shop-focus-title");
+const shopFocusPrice = document.querySelector("#shop-focus-price");
+const shopViewBtn = document.querySelector("#shop-view");
+const shopPrev = document.querySelector("#shop-prev");
+const shopNext = document.querySelector("#shop-next");
+const shopDots = document.querySelector("#shop-dots");
+const shopMotionBtn = document.querySelector("#shop-motion");
+const shopTurn = document.querySelector("#shop-turn");
+const shopViewEl = document.querySelector("#view-shop");
 const shopDrawer = document.querySelector("#shop-drawer");
 const shopDrawerBackdrop = document.querySelector("#shop-drawer-backdrop");
 const shopDrawerClose = document.querySelector("#shop-drawer-close");
 const shopDrawerImg = document.querySelector("#shop-drawer-img");
+const shopDrawerBack = document.querySelector("#shop-drawer-back");
+const shopSpin = document.querySelector("#shop-spin");
 const shopDrawerCat = document.querySelector("#shop-drawer-cat");
 const shopDrawerTitle = document.querySelector("#shop-drawer-title");
 const shopDrawerPrice = document.querySelector("#shop-drawer-price");
@@ -2593,6 +2605,13 @@ const shopDrawerBuy = document.querySelector(".shop-drawer-buy");
 const shopDrawerScroll = document.querySelector(".shop-drawer-scroll");
 let shopFilter = "all";
 let shopActiveIndex = -1;
+let shopRailIndex = 0;
+let shopRailOffset = 0;
+let shopMotionOn = true;
+let shopRailVx = 0;
+let shopSpinAngle = 0;
+let shopSwingRaf = 0;
+const shopSwings = [];
 const musicTracklist = document.querySelector("#music-tracklist");
 const musicAudio = document.querySelector("#music-audio");
 const musicPlayBtn = document.querySelector("#music-play");
@@ -3467,11 +3486,82 @@ const getShopItems = () =>
     (item) => shopFilter === "all" || item.category === shopFilter
   );
 
+const paintShopSpin = () => {
+  if (!shopSpin) return;
+  shopSpin.style.transform = `rotateY(${shopSpinAngle}deg)`;
+  const norm = ((shopSpinAngle % 360) + 360) % 360;
+  const showingBack = norm > 90 && norm < 270;
+  const front = shopDrawerImg?.dataset.front;
+  const back = shopDrawerImg?.dataset.back;
+  shopDrawer?.querySelectorAll(".shop-face").forEach((el) => {
+    const on = showingBack ? el.dataset.shopShot === back : el.dataset.shopShot === front;
+    el.classList.toggle("is-active", Boolean(on));
+    el.setAttribute("aria-pressed", on ? "true" : "false");
+  });
+};
+
+const nudgeShopSpin = (dir) => {
+  const target = shopSpinAngle + dir * 180;
+  const from = shopSpinAngle;
+  const start = performance.now();
+  const duration = reduceMotion ? 0 : 520;
+  const tick = (now) => {
+    const t = duration ? Math.min(1, (now - start) / duration) : 1;
+    const eased = 1 - (1 - t) ** 3;
+    shopSpinAngle = from + (target - from) * eased;
+    paintShopSpin();
+    if (t < 1) requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+};
+
+const startShopSwing = () => {
+  if (shopSwingRaf) return;
+  const tick = (now) => {
+    const live =
+      document.body.dataset.activeView === "shop" &&
+      !document.body.classList.contains("shop-drawer-open");
+    const dragging = shopStage?.querySelector(".shop-rail-window")?.classList.contains("is-dragging");
+    const garments = shopRail ? [...shopRail.querySelectorAll(".shop-garment")] : [];
+    let energy = Math.abs(shopRailVx);
+    garments.forEach((el, i) => {
+      const state = shopSwings[i] || (shopSwings[i] = { a: 0, v: 0 });
+      const idle = live && shopMotionOn && !dragging && !reduceMotion ? Math.sin(now / 880 + i * 0.7) * 2.4 : 0;
+      const shove = Math.max(-36, Math.min(36, -shopRailVx * 0.28));
+      const target = shove + idle;
+      state.v += (target - state.a) * (0.045 + (i % 3) * 0.008);
+      state.v *= dragging ? 0.78 : 0.9;
+      state.a += state.v;
+      energy += Math.abs(state.a) + Math.abs(state.v);
+      el.style.setProperty("--swing", `${state.a.toFixed(2)}deg`);
+      el.style.setProperty("--lean", (state.a / 30).toFixed(3));
+    });
+    if (!dragging) shopRailVx *= 0.9;
+    const keep = dragging || Math.abs(shopRailVx) > 0.4 || (!reduceMotion && shopMotionOn && live) || energy > 0.35;
+    if (live && keep) shopSwingRaf = requestAnimationFrame(tick);
+    else shopSwingRaf = 0;
+  };
+  shopSwingRaf = requestAnimationFrame(tick);
+};
+
+const setShopFace = (src, label) => {
+  if (!shopDrawerImg || !src) return;
+  const front = shopDrawerImg.dataset.front;
+  const back = shopDrawerImg.dataset.back;
+  shopSpinAngle = src && back && src === back ? 180 : 0;
+  paintShopSpin();
+  shopDrawer.querySelectorAll(".shop-face").forEach((el) => {
+    el.classList.toggle("is-active", el.dataset.shopShot === src);
+    el.setAttribute("aria-pressed", el.dataset.shopShot === src ? "true" : "false");
+  });
+  if (label) shopDrawerImg.alt = label;
+  if (front) shopDrawerImg.src = front;
+};
+
 const closeShopDrawer = () => {
   shopDrawer?.classList.remove("is-open");
   shopDrawer?.setAttribute("aria-hidden", "true");
   document.body.classList.remove("shop-drawer-open");
-  shopGrid?.querySelectorAll(".shop-tile.is-active").forEach((el) => el.classList.remove("is-active"));
   shopActiveIndex = -1;
   if (shopDrawerAdd) {
     shopDrawerAdd.textContent = "Add to cart";
@@ -3495,16 +3585,27 @@ const openShopDrawer = (index) => {
   const item = SHOP[index];
   if (!item || !shopDrawer) return;
   shopActiveIndex = index;
+  const faces = [
+    { src: item.src, label: "Front" },
+    item.back ? { src: item.back, label: "Back" } : null,
+  ].filter(Boolean);
+  const turnHint = shopDrawer.querySelector(".shop-turn-hint");
+  if (turnHint) turnHint.hidden = false;
   if (shopDrawerImg) {
     shopDrawerImg.src = item.src;
     shopDrawerImg.alt = item.alt || item.title;
     shopDrawerImg.dataset.front = item.src;
     shopDrawerImg.dataset.back = item.back || "";
   }
+  if (shopDrawerBack) {
+    shopDrawerBack.src = item.back || item.src;
+    shopDrawerBack.alt = "";
+  }
+  shopSpin?.classList.toggle("is-mirror", !item.back);
+  shopSpinAngle = 0;
+  paintShopSpin();
   if (shopDrawerCat) {
-    shopDrawerCat.textContent = item.soldOut
-      ? `${item.category || ""} · Sold Out`.replace(/^ · /, "")
-      : item.category || "";
+    shopDrawerCat.textContent = item.soldOut ? "Sold out" : item.category || "";
   }
   if (shopDrawerTitle) shopDrawerTitle.textContent = item.title;
   if (shopDrawerPrice) shopDrawerPrice.textContent = item.price;
@@ -3513,7 +3614,7 @@ const openShopDrawer = (index) => {
   if (shopDrawerAdd) {
     shopDrawerAdd.dataset.product = String(index);
     if (item.soldOut) {
-      shopDrawerAdd.textContent = "Sold Out";
+      shopDrawerAdd.textContent = "Sold out";
       shopDrawerAdd.disabled = true;
     } else {
       shopDrawerAdd.textContent = "Add to cart";
@@ -3526,34 +3627,103 @@ const openShopDrawer = (index) => {
 
   const thumbs = shopDrawer.querySelector("#shop-drawer-thumbs");
   if (thumbs) {
-    const shots = [item.src, item.back].filter(Boolean);
-    thumbs.innerHTML = shots
+    thumbs.innerHTML = faces
       .map(
-        (src, i) =>
-          `<button type="button" class="shop-drawer-thumb${i === 0 ? " is-active" : ""}" data-shop-shot="${src}" aria-label="View image ${i + 1}">
-            <img src="${src}" alt="" width="120" height="150" />
-          </button>`
+        (face, i) =>
+          `<button type="button" class="shop-face${i === 0 ? " is-active" : ""}" data-shop-shot="${face.src}" aria-pressed="${i === 0 ? "true" : "false"}">${face.label}</button>`
       )
       .join("");
     thumbs.querySelectorAll("[data-shop-shot]").forEach((btn) => {
-      btn.addEventListener("click", () => {
-        if (shopDrawerImg) {
-          shopDrawerImg.src = btn.dataset.shopShot;
-        }
-        thumbs.querySelectorAll(".shop-drawer-thumb").forEach((el) => el.classList.remove("is-active"));
-        btn.classList.add("is-active");
-      });
+      btn.addEventListener("click", () => setShopFace(btn.dataset.shopShot));
     });
   }
 
-  shopGrid?.querySelectorAll(".shop-tile").forEach((el) => {
-    el.classList.toggle("is-active", Number(el.dataset.product) === index);
-  });
   shopDrawer.classList.add("is-open");
   shopDrawer.setAttribute("aria-hidden", "false");
   document.body.classList.add("shop-drawer-open");
   if (shopDrawerScroll) shopDrawerScroll.scrollTop = 0;
   shopDrawerClose?.focus();
+};
+
+const applyShopTheme = (mode) => {
+  const next = mode === "light" ? "light" : "dark";
+  shopViewEl?.setAttribute("data-shop-theme", next);
+  shopViewEl?.querySelectorAll("[data-shop-theme-set]").forEach((btn) => {
+    const on = btn.dataset.shopThemeSet === next;
+    btn.setAttribute("aria-pressed", on ? "true" : "false");
+  });
+  try {
+    localStorage.setItem("kof-shop-theme", next);
+  } catch {
+    /* private mode */
+  }
+};
+
+const applyShopMotion = (on) => {
+  shopMotionOn = on && !reduceMotion;
+  shopViewEl?.classList.toggle("is-motion", shopMotionOn);
+  if (shopMotionBtn) {
+    shopMotionBtn.setAttribute("aria-pressed", shopMotionOn ? "true" : "false");
+    shopMotionBtn.textContent = shopMotionOn ? "Motion on" : "Motion off";
+  }
+  if (shopMotionOn) startShopSwing();
+};
+
+const centerShopRail = (animate = true) => {
+  if (!shopRail || !shopStage) return;
+  const hangers = [...shopRail.querySelectorAll(".shop-hanger")];
+  const focus = hangers[shopRailIndex];
+  const windowEl = shopStage.querySelector(".shop-rail-window");
+  if (!focus || !windowEl) return;
+  const previous = shopRail.style.transform;
+  shopRail.style.transition = "none";
+  shopRail.style.transform = "translate3d(0, 0, 0)";
+  const stageBox = windowEl.getBoundingClientRect();
+  const focusBox = focus.getBoundingClientRect();
+  shopRailOffset = stageBox.left + stageBox.width / 2 - (focusBox.left + focusBox.width / 2);
+  shopRail.style.transform = previous || "translate3d(0, 0, 0)";
+  const apply = () => {
+    shopRail.style.transition = "";
+    shopRail.classList.toggle("is-instant", !animate);
+    shopRail.style.transform = `translate3d(${shopRailOffset}px, 0, 0)`;
+  };
+  if (animate) requestAnimationFrame(apply);
+  else apply();
+};
+
+const syncShopCaption = () => {
+  const items = getShopItems();
+  const piece = items[shopRailIndex];
+  const total = items.length;
+  if (shopCount) {
+    shopCount.textContent = total
+      ? `${pad2(shopRailIndex + 1)} — ${pad2(total)}`
+      : "00 — 00";
+  }
+  if (shopFocusTitle) shopFocusTitle.textContent = piece?.title || "Nothing in this cut";
+  if (shopFocusPrice) {
+    shopFocusPrice.textContent = piece ? (piece.soldOut ? `${piece.price} · Sold out` : piece.price) : "";
+  }
+  if (shopViewBtn) shopViewBtn.disabled = !piece;
+  shopRail?.querySelectorAll(".shop-hanger").forEach((el, i) => {
+    el.classList.toggle("is-focus", i === shopRailIndex);
+    el.querySelector("button")?.setAttribute("aria-current", i === shopRailIndex ? "true" : "false");
+  });
+  shopDots?.querySelectorAll(".shop-dot").forEach((dot, i) => {
+    const on = i === shopRailIndex;
+    dot.classList.toggle("is-active", on);
+    dot.setAttribute("aria-selected", on ? "true" : "false");
+  });
+};
+
+const stepShopRail = (dir) => {
+  const items = getShopItems();
+  if (!items.length) return;
+  shopRailIndex = (shopRailIndex + dir + items.length) % items.length;
+  shopRailVx += dir * 22;
+  syncShopCaption();
+  centerShopRail(true);
+  startShopSwing();
 };
 
 const renderShopFilters = () => {
@@ -3567,6 +3737,8 @@ const renderShopFilters = () => {
   shopFilters.querySelectorAll("[data-shop-filter]").forEach((btn) => {
     btn.addEventListener("click", () => {
       shopFilter = btn.dataset.shopFilter || "all";
+      shopRailIndex = 0;
+      shopRailOffset = 0;
       closeShopDrawer();
       renderShop();
     });
@@ -3574,36 +3746,207 @@ const renderShopFilters = () => {
 };
 
 const renderShop = () => {
-  if (!shopGrid) return;
+  if (!shopRail) return;
   renderShopFilters();
-  const items = getShopItems();
-  if (shopCount) {
-    shopCount.textContent = `${items.length} piece${items.length === 1 ? "" : "s"}`;
+  if (!shopViewEl?.dataset.shopReady) {
+    let saved = null;
+    try {
+      saved = localStorage.getItem("kof-shop-theme");
+    } catch {
+      saved = null;
+    }
+    applyShopTheme(saved === "light" ? "light" : "dark");
+    applyShopMotion(!reduceMotion);
+    if (shopViewEl) shopViewEl.dataset.shopReady = "1";
   }
 
-  shopGrid.innerHTML = items
-    .map(
-      (p) => `
-    <li class="shop-item" data-category="${p.category}">
-      <button type="button" class="shop-tile${p.back ? " has-back" : ""}" data-product="${p.index}" data-cursor="View" aria-label="${p.title}">
-        <figure class="shop-tile-figure">
-          <img class="shop-tile-front" src="${p.src}" alt="" width="800" height="1000" loading="lazy" />
-          ${
-            p.back
-              ? `<img class="shop-tile-back" src="${p.back}" alt="" width="800" height="1000" loading="lazy" />`
-              : ""
-          }
-        </figure>
+  const items = getShopItems();
+  if (shopRailIndex >= items.length) shopRailIndex = 0;
+  shopRail.innerHTML = items.length
+    ? items
+        .map(
+          (p, i) => `
+    <li class="shop-hanger${i === shopRailIndex ? " is-focus" : ""}" style="--sway:${i}">
+      <button type="button" data-product="${p.index}" data-cursor="View" aria-label="${p.title}">
+        <span class="shop-hook" aria-hidden="true"></span>
+        <img class="shop-garment" src="${p.src}" alt="" width="800" height="1000" draggable="false" />
+        ${p.soldOut ? `<span class="shop-sold">Sold out</span>` : ""}
       </button>
     </li>`
-    )
-    .join("");
+        )
+        .join("")
+    : `<li class="shop-empty">Nothing hanging in this cut.</li>`;
 
-  shopGrid.querySelectorAll(".shop-tile").forEach((btn) => {
-    btn.addEventListener("click", () => openShopDrawer(Number(btn.dataset.product)));
-  });
+  if (shopDots) {
+    shopDots.innerHTML = items
+      .map(
+        (p, i) =>
+          `<button type="button" class="shop-dot${i === shopRailIndex ? " is-active" : ""}" role="tab" data-rail="${i}" aria-label="${p.title}" aria-selected="${i === shopRailIndex ? "true" : "false"}"><img src="${p.src}" alt="" /></button>`
+      )
+      .join("");
+    shopDots.querySelectorAll("[data-rail]").forEach((dot) => {
+      dot.addEventListener("click", () => {
+        shopRailIndex = Number(dot.dataset.rail);
+        syncShopCaption();
+        centerShopRail(true);
+      });
+    });
+  }
+
+  syncShopCaption();
+  window.requestAnimationFrame(() => centerShopRail(false));
+  startShopSwing();
 };
 
+const bindShopRail = () => {
+  const windowEl = shopStage?.querySelector(".shop-rail-window");
+  if (!windowEl || windowEl.dataset.bound === "1") return;
+  windowEl.dataset.bound = "1";
+  let pointerId = null;
+  let startX = 0;
+  let startY = 0;
+  let shopRailLastX = 0;
+  let startOffset = 0;
+  let moved = false;
+  let suppressClick = false;
+
+  const openPiece = (target) => {
+    const btn = target?.closest?.("[data-product]");
+    if (!btn) return;
+    const items = getShopItems();
+    const next = items.findIndex((p) => p.index === Number(btn.dataset.product));
+    if (next < 0) return;
+    shopRailIndex = next;
+    syncShopCaption();
+    centerShopRail(false);
+    openShopDrawer(Number(btn.dataset.product));
+  };
+
+  windowEl.addEventListener("pointerdown", (e) => {
+    if (e.button !== 0) return;
+    if (e.target.closest(".shop-sheet")) return;
+    pointerId = e.pointerId;
+    startX = e.clientX;
+    startY = e.clientY;
+    shopRailLastX = e.clientX;
+    startOffset = shopRailOffset;
+    moved = false;
+  });
+
+  windowEl.addEventListener("pointermove", (e) => {
+    if (pointerId !== e.pointerId || !shopRail) return;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    if (!moved && Math.hypot(dx, dy) < 12) return;
+    if (!moved) {
+      moved = true;
+      shopRail.classList.add("is-instant");
+      windowEl.classList.add("is-dragging");
+      windowEl.setPointerCapture?.(e.pointerId);
+      startShopSwing();
+    }
+    const step = e.clientX - shopRailLastX;
+    shopRailLastX = e.clientX;
+    shopRailVx = shopRailVx * 0.35 + step * 0.85;
+    shopRailOffset = startOffset + dx;
+    shopRail.style.transform = `translate3d(${shopRailOffset}px, 0, 0)`;
+  });
+
+  const endDrag = (e) => {
+    if (pointerId !== e.pointerId) return;
+    const id = pointerId;
+    pointerId = null;
+    windowEl.classList.remove("is-dragging");
+    shopRail?.classList.remove("is-instant");
+    if (windowEl.hasPointerCapture?.(id)) windowEl.releasePointerCapture(id);
+    if (!moved) return;
+    suppressClick = true;
+    const hangers = [...(shopRail?.querySelectorAll(".shop-hanger") || [])];
+    const mid = windowEl.getBoundingClientRect().left + windowEl.clientWidth / 2;
+    let best = 0;
+    let bestDist = Infinity;
+    hangers.forEach((el, i) => {
+      const box = el.getBoundingClientRect();
+      const dist = Math.abs(box.left + box.width / 2 - mid);
+      if (dist < bestDist) {
+        bestDist = dist;
+        best = i;
+      }
+    });
+    shopRailIndex = best;
+    syncShopCaption();
+    centerShopRail(true);
+  };
+
+  windowEl.addEventListener("pointerup", endDrag);
+  windowEl.addEventListener("pointercancel", endDrag);
+  windowEl.addEventListener("click", (e) => {
+    if (suppressClick) {
+      suppressClick = false;
+      return;
+    }
+    openPiece(e.target);
+  });
+
+  windowEl.addEventListener(
+    "wheel",
+    (e) => {
+      if (Math.abs(e.deltaX) < 12 && Math.abs(e.deltaY) < 18) return;
+      if (document.body.classList.contains("shop-drawer-open")) return;
+      e.preventDefault();
+      stepShopRail(e.deltaY > 0 || e.deltaX > 0 ? 1 : -1);
+    },
+    { passive: false }
+  );
+};
+
+shopViewEl?.querySelectorAll("[data-shop-theme-set]").forEach((btn) => {
+  btn.addEventListener("click", () => applyShopTheme(btn.dataset.shopThemeSet));
+});
+shopMotionBtn?.addEventListener("click", () => applyShopMotion(!shopMotionOn));
+shopPrev?.addEventListener("click", () => stepShopRail(-1));
+shopNext?.addEventListener("click", () => stepShopRail(1));
+shopViewBtn?.addEventListener("click", () => {
+  const piece = getShopItems()[shopRailIndex];
+  if (piece) openShopDrawer(piece.index);
+});
+
+let shopTurnPointer = null;
+let shopTurnX = 0;
+shopTurn?.addEventListener("pointerdown", (e) => {
+  if (e.target.closest(".shop-spin-btn")) return;
+  shopTurnPointer = e.pointerId;
+  shopTurnX = e.clientX;
+  shopTurn.setPointerCapture?.(e.pointerId);
+});
+shopTurn?.addEventListener("pointermove", (e) => {
+  if (shopTurnPointer !== e.pointerId) return;
+  const dx = e.clientX - shopTurnX;
+  shopTurnX = e.clientX;
+  shopSpinAngle += dx * 0.72;
+  paintShopSpin();
+});
+shopTurn?.addEventListener("pointerup", (e) => {
+  if (shopTurnPointer !== e.pointerId) return;
+  shopTurnPointer = null;
+});
+shopTurn?.addEventListener("pointercancel", () => {
+  shopTurnPointer = null;
+});
+document.querySelector("#shop-spin-prev")?.addEventListener("click", (e) => {
+  e.stopPropagation();
+  nudgeShopSpin(-1);
+});
+document.querySelector("#shop-spin-next")?.addEventListener("click", (e) => {
+  e.stopPropagation();
+  nudgeShopSpin(1);
+});
+
+window.addEventListener("resize", () => {
+  if (document.body.dataset.activeView === "shop") centerShopRail(false);
+});
+
+bindShopRail();
 shopDrawerBackdrop?.addEventListener("click", closeShopDrawer);
 shopDrawerClose?.addEventListener("click", closeShopDrawer);
 shopDrawerAdd?.addEventListener("click", () => {
